@@ -4,7 +4,9 @@ class Carousel extends Component {
 
   render() {
     return (
-      <div></div>
+      <div>
+        hi cam
+      </div>
     );
   }
 
