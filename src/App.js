@@ -16,7 +16,7 @@ class App extends Component {
     return (
       <div className='App'>
         {/* dont forget to undo changes after checking your component */}
-        cam is a pretty ok guy
+        <Homepage />
       </div>
       )
   }
