@@ -6,7 +6,9 @@ class Hours extends Component {
     return (
       <div>
         <h1>Hours</h1>
-          <p>Daily 11am - 6pm</p>
+
+        <p>Daily 11am - 6pm</p>
+
       </div>
     );
   }
