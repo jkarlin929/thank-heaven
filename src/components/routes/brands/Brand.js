@@ -5,11 +5,11 @@ class Brand extends Component {
   render() {
     return (
       <div className="Brand">
-        <img src={props.brands.image} alt={props.brands.name} />
-        <h1>{props.brands.name}</h1>
-        <h2>{props.brands.location}</h2>
-        <h2>{props.brands.story}</h2>
-        <p>{props.brands.quote}</p>
+        <img src={this.props.image} alt={this.props.name} />
+        <h1>{this.props.name}</h1>
+        <h2>{this.props.location}</h2>
+        <h2>{this.props.story}</h2>
+        <p>{this.props.quote}</p>
       </div>
     );
   }

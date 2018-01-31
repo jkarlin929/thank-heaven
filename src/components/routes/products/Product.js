@@ -5,10 +5,10 @@ class Product extends Component {
   render() {
     return (
       <div className="Product">
-        <img src={props.products.image} alt={props.products.name} />
-        <h1>{props.products.name}</h1>
-        <h2>{props.products.brand_id}</h2>
-        <p>{props.products.description}</p>
+        <img src={this.props.image} alt={this.props.name} />
+        <h1>{this.props.name}</h1>
+        <h2>{this.props.brand_id}</h2>
+        <p>{this.props.description}</p>
       </div>
     );
   }

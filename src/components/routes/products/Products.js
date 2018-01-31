@@ -2,43 +2,42 @@ import React, { Component } from 'react';
 import Product from './Product';
 
 class Products extends Component {
-
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
-      dataLoaded: false,
-      products: null,
+      products: this.props.products,
+      dataLoaded: false
+    }
+    this.renderProducts = this.renderProducts.bind(this)
+  }
+
+  componentDidMount(){
+    if(this.state.products){
+      this.setState({
+        dataLoaded: true
+      })
     }
   }
 
-  componentDidMount() {
-    this.setState({
-      dataLoaded: true,
-      products: data.data,
+  renderProducts(products) {
+    return products.map((product) => {
+      return(
+        <Product key={product.id} name={product.name} description={product.description} image={product.image} brand_id={product.brand_id} />
+      )
     })
-  }
-
-  renderProducts() {
-    if (this.state.dataLoaded) {
-      return this.state.products.map(product => {
-        return (
-          <Product key={product.id} products={product} />
-        );
-      });
-    } else return <p>Loading...</p>
   }
 
   render() {
     return (
       <div>
-        <Header />
-        <Logo />
+        {/* <Header />
+        <Logo /> */}
         <h1>Products</h1>
         <div className="productList">
-          {this.renderProducts()}
+          {this.renderProducts(this.state.products)}
         </div>
-        <Instagram />
-        <Footer />
+        {/* <Instagram />
+        <Footer /> */}
       </div>
     );
   }

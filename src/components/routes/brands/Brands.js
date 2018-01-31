@@ -2,28 +2,42 @@ import React, { Component } from 'react';
 import Brand from './Brand';
 
 class Brands extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      brands: this.props.brands,
+      dataLoaded: false
+    }
+    this.renderBrands = this.renderBrands.bind(this)
+  }
 
-  renderBrands() {
-    if (this.state.dataLoaded) {
-      return this.state.brands.map(brand => {
-        return (
-          <Brand key={brand.id} brands={brand} />
-        );
-      });
-    } else return <p>Loading...</p>
+  componentDidMount(){
+    if(this.state.brands){
+      this.setState({
+        dataLoaded: true
+      })
+    }
+  }
+
+  renderBrands(brands) {
+    return brands.map((brand) => {
+      return(
+        <Brand key={brand.id} name={brand.name} location={brand.location} image={brand.image} story={brand.story} quote={brand.quote} />
+      )
+    })
   }
 
   render() {
     return (
       <div>
-        <Header />
-        <Logo />
+        {/* <Header />
+        <Logo /> */}
         <h1>Brands</h1>
         <div className="brandList">
-          {this.renderBrands()}
+          {this.renderBrands(this.state.brands)}
         </div>
-        <Instagram />
-        <Footer />
+        {/* <Instagram />
+        <Footer /> */}
       </div>
     );
   }
