@@ -36,6 +36,7 @@ brandsController.create = (req, res) => {
     location: req.body.location,
     story: req.body.story,
     quote: req.body.quote,
+    image: req.body.image,
     featured: req.body.featured,
   })
     .then(brands => {
@@ -57,6 +58,7 @@ brandsController.update = (req, res) => {
       location: req.body.location,
       story: req.body.story,
       quote: req.body.quote,
+      image: req.body.image,
       featured: req.body.featured,
     },
     req.params.id,

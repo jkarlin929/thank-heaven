@@ -1,4 +1,5 @@
 const Product = require('../models/products');
+const Brand = require('../models/brands');
 
 const productsController = {};
 
