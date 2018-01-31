@@ -4,7 +4,10 @@ class Hours extends Component {
 
   render() {
     return (
-      <div></div>
+      <div>
+        <h1>Hours</h1>
+        <p>Daily 11am - 6pm</p>
+      </div>
     );
   }
 
