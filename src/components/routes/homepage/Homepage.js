@@ -19,7 +19,7 @@ class Homepage extends Component {
       <div>
         <Carousel />
         <Welcome />
-        <FeaturedProducts />
+        <FeaturedProducts products={this.state.products}/>
         {/* phone call me */}
         <FeaturedBrands />
       </div>
