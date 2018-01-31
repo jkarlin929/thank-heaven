@@ -9406,11 +9406,7 @@ var App = function (_Component) {
     // }
 
     value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { className: 'App' },
-        'test'
-      );
+      return _react2.default.createElement('div', { className: 'App' });
     }
   }]);
 
