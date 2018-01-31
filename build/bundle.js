@@ -13892,7 +13892,26 @@ var Contact = function (_Component) {
   _createClass(Contact, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('div', null);
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'h1',
+          null,
+          'Contact Information'
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          '(718) 575-2229'
+        ),
+        _react2.default.createElement(
+          'a',
+          { href: 'mailto:thankheaven4baby@yahoo.com' },
+          'thankheaven4baby@yahoo.com'
+        ),
+        _react2.default.createElement(_Hours2.default, null)
+      );
     }
   }]);
 
