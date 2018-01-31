@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class MessageForm extends Component {
+class Admin extends Component {
 
   render() {
     return (
@@ -10,4 +10,4 @@ class MessageForm extends Component {
 
 }
 
-export default MessageForm;
+export default Admin;
