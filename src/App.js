@@ -9,7 +9,7 @@ import Footer from './components/Footer';
 import Logo from './components/Logo';
 import Admin from './components/admin/Admin';
 
-
+//stop touching the dev and master branch directly guys
 
 class App extends Component {
   // constructor(){

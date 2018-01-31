@@ -9367,6 +9367,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 //import components
 
 
+//stop touching the dev and master branch directly guys
+
 var App = function (_Component) {
   _inherits(App, _Component);
 
