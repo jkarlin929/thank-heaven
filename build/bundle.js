@@ -9373,40 +9373,43 @@ var App = function (_Component) {
   function App() {
     _classCallCheck(this, App);
 
-    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
-
-    _this.state = {
-      products: null,
-      brands: null,
-      reviews: null
-    };
-    return _this;
+    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
   }
-
-  // componentDidMount() {
-  //   axios({
-  //     method: GET,
-  //     url: '/data/products',
-  //     data: {
-  //       products: products
-  //     }
-  //   }).then(products => {
-  //     this.setState({
-  //       products: products
-  //     })
-  //   })
-  //   .catch( err => {
-  //     console.log(err);
-  //   })
-  // }
 
   _createClass(App, [{
     key: 'render',
+
+    // constructor(){
+    //   super();
+    //   this.state = {
+    //     products: null,
+    //     brands: null,
+    //     reviews: null
+    //   }
+    // }
+
+    // componentDidMount() {
+    //   axios({
+    //     method: GET,
+    //     url: '/data/products',
+    //     data: {
+    //       products: products
+    //     }
+    //   }).then(products => {
+    //     this.setState({
+    //       products: products
+    //     })
+    //   })
+    //   .catch( err => {
+    //     console.log(err);
+    //   })
+    // }
+
     value: function render() {
       return _react2.default.createElement(
         'div',
         { className: 'App' },
-        'cam is a pretty ok guy'
+        'test'
       );
     }
   }]);
@@ -13865,6 +13868,10 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _Hours = __webpack_require__(113);
+
+var _Hours2 = _interopRequireDefault(_Hours);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -15577,6 +15584,65 @@ module.exports = function spread(callback) {
     return callback.apply(null, arr);
   };
 };
+
+/***/ }),
+/* 113 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Hours = function (_Component) {
+  _inherits(Hours, _Component);
+
+  function Hours() {
+    _classCallCheck(this, Hours);
+
+    return _possibleConstructorReturn(this, (Hours.__proto__ || Object.getPrototypeOf(Hours)).apply(this, arguments));
+  }
+
+  _createClass(Hours, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'h1',
+          null,
+          'Hours'
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'Daily 11am - 6pm'
+        )
+      );
+    }
+  }]);
+
+  return Hours;
+}(_react.Component);
+
+exports.default = Hours;
 
 /***/ })
 /******/ ]);

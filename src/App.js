@@ -12,14 +12,14 @@ import Admin from './components/admin/Admin';
 
 
 class App extends Component {
-  constructor(){
-    super();
-    this.state = {
-      products: null,
-      brands: null,
-      reviews: null
-    }
-  }
+  // constructor(){
+  //   super();
+  //   this.state = {
+  //     products: null,
+  //     brands: null,
+  //     reviews: null
+  //   }
+  // }
 
   // componentDidMount() {
   //   axios({
@@ -42,7 +42,7 @@ class App extends Component {
     return (
       <div className='App'>
         {/* dont forget to undo changes after checking your component */}
-        cam is a pretty ok guy
+        test
       </div>
       )
   }
