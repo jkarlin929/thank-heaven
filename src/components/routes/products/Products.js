@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Logo from './Logo';
+import Logo from '../../Logo';
 import Product from './Product';
 class Products extends Component {
   constructor(props){
