@@ -6,10 +6,10 @@ class Brands extends Component {
     super(props);
     this.state = {
       brands: this.props.brands,
+      products: this.props.products,
       dataLoaded: false
     }
     this.renderBrands = this.renderBrands.bind(this);
-    this.passFilmData = this.passBrandData.bind(this);
   }
   componentDidMount(){
     if(this.state.brands){
@@ -18,21 +18,14 @@ class Brands extends Component {
       })
     }
   }
-  renderBrands(brands) {
+  renderBrands(brands, products) {
     return brands.map((brand) => {
       return(
-        <Brand key={brand.id} name={brand.name} location={brand.location} image={brand.image} story={brand.story} quote={brand.quote} />
+        <Brand key={brand.id} brand={brand} products={this.state.products}/>
       )
     })
   }
-  passBrandData(brands) {
-    return brands.map((brand) => {
-      return (
-       <div key={brand.id}>
-         {this.state.brands ? <Brand name={brand.name} image={brand.image} description={brand.description} /> : ''}
-       </div>
-    )})
-  }
+
   render() {
     return (
       <div>
@@ -43,8 +36,7 @@ class Brands extends Component {
           <img src="http://res.cloudinary.com/camcash17/image/upload/v1517430458/001-toy-train_gapuot.png" />
         </div>
         <div className="brandList">
-          {this.state.dataLoaded ? <div>{this.renderBrands(this.state.brands)}</div> : ''}
-          {this.state.brands ? <div>{this.passBrandData(this.state.brands)}</div> : ''}
+          {this.state.dataLoaded ? <div>{this.renderBrands(this.state.brands,this.state.products)}</div> : ''}
         </div>
       </div>
     );
