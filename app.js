@@ -3,6 +3,28 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const path = require('path');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser'); 
+const session = require('express-session'); 
+const passport = require('passport'); 
+
+require('dotenv').config(); 
+
+app.use(cookieParser()); 
+
+app.use(session({
+	secret: process.env.SESSION_KEY,
+	resave: false, 
+	saveUninitialized: true,
+})); 
+
+app.use(passport.initialize()); 
+app.use(passport.session()); 
+
+const authRouter = require('./routes/auth-routes'); 
+app.use('/auth', authRouter); 
+
+const authHelpers = require('./services/auth/auth-helpers'); 
+app.use(authHelpers.loginRequired); 
 
 app.use(bodyParser.json());
 

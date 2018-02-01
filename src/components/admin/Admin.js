@@ -1,13 +1,18 @@
-import React, { Component } from 'react';
+// in src/App.js
+import React from 'react';
+import { jsonServerRestClient, Admin, Resource } from 'admin-on-rest';
 
-class Admin extends Component {
+import { AdminBrands } from './AdminBrands';
+import { AdminReviews } from './AdminReviews'; 
+import { AdminProducts } from './AdminProducts'
 
-  render() {
-    return (
-      <div></div>
-    );
-  }
+const Admin = () => (
+    <Admin restClient={jsonServerRestClient('http://jsonplaceholder.typicode.com')}>
+        <Resource name="Brands" brands={AdminBrands} />
+        <Resource name="Reviews" reviews={AdminReviews} />
+        <Resource name="Products" products={AdminProducts} />
 
-}
+    </Admin>
+);
 
 export default Admin;
