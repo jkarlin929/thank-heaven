@@ -10,38 +10,9 @@ class MessageForm extends Component {
     message: '',
     formSent: false
   }
-  this.handleSubmit = this.handleSubmit.bind(this);
   this.handleChange = this.handleChange.bind(this);
 }
-  handleSubmit(e) {
-    e.preventDefault();
-    console.log('here is what you are submitting', this.state)
-    fetch('/send', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        name: this.state.name,
-        phone: this.state.phone,
-        email: this.state.email,
-        contact: this.state.contact,
-        message: this.state.message,
-        formSent: this.state.formSent,
-      })
-    })
-    .then((response) => response.json())
-    .then((responseJson) => {
-      if (responseJson.success) {
-        this.setState({formSent: true})
-      }
-      else this.setState({formSent: false})
-    })
-    .catch((err) => {
-      console.log(err)
-    })
-  }
+
   handleChange(e) {
     let name = e.target.name;
     let value = e.target.value
@@ -49,42 +20,45 @@ class MessageForm extends Component {
       [name] : value
     })
   }
+
   render() {
     return (
       <div className="messageform">
       <h1>Send a Message</h1>
-        <form method="POST" action="send" onSubmit={this.handleSubmit}>
-          <label for="name">
+        <form method="POST" action="https://formspree.io/jkarlin29@yahoo.com">
+          <label name="name" for="name">
             Name
-            <input type="text" name="name" onChange={this.handleChange} />
+            <input type="text" name="name" placeholder="Your Name" onChange={this.handleChange} />
           </label>
-          <label for="phone">
+          <label name="phone" for="phone">
             Phone Number
-            <input type="text" name="phone" onChange={this.handleChange} />
+            <input type="text" name="phone" placeholder="Your Phone Number" onChange={this.handleChange} />
           </label>
-          <label for="email">
+          <label name="email" for="email">
             Email Address
-            <input type="text" name="email" onChange={this.handleChange} />
+            <input type="text" name="email" placeholder="Your Email" onChange={this.handleChange} />
           </label>
-           <label>
+           <label name="preference">
             I prefer to be contacted:
           </label>
-          <label>
+          <label name="byphone">
             by phone
-            <input type="radio" name="contact" onChange={this.handleChange} />
+            <input type="checkbox" name="contact by" value="phone" onChange={this.handleChange} />
             </label>
-          <label>
+          <label name="byemail">
             by email
-            <input type="radio" name="contact" onChange={this.handleChange} />
+            <input type="checkbox" name="contact by" value="email" onChange={this.handleChange} />
             </label>
-          <label for="message">
+          <label name="message" for="message">
             Message
-            <input type="text" name="message" onChange={this.handleChange} />
+            <textarea type="text" name="message" placeholder="Your Message" onChange={this.handleChange}></textarea>
           </label>
           <button type="submit">Send</button>
+          <input type="hidden" name="_next" value="localhost:3000" />
         </form>
       </div>
     );
   }
 }
+
 export default MessageForm;
