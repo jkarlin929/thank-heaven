@@ -23,6 +23,9 @@ class Homepage extends Component {
       dataLoaded: true
     })
   }
+  componentDidUpdate(){
+    console.log(this.state);
+  }
 
   render() {
     return (
@@ -30,8 +33,19 @@ class Homepage extends Component {
         <Carousel />
         <Welcome />
         {this.state.dataLoaded ? <FeaturedProducts products={this.state.products}/> : ''}
+        <div className='call'>
+          <div className='phone-img'>
+            {/* <img src='../../../public/images/005-mitten.png' / alt="phone image"> */}
+          </div>
+          <div className='call-text'>
+            Call to place an order
+          </div>
+          <div className='phone-number'>
+            <a href='tel:1 (718) 575-22229'>(718) 575-2229</a>
+          </div>
+        </div>
         {/* phone call me */}
-        <FeaturedBrands />
+        {this.state.dataLoaded ? <FeaturedBrands brands={this.state.brands}/> : ''}
       </div>
     );
   }

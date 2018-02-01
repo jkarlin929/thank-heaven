@@ -4,7 +4,9 @@ class FeaturedBrand extends Component {
 
   render() {
     return (
-      <div></div>
+      <div className='FeaturedBrand'>
+        <img src={this.props.image} alt='brand'/>
+      </div>
     );
   }
 

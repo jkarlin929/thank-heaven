@@ -15,6 +15,3 @@
 |Forms      |   H       | 10hrs|
 |Admin Page|    H       |16hrs  |
 |CSS         |  H       |12hrs |
-
-# problems
-git merge conflicts ~1 hour

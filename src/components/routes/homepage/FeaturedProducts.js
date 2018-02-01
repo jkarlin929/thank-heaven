@@ -31,9 +31,9 @@ class FeaturedProducts extends Component {
     return (
       <div className='FeaturedProducts'>
         <div className='featured-tagline'>
-          Lookbook
+          - Lookbook -
         </div>
-        <div className='featured-products-text'>
+        <div className='featured-text'>
           Featured Products
         </div>
         <button className='content-button'>

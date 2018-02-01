@@ -65,7 +65,7 @@ class App extends Component {
       <div className='App'>
         {/* dont forget to undo changes after checking your component */}
         live
-        {this.state.dataLoaded ? <Homepage products={this.state.products} /> : ''}
+        {this.state.dataLoaded ? <Homepage products={this.state.products} brands={this.state.brands} reviews={this.state.reviews} /> : ''}
       </div>
       )
   }
