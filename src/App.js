@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 import axios from 'axios';
 //import components
 import Homepage from './components/routes/homepage/Homepage';
+import Products from './components/routes/products/Products';
+import Brands from './components/routes/brands/Brands';
+import Reviews from './components/routes/reviews/Reviews';
 import Contact from './components/routes/contact/Contact';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -63,9 +66,20 @@ class App extends Component {
   render(){
     return (
       <div className='App'>
-        {/* dont forget to undo changes after checking your component */}
-        live
-        {this.state.dataLoaded ? <Homepage products={this.state.products} brands={this.state.brands} reviews={this.state.reviews} /> : ''}
+        <Header />
+        {
+          this.state.dataLoaded ?
+          <div className='routes'>
+            <Route exact path="/" render={()=><Homepage products={this.state.products} brands={this.state.brands} reviews={this.state.reviews}/>} />
+            <Route exact path="/products" render={()=><Products products={this.state.products} brands={this.state.brands} reviews={this.state.reviews}/>} />
+            <Route exact path="/brands" render={()=><Brands products={this.state.products} brands={this.state.brands} reviews={this.state.reviews}/>} />
+            <Route exact path="/reviews" render={()=><Reviews products={this.state.products} brands={this.state.brands} reviews={this.state.reviews}/>} />
+            <Route exact path="/contact" render={()=><Contact products={this.state.products} brands={this.state.brands} reviews={this.state.reviews}/>} />
+          </div>
+          :
+          ''
+        }
+        <Footer />
       </div>
       )
   }
