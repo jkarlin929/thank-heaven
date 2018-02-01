@@ -27,7 +27,7 @@ class Products extends Component {
   render() {
     return (
       <div>
-        <Logo />
+      <Logo />
         <h1>Products</h1>
         <div>
           <hr className="line" />
@@ -36,7 +36,6 @@ class Products extends Component {
         <div className="productList">
           {this.state.dataLoaded ? <div>{this.renderProducts(this.state.products)}</div> : ''}
         </div>
-        <Instagram />
       </div>
     );
   }
