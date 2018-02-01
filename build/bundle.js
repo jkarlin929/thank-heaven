@@ -9997,23 +9997,23 @@ var _Homepage = __webpack_require__(102);
 
 var _Homepage2 = _interopRequireDefault(_Homepage);
 
-var _Contact = __webpack_require__(108);
+var _Contact = __webpack_require__(109);
 
 var _Contact2 = _interopRequireDefault(_Contact);
 
-var _Header = __webpack_require__(110);
+var _Header = __webpack_require__(111);
 
 var _Header2 = _interopRequireDefault(_Header);
 
-var _Footer = __webpack_require__(111);
+var _Footer = __webpack_require__(112);
 
 var _Footer2 = _interopRequireDefault(_Footer);
 
-var _Logo = __webpack_require__(112);
+var _Logo = __webpack_require__(113);
 
 var _Logo2 = _interopRequireDefault(_Logo);
 
-var _Admin = __webpack_require__(113);
+var _Admin = __webpack_require__(114);
 
 var _Admin2 = _interopRequireDefault(_Admin);
 
@@ -10089,7 +10089,7 @@ var App = function (_Component) {
         'div',
         { className: 'App' },
         'live',
-        this.state.dataLoaded ? _react2.default.createElement(_Homepage2.default, { products: this.state.products }) : ''
+        this.state.dataLoaded ? _react2.default.createElement(_Homepage2.default, { products: this.state.products, brands: this.state.brands, reviews: this.state.reviews }) : ''
       );
     }
   }]);
@@ -15015,11 +15015,11 @@ var _FeaturedBrands = __webpack_require__(104);
 
 var _FeaturedBrands2 = _interopRequireDefault(_FeaturedBrands);
 
-var _FeaturedProducts = __webpack_require__(105);
+var _FeaturedProducts = __webpack_require__(106);
 
 var _FeaturedProducts2 = _interopRequireDefault(_FeaturedProducts);
 
-var _Welcome = __webpack_require__(107);
+var _Welcome = __webpack_require__(108);
 
 var _Welcome2 = _interopRequireDefault(_Welcome);
 
@@ -15057,6 +15057,11 @@ var Homepage = function (_Component) {
       });
     }
   }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate() {
+      console.log(this.state);
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -15065,7 +15070,26 @@ var Homepage = function (_Component) {
         _react2.default.createElement(_Carousel2.default, null),
         _react2.default.createElement(_Welcome2.default, null),
         this.state.dataLoaded ? _react2.default.createElement(_FeaturedProducts2.default, { products: this.state.products }) : '',
-        _react2.default.createElement(_FeaturedBrands2.default, null)
+        _react2.default.createElement(
+          'div',
+          { className: 'call' },
+          _react2.default.createElement('div', { className: 'phone-img' }),
+          _react2.default.createElement(
+            'div',
+            { className: 'call-text' },
+            'Call to place an order'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'phone-number' },
+            _react2.default.createElement(
+              'a',
+              { href: 'tel:1 (718) 575-22229' },
+              '(718) 575-2229'
+            )
+          )
+        ),
+        this.state.dataLoaded ? _react2.default.createElement(_FeaturedBrands2.default, { brands: this.state.brands }) : ''
       );
     }
   }]);
@@ -15142,6 +15166,10 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _FeaturedBrand = __webpack_require__(105);
+
+var _FeaturedBrand2 = _interopRequireDefault(_FeaturedBrand);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -15153,16 +15181,64 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var FeaturedBrands = function (_Component) {
   _inherits(FeaturedBrands, _Component);
 
-  function FeaturedBrands() {
+  function FeaturedBrands(props) {
     _classCallCheck(this, FeaturedBrands);
 
-    return _possibleConstructorReturn(this, (FeaturedBrands.__proto__ || Object.getPrototypeOf(FeaturedBrands)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (FeaturedBrands.__proto__ || Object.getPrototypeOf(FeaturedBrands)).call(this, props));
+
+    _this.state = {
+      brands: _this.props.brands,
+      dataLoaded: false
+    };
+    _this.createBrands = _this.createBrands.bind(_this);
+    return _this;
   }
 
   _createClass(FeaturedBrands, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      if (this.state.brands) {
+        this.setState({
+          dataLoaded: true
+        });
+      }
+    }
+  }, {
+    key: 'createBrands',
+    value: function createBrands(brands) {
+      return brands.map(function (brand) {
+        if (brand.featured) {
+          return _react2.default.createElement(_FeaturedBrand2.default, { key: brand.id, name: brand.name, description: brand.description, image: brand.image });
+        }
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('div', null);
+      return _react2.default.createElement(
+        'div',
+        { className: 'FeaturedBrands' },
+        _react2.default.createElement(
+          'div',
+          { className: 'featured-tagline' },
+          '- Oh, baby -'
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'featured-text' },
+          'Featured Brands'
+        ),
+        _react2.default.createElement(
+          'button',
+          { className: 'content-button' },
+          'See All'
+        ),
+        this.state.dataLoaded ? _react2.default.createElement(
+          'div',
+          { className: 'FeaturedBrandsList' },
+          this.createBrands(this.state.brands)
+        ) : ''
+      );
     }
   }]);
 
@@ -15188,7 +15264,57 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _FeaturedProduct = __webpack_require__(106);
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var FeaturedBrand = function (_Component) {
+  _inherits(FeaturedBrand, _Component);
+
+  function FeaturedBrand() {
+    _classCallCheck(this, FeaturedBrand);
+
+    return _possibleConstructorReturn(this, (FeaturedBrand.__proto__ || Object.getPrototypeOf(FeaturedBrand)).apply(this, arguments));
+  }
+
+  _createClass(FeaturedBrand, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'FeaturedBrand' },
+        _react2.default.createElement('img', { src: this.props.image, alt: 'brand' })
+      );
+    }
+  }]);
+
+  return FeaturedBrand;
+}(_react.Component);
+
+exports.default = FeaturedBrand;
+
+/***/ }),
+/* 106 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _FeaturedProduct = __webpack_require__(107);
 
 var _FeaturedProduct2 = _interopRequireDefault(_FeaturedProduct);
 
@@ -15243,11 +15369,11 @@ var FeaturedProducts = function (_Component) {
         _react2.default.createElement(
           'div',
           { className: 'featured-tagline' },
-          'Lookbook'
+          '- Lookbook -'
         ),
         _react2.default.createElement(
           'div',
-          { className: 'featured-products-text' },
+          { className: 'featured-text' },
           'Featured Products'
         ),
         _react2.default.createElement(
@@ -15270,7 +15396,7 @@ var FeaturedProducts = function (_Component) {
 exports.default = FeaturedProducts;
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15320,7 +15446,7 @@ var FeaturedProduct = function (_Component) {
 exports.default = FeaturedProduct;
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15335,6 +15461,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _store_owner_img = __webpack_require__(115);
+
+var _store_owner_img2 = _interopRequireDefault(_store_owner_img);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15375,13 +15505,13 @@ var Welcome = function (_Component) {
           _react2.default.createElement(
             'div',
             { className: 'quote-pink' },
-            'In the late spring of 2004, after the recent birth of my third child, I opened Thank Heaven Children\'s Boutique in the heart of Forest Hills. Standing as an emulation of the sense of community present in this neighborhood, for the last 14 years, mothers, fathers, grandparents, aunts, uncles, and anyone looking ot celebrate the children in their lives have stopped by to purchase a gift they know will be unique and thoughtful.'
+            'In the late spring of 2004, after the recent birth of my third child, I opened Thank Heaven Children\'s Boutique in the heart of Forest Hills. Standing as an emulation of the sense of community present in this neighborhood, for the last 14 years, mothers, fathers, grandparents, aunts, uncles, and anyone looking to celebrate the children in their lives have stopped by to purchase a gift they know will be unique and thoughtful.'
           )
         ),
         _react2.default.createElement(
           'div',
           { className: 'welcome-right-column' },
-          _react2.default.createElement('img', { src: './images/store_owner_img.png', alt: 'store owner' })
+          _react2.default.createElement('img', { src: _store_owner_img2.default, alt: 'store owner' })
         )
       );
     }
@@ -15393,7 +15523,7 @@ var Welcome = function (_Component) {
 exports.default = Welcome;
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15409,7 +15539,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Hours = __webpack_require__(109);
+var _Hours = __webpack_require__(110);
 
 var _Hours2 = _interopRequireDefault(_Hours);
 
@@ -15462,7 +15592,7 @@ var Contact = function (_Component) {
 exports.default = Contact;
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15521,7 +15651,7 @@ var Hours = function (_Component) {
 exports.default = Hours;
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15567,7 +15697,7 @@ var Header = function (_Component) {
 exports.default = Header;
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15613,7 +15743,7 @@ var Footer = function (_Component) {
 exports.default = Footer;
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15659,7 +15789,7 @@ var Logo = function (_Component) {
 exports.default = Logo;
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15703,6 +15833,12 @@ var Admin = function (_Component) {
 }(_react.Component);
 
 exports.default = Admin;
+
+/***/ }),
+/* 115 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "images/bf6ad6e64e36beb7e8f64a63e1d22267-store_owner_img.png";
 
 /***/ })
 /******/ ]);
