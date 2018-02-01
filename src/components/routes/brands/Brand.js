@@ -11,11 +11,9 @@ class Brand extends Component {
         {/* <h2 key={this.props.id} onClick={() => this.renderByBrand(wine.name, wine.year)}>What {this.props.name} offers</h2> */}
         <Link to={
           {
-            pathname: `/brands/:${this.props.brand.brand_id}`,
+            pathname: `/brands/${this.props.brand.id}`,
             state: {
-              name: this.props.brand.name,
-              image: this.props.brand.image,
-              description: this.props.brand.description,
+              brand: this.props.brand,
               products: this.props.products
             }
           }}>
