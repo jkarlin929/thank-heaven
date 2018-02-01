@@ -11,20 +11,20 @@ require('dotenv').config();
 
 app.use(cookieParser()); 
 
-app.use(session({
-	secret: process.env.SESSION_KEY,
-	resave: false, 
-	saveUninitialized: true,
-})); 
+// app.use(session({
+// 	secret: process.env.SESSION_KEY,
+// 	resave: false, 
+// 	saveUninitialized: true,
+// })); 
 
-app.use(passport.initialize()); 
-app.use(passport.session()); 
+// app.use(passport.initialize()); 
+// app.use(passport.session()); 
 
-const authRouter = require('./routes/auth-routes'); 
-app.use('/auth', authRouter); 
+// const authRouter = require('./routes/auth-routes'); 
+// app.use('/auth', authRouter); 
 
-const authHelpers = require('./services/auth/auth-helpers'); 
-app.use(authHelpers.loginRequired); 
+// const authHelpers = require('./services/auth/auth-helpers'); 
+// app.use(authHelpers.loginRequired); 
 
 app.use(bodyParser.json());
 
@@ -47,10 +47,29 @@ app.use('/data/brands', brandsRoutes);
 const reviewsRoutes = require('./routes/review-routes');
 app.use('/data/reviews', reviewsRoutes);
 
-app.use('*', (req,res) => {
-  res.status(400).json({
-    message: 'NOPE',
-  })
+// app.use('*', (req,res) => {
+//   res.status(400).json({
+//     message: 'NOPE',
+//   })
+// });
+app.get('/products', (req, res) => {
+  res.sendFile(path.join(__dirname + '/index.html'))
+});
+app.get('/brands', (req, res) => {
+  res.sendFile(path.join(__dirname + '/index.html'))
+});
+app.get('/reviews', (req, res) => {
+  res.sendFile(path.join(__dirname + '/index.html'))
+});
+app.get('/contact', (req, res) => {
+  res.sendFile(path.join(__dirname + '/index.html'))
+});
+app.get('/admin', (req, res) => {
+  res.sendFile(path.join(__dirname + '/index.html'))
+});
+
+app.get('*', (req, res) => {
+  res.redirect('/')
 });
 
 app.listen(PORT, () => {

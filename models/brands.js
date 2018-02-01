@@ -20,11 +20,11 @@ Brand.create = brand => {
   return db.one(
     `
     INSERT INTO brands
-    (name, location, story, quote, featured)
-    VALUES ($1, $2, $3, $4, $5)
+    (name, location, story, quote, image, featured)
+    VALUES ($1, $2, $3, $4, $5, $6)
     RETURNING *
   `,
-    [brand.name, brand.location, brand.story, brand.quote, brand.featured]
+    [brand.name, brand.location, brand.story, brand.quote, brand.image, brand.featured]
   );
 };
 
@@ -36,11 +36,12 @@ Brand.update = (brand, id) => {
       location = $2,
       story = $3,
       quote = $4,
-      featured = $5
-    WHERE id = $6
+      image = $5,
+      featured = $6
+    WHERE id = $7
     RETURNING *
   `,
-    [brand.name, brand.location, brand.story, brand.quote, brand.featured, id]
+    [brand.name, brand.location, brand.story, brand.quote, brand.image, brand.featured, id]
   );
 };
 

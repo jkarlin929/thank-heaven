@@ -2,10 +2,20 @@ import React, { Component } from 'react';
 import FeaturedProduct from './FeaturedProduct';
 
 class FeaturedProducts extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
-      products: this.props.products
+      products: this.props.products,
+      dataLoaded: false
+    }
+    this.createProducts = this.createProducts.bind(this)
+  }
+
+  componentDidMount(){
+    if(this.state.products){
+      this.setState({
+        dataLoaded: true
+      })
     }
   }
   createProducts(products){
@@ -21,17 +31,21 @@ class FeaturedProducts extends Component {
     return (
       <div className='FeaturedProducts'>
         <div className='featured-tagline'>
-          Lookbook
+          - Lookbook -
         </div>
-        <div className='featured-products-text'>
+        <div className='featured-text'>
           Featured Products
         </div>
         <button className='content-button'>
           See All
         </button>
-        <div className='FeaturedProductsList'>
-          {this.createProducts(this.state.products)}
-        </div>
+        { this.state.dataLoaded ?
+          <div className='FeaturedProductsList'>
+             {this.createProducts(this.state.products)}
+          </div>
+          :
+          ''
+        }
       </div>
     );
   }
