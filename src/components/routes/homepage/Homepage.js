@@ -4,6 +4,7 @@ import Carousel from './Carousel';
 import FeaturedBrands from './FeaturedBrands';
 import FeaturedProducts from './FeaturedProducts';
 import Welcome from './Welcome';
+import Instagram from '../../Instagram';
 
 
 
@@ -48,6 +49,7 @@ class Homepage extends Component {
         </div>
         {/* phone call me */}
         {this.state.dataLoaded ? <FeaturedBrands brands={this.state.brands}/> : ''}
+        <Instagram />
       </div>
     );
   }
