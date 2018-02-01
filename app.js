@@ -25,10 +25,29 @@ app.use('/data/brands', brandsRoutes);
 const reviewsRoutes = require('./routes/review-routes');
 app.use('/data/reviews', reviewsRoutes);
 
-app.use('*', (req,res) => {
-  res.status(400).json({
-    message: 'NOPE',
-  })
+// app.use('*', (req,res) => {
+//   res.status(400).json({
+//     message: 'NOPE',
+//   })
+// });
+app.get('/products', (req, res) => {
+  res.sendFile(path.join(__dirname + '/index.html'))
+});
+app.get('/brands', (req, res) => {
+  res.sendFile(path.join(__dirname + '/index.html'))
+});
+app.get('/reviews', (req, res) => {
+  res.sendFile(path.join(__dirname + '/index.html'))
+});
+app.get('/contact', (req, res) => {
+  res.sendFile(path.join(__dirname + '/index.html'))
+});
+app.get('/admin', (req, res) => {
+  res.sendFile(path.join(__dirname + '/index.html'))
+});
+
+app.get('*', (req, res) => {
+  res.redirect('/')
 });
 
 app.listen(PORT, () => {
