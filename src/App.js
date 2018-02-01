@@ -75,6 +75,7 @@ class App extends Component {
             <Route exact path="/brands" render={()=><Brands products={this.state.products} brands={this.state.brands} reviews={this.state.reviews}/>} />
             <Route exact path="/reviews" render={()=><Reviews products={this.state.products} brands={this.state.brands} reviews={this.state.reviews}/>} />
             <Route exact path="/contact" render={()=><Contact products={this.state.products} brands={this.state.brands} reviews={this.state.reviews}/>} />
+            <Route exact path="/admin" render={()=><Admin products={this.state.products} brands={this.state.brands} reviews={this.state.reviews}/>} />
           </div>
           :
           ''

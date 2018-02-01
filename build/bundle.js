@@ -10120,6 +10120,9 @@ var App = function (_Component) {
             } }),
           _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/contact', render: function render() {
               return _react2.default.createElement(_Contact2.default, { products: _this3.state.products, brands: _this3.state.brands, reviews: _this3.state.reviews });
+            } }),
+          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/admin', render: function render() {
+              return _react2.default.createElement(_Admin2.default, { products: _this3.state.products, brands: _this3.state.brands, reviews: _this3.state.reviews });
             } })
         ) : '',
         _react2.default.createElement(_Footer2.default, null)
