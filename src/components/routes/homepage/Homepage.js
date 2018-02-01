@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Logo from '../../Logo';
 import Carousel from './Carousel';
 import FeaturedBrands from './FeaturedBrands';
 import FeaturedProducts from './FeaturedProducts';
@@ -30,6 +31,7 @@ class Homepage extends Component {
   render() {
     return (
       <div>
+        <Logo />
         <Carousel />
         <Welcome />
         {this.state.dataLoaded ? <FeaturedProducts products={this.state.products}/> : ''}

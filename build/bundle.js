@@ -10097,6 +10097,8 @@ var App = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this3 = this;
+
       return _react2.default.createElement(
         'div',
         { className: 'App' },
@@ -10104,12 +10106,23 @@ var App = function (_Component) {
         this.state.dataLoaded ? _react2.default.createElement(
           'div',
           { className: 'routes' },
-          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Homepage2.default, products: this.state.products, brands: this.state.brands, reviews: this.state.reviews }),
-          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/products', component: _Products2.default, products: this.state.products, brands: this.state.brands, reviews: this.state.reviews }),
-          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/brands', component: _Brands2.default, products: this.state.products, brands: this.state.brands, reviews: this.state.reviews }),
-          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/reviews', component: _Products2.default, products: this.state.products, brands: this.state.brands, reviews: this.state.reviews }),
-          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/contact', component: _Products2.default, products: this.state.products, brands: this.state.brands, reviews: this.state.reviews })
-        ) : ''
+          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', render: function render() {
+              return _react2.default.createElement(_Homepage2.default, { products: _this3.state.products, brands: _this3.state.brands, reviews: _this3.state.reviews });
+            } }),
+          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/products', render: function render() {
+              return _react2.default.createElement(_Products2.default, { products: _this3.state.products, brands: _this3.state.brands, reviews: _this3.state.reviews });
+            } }),
+          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/brands', render: function render() {
+              return _react2.default.createElement(_Brands2.default, { products: _this3.state.products, brands: _this3.state.brands, reviews: _this3.state.reviews });
+            } }),
+          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/reviews', render: function render() {
+              return _react2.default.createElement(_Reviews2.default, { products: _this3.state.products, brands: _this3.state.brands, reviews: _this3.state.reviews });
+            } }),
+          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/contact', render: function render() {
+              return _react2.default.createElement(_Contact2.default, { products: _this3.state.products, brands: _this3.state.brands, reviews: _this3.state.reviews });
+            } })
+        ) : '',
+        _react2.default.createElement(_Footer2.default, null)
       );
     }
   }]);
@@ -15027,6 +15040,10 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _Logo = __webpack_require__(113);
+
+var _Logo2 = _interopRequireDefault(_Logo);
+
 var _Carousel = __webpack_require__(103);
 
 var _Carousel2 = _interopRequireDefault(_Carousel);
@@ -15087,6 +15104,7 @@ var Homepage = function (_Component) {
       return _react2.default.createElement(
         'div',
         null,
+        _react2.default.createElement(_Logo2.default, null),
         _react2.default.createElement(_Carousel2.default, null),
         _react2.default.createElement(_Welcome2.default, null),
         this.state.dataLoaded ? _react2.default.createElement(_FeaturedProducts2.default, { products: this.state.products }) : '',
@@ -15789,6 +15807,14 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _facebookLogo = __webpack_require__(121);
+
+var _facebookLogo2 = _interopRequireDefault(_facebookLogo);
+
+var _instagramLogo = __webpack_require__(122);
+
+var _instagramLogo2 = _interopRequireDefault(_instagramLogo);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -15809,7 +15835,52 @@ var Footer = function (_Component) {
   _createClass(Footer, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('div', null);
+      return _react2.default.createElement(
+        'div',
+        { className: 'Footer' },
+        _react2.default.createElement(
+          'div',
+          { className: 'footer-left' },
+          _react2.default.createElement(
+            'div',
+            null,
+            '72-18 Austin St Forest Hills, New York'
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            '(718) 575-2229'
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            'thankheaven4baby@yahoo.com'
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            'Open daily 11am - 6pm'
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'footer-right' },
+          _react2.default.createElement(
+            'div',
+            { className: 'social-media' },
+            _react2.default.createElement(
+              'div',
+              { className: 'facebook' },
+              _react2.default.createElement('img', { src: _facebookLogo2.default, alt: 'facebook logo' })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'instagram' },
+              _react2.default.createElement('img', { src: _instagramLogo2.default, alt: 'instagram logo' })
+            )
+          )
+        )
+      );
     }
   }]);
 
@@ -15835,6 +15906,10 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _logo = __webpack_require__(123);
+
+var _logo2 = _interopRequireDefault(_logo);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -15855,7 +15930,11 @@ var Logo = function (_Component) {
   _createClass(Logo, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('div', null);
+      return _react2.default.createElement(
+        'div',
+        { className: 'logo' },
+        _react2.default.createElement('img', { src: _logo2.default, alt: 'logo' })
+      );
     }
   }]);
 
@@ -16280,6 +16359,12 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAASCAYAAAEV
 /***/ (function(module, exports) {
 
 module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAAEhyb7BAAAAAXNSR0IArs4c6QAAAt5JREFUOBF1k09IFHEUx3dmZ90/Imya4SW6CMUGHlIowahj0KVTRbQaEoHuVmynhf3jrLum0GEpNCNKdI0sunbuUhBIXToYER06SHlYbS/uqjs7fd6sv2GF+sGb937v7/e99xuPhzM5OWkLdwXTNH9pohAhEAic0PL5/KJt2yO6ZVnvvF6vR8f6fG9vb0PDpwQN53K5KC5HsWZ1TlQSGIZRqlQqRcK2nIyqVqPROKsXCoVj2WxW43JS07RbUq8TOiWhcnS/329jGaV+QxRSbQV+Xi5tbW09otARKGD1ShUxyKlWq1Z7e3uM3H0Cx9rd3e3KZDI/6KeMvRfKBYPBPADuI58z+DiHjJFarTYHX0WxCso6/I4YDdINygWjCY9Dzkmn004CB5NosA9R9n3T3PzSyRIQbshNgL9C8ZVSs9Jm08X5BsiyDl6vzjAvTUxM5KanpwV0DwEXCdzs7u5e534EWpSdOG3jOIdijC18m5mZsWOxmEYWS5bhdkfq8VQqpdbbT7Zhgt5CzlKFe8hgOULzMwr7pO6yeeeUy+UO2cvU1JTsyEOmNdWIIXMQr2KxWIW5QaLb2dm5CxuUEYRx3ALkBorWERwm4xsauqaAhnGYx/kqzrIOGUdrAFf3SEwXvgYPdAVIY8lksiLVzqD8SIIcsum6/0egt+OM7h7jfcpALvh8vgKxgwZKSfKbzA9VbCKRCIbD4QfYxiEHNW/Fhmbpt8ir+4lvDf6IpxmXHO5OcFBtRvhjvtTr9Se8kwNDA/Aswd+x9SGvQZ2q+AHHfeUAA/QiLyinFr6wbxto0Tmii0gZqFJiC6f5UT4LAvTL+7YoaOK08pgfv6T8FZf/ZJnHe5lKHSg3xYBjDBYjUQR9v+gY7DzbuS2yOoygA/0hBr8sW5P2XrK5K6zTZHAvtre3/6iXpoIUl1mGQqEwAK6zMZNFvcbWfEfKiaRDoLtJlRGl+xcH5RIonuH/Qdn/AnIqW/7eHA1rAAAAAElFTkSuQmCC"
+
+/***/ }),
+/* 123 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "images/a92ff0d0f20fe760545181aceb43b0d3-logo.png";
 
 /***/ })
 /******/ ]);

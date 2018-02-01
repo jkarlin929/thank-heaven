@@ -67,16 +67,19 @@ class App extends Component {
     return (
       <div className='App'>
         <Header />
-
-        {this.state.dataLoaded ?
+        {
+          this.state.dataLoaded ?
           <div className='routes'>
-            <Route exact path="/" component={Homepage} products={this.state.products} brands={this.state.brands} reviews={this.state.reviews} />
-            <Route exact path="/products" component={Products} products={this.state.products} brands={this.state.brands} reviews={this.state.reviews} />
-            <Route exact path="/brands" component={Brands} products={this.state.products} brands={this.state.brands} reviews={this.state.reviews} />
-            <Route exact path="/reviews" component={Products} products={this.state.products} brands={this.state.brands} reviews={this.state.reviews} />
-            <Route exact path="/contact" component={Products} products={this.state.products} brands={this.state.brands} reviews={this.state.reviews} />
+            <Route exact path="/" render={()=><Homepage products={this.state.products} brands={this.state.brands} reviews={this.state.reviews}/>} />
+            <Route exact path="/products" render={()=><Products products={this.state.products} brands={this.state.brands} reviews={this.state.reviews}/>} />
+            <Route exact path="/brands" render={()=><Brands products={this.state.products} brands={this.state.brands} reviews={this.state.reviews}/>} />
+            <Route exact path="/reviews" render={()=><Reviews products={this.state.products} brands={this.state.brands} reviews={this.state.reviews}/>} />
+            <Route exact path="/contact" render={()=><Contact products={this.state.products} brands={this.state.brands} reviews={this.state.reviews}/>} />
           </div>
-          : ''}
+          :
+          ''
+        }
+        <Footer />
       </div>
       )
   }
