@@ -10,7 +10,8 @@ import Contact from './components/routes/contact/Contact';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Logo from './components/Logo';
-import Admin from './components/admin/Admin';
+import AdminPage from './components/admin/Admin';
+import ByBrand from './components/routes/brands/ByBrand';
 
 //stop touching the dev and master branch directly guys
 
@@ -72,10 +73,11 @@ class App extends Component {
           <div className='routes'>
             <Route exact path="/" render={()=><Homepage products={this.state.products} brands={this.state.brands} reviews={this.state.reviews}/>} />
             <Route exact path="/products" render={()=><Products products={this.state.products} brands={this.state.brands} reviews={this.state.reviews}/>} />
+            <Route path="/brands/:brand" component={ByBrand} />
             <Route exact path="/brands" render={()=><Brands products={this.state.products} brands={this.state.brands} reviews={this.state.reviews}/>} />
             <Route exact path="/reviews" render={()=><Reviews products={this.state.products} brands={this.state.brands} reviews={this.state.reviews}/>} />
             <Route exact path="/contact" render={()=><Contact products={this.state.products} brands={this.state.brands} reviews={this.state.reviews}/>} />
-            <Route exact path="/admin" render={()=><Admin products={this.state.products} brands={this.state.brands} reviews={this.state.reviews}/>} />
+            <Route exact path=“/admin” render={()=><AdminPage products={this.state.products} brands={this.state.brands} reviews={this.state.reviews}/>} />
           </div>
           :
           ''
