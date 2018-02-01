@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import Logo from './Logo';
 import Brand from './Brand';
-
 class Brands extends Component {
   constructor(props){
     super(props);
@@ -8,9 +8,9 @@ class Brands extends Component {
       brands: this.props.brands,
       dataLoaded: false
     }
-    this.renderBrands = this.renderBrands.bind(this)
+    this.renderBrands = this.renderBrands.bind(this);
+    this.passFilmData = this.passBrandData.bind(this);
   }
-
   componentDidMount(){
     if(this.state.brands){
       this.setState({
@@ -18,7 +18,6 @@ class Brands extends Component {
       })
     }
   }
-
   renderBrands(brands) {
     return brands.map((brand) => {
       return(
@@ -26,22 +25,30 @@ class Brands extends Component {
       )
     })
   }
-
+  passBrandData(brands) {
+    return brands.map((brand) => {
+      return (
+       <div key={brand.id}>
+         {this.state.brands ? <Brand name={brand.name} image={brand.image} description={brand.description} /> : ''}
+       </div>
+    )})
+  }
   render() {
     return (
       <div>
-        {/* <Header />
-        <Logo /> */}
+        <Logo />
         <h1>Brands</h1>
-        <div className="brandList">
-          {this.renderBrands(this.state.brands)}
+        <div>
+          <hr className="line" />
+          <img src="http://res.cloudinary.com/camcash17/image/upload/v1517430458/001-toy-train_gapuot.png" />
         </div>
-        {/* <Instagram />
-        <Footer /> */}
+        <div className="brandList">
+          {this.state.dataLoaded ? <div>{this.renderBrands(this.state.brands)}</div> : ''}
+          {this.state.brands ? <div>{this.passBrandData(this.state.brands)}</div> : ''}
+        </div>
+        <Instagram />
       </div>
     );
   }
-
 }
-
 export default Brands;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import Logo from './Logo';
 import Product from './Product';
-
 class Products extends Component {
   constructor(props){
     super(props);
@@ -10,7 +10,6 @@ class Products extends Component {
     }
     this.renderProducts = this.renderProducts.bind(this)
   }
-
   componentDidMount(){
     if(this.state.products){
       this.setState({
@@ -18,30 +17,28 @@ class Products extends Component {
       })
     }
   }
-
-  renderProducts(products) {
+  renderProducts(products, brands) {
     return products.map((product) => {
       return(
         <Product key={product.id} name={product.name} description={product.description} image={product.image} brand_id={product.brand_id} />
       )
     })
   }
-
   render() {
     return (
       <div>
-        {/* <Header />
-        <Logo /> */}
+        <Logo />
         <h1>Products</h1>
-        <div className="productList">
-          {this.renderProducts(this.state.products)}
+        <div>
+          <hr className="line" />
+          <img src="http://res.cloudinary.com/camcash17/image/upload/v1517430458/001-toy-train_gapuot.png" />
         </div>
-        {/* <Instagram />
-        <Footer /> */}
+        <div className="productList">
+          {this.state.dataLoaded ? <div>{this.renderProducts(this.state.products)}</div> : ''}
+        </div>
+        <Instagram />
       </div>
     );
   }
-
 }
-
 export default Products;
