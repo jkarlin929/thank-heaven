@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Pagination from '../../Pagination';
+import Logo from '../../Logo';
 import Product from './Product';
-
-class Products extends React.Component {
-  constructor() {
+import Instagram from '../../Instagram';
+class Products extends Component {
+  constructor(){
     super();
 
     this.state = {
@@ -36,7 +37,9 @@ class Products extends React.Component {
   }
 
   render() {
-    return (<div>
+    return (
+      <div>
+      <Logo />
       <div className="container">
         <div className="text-center">
           <h1>Products</h1>
@@ -50,10 +53,11 @@ class Products extends React.Component {
           {
             this.state.productItems
               ? <Pagination items={this.state.productItems} onChangePage={this.onChangePage}/>
-              : <div>oonga</div>
+              : ''
           }
         </div>
       </div>
+      <Instagram />
     </div>);
   }
 }

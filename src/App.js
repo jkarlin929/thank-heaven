@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch, Link } from 'react-router-dom';
 import axios from 'axios';
+
 //import components
 import Homepage from './components/routes/homepage/Homepage';
 import Products from './components/routes/products/Products';
@@ -12,7 +13,7 @@ import Footer from './components/Footer';
 import Logo from './components/Logo';
 import AdminPage from './components/admin/Admin';
 import ByBrand from './components/routes/brands/ByBrand';
-import './App.css';
+
 
 //stop touching the dev and master branch directly guys
 
@@ -31,7 +32,7 @@ class App extends Component {
     axios.get('/data/products')
     .then(products => {
       this.setState({
-        products: products.data.data
+        products: products
       })
     })
     .catch( err => {
@@ -39,17 +40,24 @@ class App extends Component {
     })
     axios.get('/data/brands')
     .then(brands => {
+      console.log("this is axios brands", brands)
       this.setState({
-        brands: brands.data.data
+        brands: brands
       })
     })
     .catch( err => {
       console.log(err);
     })
-    axios.get('/data/reviews')
+
+    const headers = {'X-Total-Count': 6}
+    // axios.post('/data/test', data, headers)
+    // axios({ method: 'POST', url: '/data/reviews', headers , data: { user: 'name' } })
+
+    axios.get('/data/reviews',{'headers':{}})
     .then(reviews => {
+      console.log(reviews.headers, 'THESE ARE HEADERS');
       this.setState({
-        reviews: reviews.data.data
+        reviews: reviews
       })
     })
     .catch( err => {
@@ -68,7 +76,9 @@ class App extends Component {
   render(){
     return (
       <div className='App'>
+
         <Header />
+
         {
           this.state.dataLoaded ?
           <div className='routes'>
