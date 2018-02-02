@@ -112,6 +112,6 @@ It was working, which was peculiar because our json data was most definitely com
 My first guess was that the json data that was being accessed by the admin-on-rest package needed to be in a specific format, and our json data was actually nested inside another object, which while it didn't solve our current problem, was another one that would have popped up if I didn't fix.
 
 Since that was the case, I re-setup our controllers to pull data from the placeholder site, and then repush that information onto our localhost, and lo and behold I was learning grabbing our data from our localhost was messing something up. It looked like it was either not pulling the header information or mutating it. After several non-working solutions I came across this post that wasn't directly related to admin-on-rest:
-[Link to Github] (https://github.com/axios/axios/issues/1255#issuecomment-354090991)
+[Link to Github](https://github.com/axios/axios/issues/1255#issuecomment-354090991)
 
 Luckily it seemingly had a solution and was even tailored to express as a lot of the solutions seemed to be made for ruby, however this worked to create, or set the value of the header that could then be reached through from our localhost. I then created the needed X-Content-Length header, and data was being pulled. This was the last big hump in getting our admin page working.
