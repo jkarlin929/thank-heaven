@@ -36,7 +36,7 @@ app.use(express.static('build'));
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'))
-
+  res.set('Content-Range', '4');
 });
 
 const productsRoutes = require('./routes/product-routes');
@@ -61,7 +61,6 @@ app.get('/brands', (req, res) => {
 });
 app.get('/reviews', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'))
-  res.set('Content-Range', '4');
 });
 app.get('/contact', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'))
@@ -70,9 +69,9 @@ app.get('/admin', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'))
 });
 
-app.get('*', (req, res) => {
-  res.redirect('/')
-});
+// app.get('*', (req, res) => {
+//   res.redirect('/')
+// });
 
 app.listen(PORT, () => {
   console.log(`liveonport${PORT}`)
