@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {Form, FormGroup, ControlLabel, FormControl, Button} from 'react-bootstrap';
+
 class MessageForm extends Component {
   constructor(props) {
   super(props);
@@ -25,37 +27,52 @@ class MessageForm extends Component {
     return (
       <div className="messageform">
       <h1>Send a Message</h1>
-        <form method="POST" action="https://formspree.io/jkarlin29@yahoo.com">
-          <label name="name" for="name">
+        <Form inline method="POST" action="https://formspree.io/jkarlin29@yahoo.com">
+        <FormGroup controlId="formInlineName">
+          <ControlLabel name="name" for="name">
             Name
-            <input type="text" name="name" placeholder="Your Name" onChange={this.handleChange} />
-          </label>
-          <label name="phone" for="phone">
+          </ControlLabel>{''}
+            <FormControl type="text" name="name" placeholder="Your Name" onChange={this.handleChange}
+          />
+        </FormGroup>{''}
+        <FormGroup controlId="formInlinePhone">
+          <ControlLabel name="phone" for="phone">
             Phone Number
-            <input type="text" name="phone" placeholder="Your Phone Number" onChange={this.handleChange} />
-          </label>
-          <label name="email" for="email">
+          </ControlLabel>{''}
+            <FormControl type="text" name="phone" placeholder="Your Phone Number" onChange={this.handleChange} />
+        </FormGroup>{''}
+        <FormGroup controlId="formInlineEmail">
+          <ControlLabel name="email" for="email">
             Email Address
-            <input type="text" name="email" placeholder="Your Email" onChange={this.handleChange} />
-          </label>
-           <label name="preference">
+          </ControlLabel>{''}
+            <FormControl type="text" name="email" placeholder="Your Email" onChange={this.handleChange} />
+        </FormGroup>{''}
+        <FormGroup controlId="formInlinePreference">
+          <ControlLabel name="preference">
             I prefer to be contacted:
-          </label>
-          <label name="byphone">
+          </ControlLabel>{''}
+        </FormGroup>{''}
+        <FormGroup controlId="formInlineByPhone">
+          <ControlLabel name="byphone">
             by phone
-            <input type="checkbox" name="contact by" value="phone" onChange={this.handleChange} />
-            </label>
-          <label name="byemail">
+          </ControlLabel>{''}
+            <FormControl type="checkbox" name="contact by" value="phone" onChange={this.handleChange} />
+        </FormGroup>{''}
+        <FormGroup controlId="formInlineByEmail">
+          <ControlLabel name="byemail">
             by email
-            <input type="checkbox" name="contact by" value="email" onChange={this.handleChange} />
-            </label>
-          <label name="message" for="message">
+          </ControlLabel>{''}
+            <FormControl type="checkbox" name="contact by" value="email" onChange={this.handleChange} />
+        </FormGroup>{''}
+        <FormGroup controlId="formInlineMessage">
+          <ControlLabel name="message" for="message">
             Message
-            <textarea type="text" name="message" placeholder="Your Message" onChange={this.handleChange}></textarea>
-          </label>
-          <button type="submit">Send</button>
-          <input type="hidden" name="_next" value="localhost:3000" />
-        </form>
+          </ControlLabel>{''}
+            <FormControl type="text" name="message" placeholder="Your Message" onChange={this.handleChange}></FormControl>
+        </FormGroup>{''}
+          <Button type="submit">Send</Button>
+          <FormControl type="hidden" name="_next" value="localhost:3000" />
+        </Form>
       </div>
     );
   }
