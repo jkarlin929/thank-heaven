@@ -7,14 +7,14 @@ class Header extends Component {
 
   render() {
     return (
-
-      <Navbar collapseOnSelect>
+    <div className="header">
+      <Navbar collapseOnSelect fixedTop>
         <Navbar.Header>
           <Navbar.Brand>
-            <img src={facebook} alt="facebook logo"/>
+            <img src={facebook} alt="facebook logo" id="social" />
           </Navbar.Brand>
           <Navbar.Brand>
-            <img src={instagram} alt="instagram logo"/>
+            <img src={instagram} alt="instagram logo" id="social" />
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
@@ -38,7 +38,7 @@ class Header extends Component {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-
+    </div>
     );
   }
 }

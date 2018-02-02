@@ -44,18 +44,19 @@ A fixed image of store location on google maps, a link to directions to **Thank 
 |Instagram| H       |   3hrs|  2hrs  |    2hrs   |
 |Google Maps API|H| 6hrs   | 1hr  |  1hr    |
 |Forms      |   H       | 10hrs|    6hrs   |   N/A   |
-|Admin Page|    H    |16hrs  |  17hrs |    N/A     |
+|Admin Page|    H    |16hrs  |  20hrs |    20hrs   |
 |CSS         |  H |12hrs |      |     N/A    |
 |Webpacks+Issues  |   H    | 4hr   |  1hr  | N/A    |
 |Axios API Call |  H   | 3hrs   | 3hrs |  
 |Auth       | H  | 1hr  |  1hr  |  N/A   |
+|Pagination | H  | 2hr  |  3.5hrs  | 3.5hrs |
 
 
 
 # Helper Functions
 |Function|Description|
 |-------:|:---------:|
-|COMING  | SOON|
+|Pagination  | [Reference](http://jasonwatmore.com/post/2017/03/14/react-pagination-example-with-logic-like-google)|
 
 
 # Images
