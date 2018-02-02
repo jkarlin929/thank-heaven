@@ -1,10 +1,10 @@
 # MVP
--Create a working website for **Thank Heaven** Children's Boutique. 
--Following a UX Design teams mock-up, create a page with necessary routes using React and Webpack. 
--Render products, brands, featured products and featured brands, images and brand stories. 
--Display reviews and contact information with contact form. 
--Use the Instagram API, and google maps API for store location and directions. 
--Complete all components using bootstrap and CSS.
+-Create a working website for **Thank Heaven** Children's Boutique.  
+-Following a UX Design teams mock-up, create a page with necessary routes using React and Webpack.   
+-Render products, brands, featured products and featured brands, images and brand stories.   
+-Display reviews and contact information with contact form.   
+-Use the Instagram API, and google maps API for store location and directions.   
+-Complete all components using bootstrap and CSS.  
 
 # POST-MVP
 
