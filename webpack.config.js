@@ -13,12 +13,14 @@ const config = {
   },
   module: {
     rules: [
+
       {
         test: /\.js[x]?$/,
         loader: 'babel-loader',
         exclude: /node_modules/
         
       },
+
       // {
       //   use: ExtractTextWebpackPlugin.extract({
       //     use: 'css-loader'
@@ -26,10 +28,15 @@ const config = {
       //   test: /\.css$/
       // },
       {
+        test: /\.js[x]?$/,
+        use: 'babel-loader',
+        exclude: /node_modules/,
+      },
+      {
         test:/\.(s*)css$/,
         use: ExtractTextWebpackPlugin.extract({
             fallback: 'style-loader',
-            use: ['css-loader','sass-loader']
+            use: ['css-loader']
         })
       },
       {

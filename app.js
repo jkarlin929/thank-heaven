@@ -56,9 +56,7 @@ app.use('/data/reviews', reviewsRoutes);
 app.get('/products', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'))
 });
-app.get('/brands', (req, res) => {
-  res.sendFile(path.join(__dirname + '/index.html'))
-});
+
 app.get('/reviews', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'))
 });
@@ -72,6 +70,7 @@ app.get('/admin', (req, res) => {
 // app.get('*', (req, res) => {
 //   res.redirect('/')
 // });
+
 
 app.listen(PORT, () => {
   console.log(`liveonport${PORT}`)
