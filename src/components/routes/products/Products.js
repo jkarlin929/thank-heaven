@@ -18,7 +18,6 @@ class Products extends React.Component {
   componentDidMount() {
     this.setState({products: this.props.products, brands: this.props.brands})
     this.pushProduct(this.props.products, this.props.brands)
-
   }
 
   //function to create a variable to push into the empty array
@@ -26,6 +25,7 @@ class Products extends React.Component {
   pushProduct(products, brands) {
     const productItems = products.map(product => {
       return {id: product.id, name: product.name, description: product.description, image: product.image, brand_id: product.brand_id}
+
     })
     this.setState({productItems: productItems})
   }
