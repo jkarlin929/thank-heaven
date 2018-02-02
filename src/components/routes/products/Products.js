@@ -7,7 +7,6 @@ class Products extends React.Component {
     super();
 
     this.state = {
-      exampleItems: exampleItems,
       pageOfItems: [],
       productItems: []
     };
