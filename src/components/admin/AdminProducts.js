@@ -1,37 +1,44 @@
 
 // in src/AdminProducts.js
 import React from 'react';
-import { List, Edit, Create, Datagrid, ReferenceField, TextField, EditButton, DisabledInput, LongTextInput, ReferenceInput, SelectInput, SimpleForm, TextInput, ImageField, BooleanField} from 'admin-on-rest';
+import {Filter, Show, SimpleShowLayout, ImageInput, List, Edit, Create, Datagrid, ReferenceField, TextField, EditButton, DisabledInput, LongTextInput, ReferenceInput, SelectInput, SimpleForm, TextInput, ImageField, BooleanField, BooleanInput} from 'admin-on-rest';
+
+const PostFilter = (props) => (
+    <Filter {...props}>
+        <TextInput label="Search" source="q" alwaysOn />
+        <TextInput label="Name" source="name"  />
+        <TextInput label="Brand" source="brand"  />
+        <TextInput label="Featured" source="featured"  defaultValue="true" />
+    </Filter>
+);
 
 export const AdminProducts = (props) => (
-    <List {...props}>
+    <List {...props} filters={<PostFilter />} >
         <Datagrid>
             <TextField source="id" />
             <TextField source="name" />
             <ReferenceField label="Brand" source="brand_id" reference="brands">
                 <TextField source="name" />
             </ReferenceField>
-            <TextField source="brand_id" />
+            
             <TextField source="description" />
             <ImageField source="image" title="title" />
-			<BooleanField source="featured" />        
+			<BooleanField source="featured" /> 
+			<EditButton />       
 			</Datagrid>
     </List>
 );
 
 
 
-const AdminBrandsTitle = ({ record }) => {
-    return <span>Post {record ? `"${record.title}"` : ''}</span>;
-};
 
-export const AdminBrandsEdit = (props) => (
-    <Edit title={<AdminBrandsTitle />} {...props}>
+export const AdminProductsEdit = (props) => (
+    <Edit title="Edit Product" {...props}>
         <SimpleForm>
-            <DisabledInput source="id" />
+            
             
             <TextInput source="name" />
-            <TextInput source="location" />
+          
             <ReferenceInput label="Brand" source="brand_id" reference="brands" allowEmpty>
                 <SelectInput optionText="name" />
             </ReferenceInput>
@@ -44,17 +51,18 @@ export const AdminBrandsEdit = (props) => (
     </Edit>
 );
 
-export const AdminBrandsCreate = (props) => (
+export const AdminProductsCreate = (props) => (
+
     <Create {...props}>
         <SimpleForm>
-        	<DisabledInput source="id" />
+        	
             
-            <TextInput source="name" validate={required}/>
-            <TextInput source="location" validate={required}/>
+            <TextInput source="name" />
+            
             <ReferenceInput label="Brand" source="brand_id" reference="brands" allowEmpty>
-                <SelectInput optionText="name" validate={required}/>
+                <SelectInput optionText="name" />
             </ReferenceInput>
-            <LongTextInput source="description" validate={required}/>
+            <LongTextInput source="description" />
             <ImageInput source="image" label="Related pictures" accept="image/*" placeholder={<p>Drag & Drop or Click to Upload/</p>} >
     			<ImageField source="image" title="title" />
 			</ImageInput>
@@ -62,4 +70,21 @@ export const AdminBrandsCreate = (props) => (
             
         </SimpleForm>
     </Create>
+);
+
+export const AdminProductsShow = (props) => (
+    <Show {...props}>
+        <SimpleShowLayout>
+            <TextField source="id" />
+            <TextField source="name" />
+            <ReferenceField label="Brand" source="brand_id" reference="brands">
+                <TextField source="name" />
+            </ReferenceField>
+            
+            <TextField source="description" />
+            <ImageField source="image" title="title" />
+			<BooleanField source="featured" /> 
+			<EditButton />    
+        </SimpleShowLayout>
+    </Show>
 );

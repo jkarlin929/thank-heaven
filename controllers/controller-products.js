@@ -33,10 +33,7 @@ productsController.index = (req, res) => {
 productsController.show = (req, res) => {
   Product.findById(req.params.id)
     .then(products => {
-      res.json({
-        message: 'ok',
-        data: products,
-      });
+      res.json(products);
     })
     .catch(err => {
       console.log(err);

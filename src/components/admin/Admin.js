@@ -5,8 +5,9 @@ import { jsonServerRestClient, simpleRestClient, fetchUtils, Admin, Resource, De
 // import { fetchJson, flattenObject } from 'admin-on-rest/src/util/fetch';
 import { AdminBrands, AdminBrandsEdit, AdminBrandsCreate } from './AdminBrands';
 import { AdminReviews, AdminReviewsEdit, AdminReviewsCreate } from './AdminReviews';
-import { AdminProducts, AdminProductsEdit, AdminProductsCreate } from './AdminProducts';
+import { AdminProducts, AdminProductsEdit, AdminProductsCreate, AdminProductsShow } from './AdminProducts';
 
+const required = value => value ? undefined : 'Required';
 
 
 // const httpClient = (url, options = {}) => {
@@ -21,9 +22,9 @@ import { AdminProducts, AdminProductsEdit, AdminProductsCreate } from './AdminPr
 const restClient = jsonServerRestClient('http://localhost:3000/data');
 
 const AdminPage = () => (
-	<Admin restClient={restClient}>
+	<Admin title="Thank Heaven Admin"  restClient={restClient}>
 		<Resource name="reviews" list={AdminReviews} edit={AdminReviewsEdit} create={AdminReviewsCreate} remove={Delete}/>
-		<Resource name="products" list={AdminProducts} edit={AdminProductsEdit} create={AdminProductsCreate} remove={Delete}/>
+		<Resource name="products" show={AdminProductsShow} list={AdminProducts} edit={AdminProductsEdit} create={AdminProductsCreate}  remove={Delete}/>
 		<Resource name="brands" list={AdminBrands} edit={AdminBrandsEdit} create={AdminBrandsCreate} remove={Delete}/>
 
 
