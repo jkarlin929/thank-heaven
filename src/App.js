@@ -82,13 +82,13 @@ class App extends Component {
         {
           this.state.dataLoaded ?
           <div className='routes'>
-            <Route exact path="/" render={()=><Homepage products={this.state.products} brands={this.state.brands} reviews={this.state.reviews}/>} />
-            <Route exact path="/products" render={()=><Products products={this.state.products} brands={this.state.brands} reviews={this.state.reviews}/>} />
+            <Route exact path="/" render={()=><Homepage products={this.state.products.data} brands={this.state.brands.data} reviews={this.state.reviews.data}/>} />
+            <Route exact path="/products" render={()=><Products products={this.state.products.data} brands={this.state.brands.data} reviews={this.state.reviews.data}/>} />
             <Route path="/brands/:brand" component={ByBrand} />
-            <Route exact path="/brands" render={()=><Brands products={this.state.products} brands={this.state.brands} reviews={this.state.reviews}/>} />
-            <Route exact path="/reviews" render={()=><Reviews products={this.state.products} brands={this.state.brands} reviews={this.state.reviews}/>} />
-            <Route exact path="/contact" render={()=><Contact products={this.state.products} brands={this.state.brands} reviews={this.state.reviews}/>} />
-            <Route exact path="/admin" render={()=><AdminPage products={this.state.products} brands={this.state.brands} reviews={this.state.reviews}/>} />
+            <Route exact path="/brands" render={()=><Brands products={this.state.products.data} brands={this.state.brands.data} reviews={this.state.reviews.data}/>} />
+            <Route exact path="/reviews" render={()=><Reviews products={this.state.products.data} brands={this.state.brands.data} reviews={this.state.reviews.data}/>} />
+            <Route exact path="/contact" render={()=><Contact products={this.state.products.data} brands={this.state.brands.data} reviews={this.state.reviews.data}/>} />
+            <Route exact path="/admin" render={()=><AdminPage products={this.state.products.data} brands={this.state.brands.data} reviews={this.state.reviews.data}/>} />
           </div>
           :
           ''
