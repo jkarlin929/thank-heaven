@@ -46,10 +46,16 @@ class App extends Component {
     .catch( err => {
       console.log(err);
     })
-    axios.get('/data/reviews')
+
+    const headers = {'X-Total-Count': 6}
+    // axios.post('/data/test', data, headers)
+    // axios({ method: 'POST', url: '/data/reviews', headers , data: { user: 'name' } })
+
+    axios.get('/data/reviews',{'headers':{}})
     .then(reviews => {
+      console.log(reviews.headers, 'THESE ARE HEADERS');
       this.setState({
-        reviews: reviews.data.data
+        reviews: reviews
       })
     })
     .catch( err => {
@@ -70,7 +76,7 @@ class App extends Component {
       <div className='App'>
 
         <Header />
-        
+
         {
           this.state.dataLoaded ?
           <div className='routes'>

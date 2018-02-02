@@ -8,13 +8,14 @@ export const AdminReviews = (props) => (
     <List {...props}>
                 <Datagrid>
                     <TextField source="id" />
-                    
-                    <TextField source="title" />
-                    <TextField source="body" />
+
+                    <TextField source="quote" />
+                    <TextField source="name" />
+                    <TextField source="location" />
                     <EditButton />
                 </Datagrid>
-            
-        
+
+
     </List>
 );
 
@@ -28,7 +29,7 @@ export const AdminReviews = (props) => (
 //             <TextField source="quote" />
 //             <TextField source="name" />
 //             <TextField source="location" />
-                 
+
 // 			</Datagrid>
 //     </List>
 // );
@@ -42,7 +43,7 @@ export const AdminReviews = (props) => (
 //     <Edit title={<AdminReviewsTitle />} {...props}>
 //         <SimpleForm>
 //             <DisabledInput source="id" />
-            
+
 //             <TextInput source="name" />
 //             <TextInput source="location" />
 //             <LongTextInput source="story" />
@@ -59,7 +60,7 @@ export const AdminReviews = (props) => (
 //     <Create {...props}>
 //         <SimpleForm>
 //             <DisabledInput source="id" />
-            
+
 //             <TextInput source="name" validate={required}/>
 //             <TextInput source="location" validate={required}/>
 //             <LongTextInput source="story" validate={required}/>

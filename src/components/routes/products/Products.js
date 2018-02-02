@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Logo from '../../Logo';
 import Product from './Product';
+import Instagram from '../../Instagram';
 class Products extends Component {
   constructor(props){
     super(props);
