@@ -11,18 +11,27 @@ class ByBrand extends Component{
 
   componentDidMount(){
 
-    // if (props){
-    //   this.setState({
-    //     dataLoaded: true
-    //   })
-    // }
-    // console.log(props, 'this is PROPS');
+    if (this.props.location.state.products){
+      this.setState({
+        dataLoaded: true
+      })
+    }
   }
   renderByBrand(products,brand){
     return products.map((product) => {
       if (product.brand_id == brand.id){
         return(
-          <div> {product.name} </div>
+          <div className="Product" key={product.id}>
+            <div className="product-left-column">
+              <img src={product.image} alt={product.name} />
+            </div>
+            <div className="product-right-column">
+              <h1>{product.name}</h1>
+              <h2>{product.brand_id}</h2>
+              <p>{product.description}</p>
+            </div>
+
+          </div>
         )
       }
     })
@@ -31,13 +40,10 @@ class ByBrand extends Component{
     const products = this.props.location.state.products;
     const brand = this.props.location.state.brand;
     const props = this.props.location.state;
-console.log('_________');
-    console.log(products);
-    console.log(brand);
-    console.log(props);
 
     return(
-      <div>
+      <div className="ByBrand">
+        <h1> Products by {brand.name} </h1>
         {/* {this.state.dataLoaded ? <div>{this.renderByBrand(products)}</div> : ''} */}
         {this.renderByBrand(products,brand)}
       </div>

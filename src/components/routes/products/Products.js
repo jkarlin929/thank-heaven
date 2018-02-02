@@ -6,6 +6,7 @@ class Products extends Component {
     super(props);
     this.state = {
       products: this.props.products,
+      brands: this.props.brands,
       dataLoaded: false
     }
     this.renderProducts = this.renderProducts.bind(this)
@@ -20,7 +21,7 @@ class Products extends Component {
   renderProducts(products, brands) {
     return products.map((product) => {
       return(
-        <Product key={product.id} name={product.name} description={product.description} image={product.image} brand_id={product.brand_id} />
+        <Product key={product.id} name={product.name} description={product.description} image={product.image} brands={brands} />
       )
     })
   }
@@ -34,7 +35,7 @@ class Products extends Component {
           <img src="http://res.cloudinary.com/camcash17/image/upload/v1517430458/001-toy-train_gapuot.png" />
         </div>
         <div className="productList">
-          {this.state.dataLoaded ? <div>{this.renderProducts(this.state.products)}</div> : ''}
+          {this.state.dataLoaded ? <div>{this.renderProducts(this.state.products, this.state.brands)}</div> : ''}
         </div>
       </div>
     );
