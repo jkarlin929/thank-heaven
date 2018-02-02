@@ -6,16 +6,29 @@ const productsController = {};
 productsController.index = (req, res) => {
   Product.findAll()
     .then(products => {
-      res.json({
-        message: 'ok',
-        data: products,
-      });
+     
+      res.json(products);
     })
     .catch(err => {
       console.log(err);
       res.status(500).json({ err });
     });
 };
+
+
+// productsController.index = (req, res) => {
+//   Product.findAll()
+//     .then(products => {
+//       res.json({
+//         message: 'ok',
+//         data: products,
+//       });
+//     })
+//     .catch(err => {
+//       console.log(err);
+//       res.status(500).json({ err });
+//     });
+// };
 
 productsController.show = (req, res) => {
   Product.findById(req.params.id)

@@ -35,40 +35,34 @@ export const AdminReviews = (props) => (
 // );
 
 
-// const AdminReviewsTitle = ({ record }) => {
-//     return <span>Post {record ? `"${record.title}"` : ''}</span>;
-// };
+const AdminReviewsTitle = ({ record }) => {
+    return <span>Post {record ? `"${record.title}"` : ''}</span>;
+};
 
-// export const AdminReviewsEdit = (props) => (
-//     <Edit title={<AdminReviewsTitle />} {...props}>
-//         <SimpleForm>
-//             <DisabledInput source="id" />
+export const AdminReviewsEdit = (props) => (
+    <Edit title={<AdminReviewsTitle />} {...props}>
+        <SimpleForm>
+            <DisabledInput source="id" />
 
-//             <TextInput source="name" />
-//             <TextInput source="location" />
-//             <LongTextInput source="story" />
-//             <LongTextInput source="quote" />
-//             <ImageInput source="pictures" label="Related pictures" accept="image/*" placeholder={<p>Drag & Drop or Click to Upload/</p>} >
-//     			<ImageField source="src" title="title" />
-// 			</ImageInput>
-// 			<BooleanInput label="Featured" source="featured" />
-//         </SimpleForm>
-//     </Edit>
-// );
+            <TextInput source="name" />
 
-// export const AdminBrandsCreate = (props) => (
-//     <Create {...props}>
-//         <SimpleForm>
-//             <DisabledInput source="id" />
+            <TextInput source="location" />
+            <LongTextInput source="quote" />
+            
+        </SimpleForm>
+    </Edit>
+);
 
-//             <TextInput source="name" validate={required}/>
-//             <TextInput source="location" validate={required}/>
-//             <LongTextInput source="story" validate={required}/>
-//             <LongTextInput source="quote" validate={required}/>
-//             <ImageInput source="pictures" label="Related pictures" accept="image/*" placeholder={<p>Drag & Drop or Click to Upload</p>}>
-//     			<ImageField source="src" title="title" />
-// 			</ImageInput>
-// 			<BooleanInput label="Featured" source="featured" />
-//         </SimpleForm>
-//     </Create>
-// );
+export const AdminReviewsCreate = (props) => (
+    <Create {...props}>
+        <SimpleForm>
+            <DisabledInput source="id" />
+            <TextInput source="name" />
+
+            
+            <TextInput source="location" />
+            <LongTextInput source="quote" />
+            
+        </SimpleForm>
+    </Create>
+);

@@ -54448,14 +54448,15 @@ var App = function (_Component) {
 
       _axios2.default.get('/data/products').then(function (products) {
         _this2.setState({
-          products: products.data.data
+          products: products
         });
       }).catch(function (err) {
         console.log(err);
       });
       _axios2.default.get('/data/brands').then(function (brands) {
+        console.log("this is axios brands", brands);
         _this2.setState({
-          brands: brands.data.data
+          brands: brands
         });
       }).catch(function (err) {
         console.log(err);
@@ -58935,7 +58936,7 @@ exports.default = Footer;
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _react = __webpack_require__(0);
@@ -58952,28 +58953,27 @@ var _AdminProducts = __webpack_require__(1016);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var httpClient = function httpClient(url) {
-    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    if (!options.headers) {
-        options.headers = new Headers({ Accept: 'application/json' });
-    }
-    // add your own headers here
-    options.headers.set("Access-Control-Expose-Headers", "content-length");
-    console.log(options.headers);
-    return _adminOnRest.fetchUtils.fetchJson(url, options);
-};
+// const httpClient = (url, options = {}) => {
+//     if (!options.headers) {
+// options.headers = new Headers({ Accept: 'application/json' });
+//     }
+//     // add your own headers here
+//     options.headers.set("Access-Control-Expose-Headers", "content-length");
+//     console.log(options.headers);
+//     return fetchUtils.fetchJson(url, options);
+// }
+var restClient = (0, _adminOnRest.jsonServerRestClient)('http://localhost:3000/data');
 // import { fetchJson, flattenObject } from 'admin-on-rest/src/util/fetch';
 // in src/App.js
 
-var restClient = (0, _adminOnRest.jsonServerRestClient)('http://localhost:3000/data');
-
 var AdminPage = function AdminPage() {
-    return _react2.default.createElement(
-        _adminOnRest.Admin,
-        { restClient: restClient },
-        _react2.default.createElement(_adminOnRest.Resource, { name: 'reviews', list: _AdminReviews.AdminReviews })
-    );
+  return _react2.default.createElement(
+    _adminOnRest.Admin,
+    { restClient: restClient },
+    _react2.default.createElement(_adminOnRest.Resource, { name: 'reviews', list: _AdminReviews.AdminReviews, edit: _AdminReviews.AdminReviewsEdit, create: _AdminReviews.AdminReviewsCreate, remove: _adminOnRest.Delete }),
+    _react2.default.createElement(_adminOnRest.Resource, { name: 'products', list: _AdminProducts.AdminProducts, edit: _AdminProducts.AdminProductsEdit, create: _AdminProducts.AdminProductsCreate, remove: _adminOnRest.Delete }),
+    _react2.default.createElement(_adminOnRest.Resource, { name: 'brands', list: _AdminBrands.AdminBrands, edit: _AdminBrands.AdminBrandsEdit, create: _AdminBrands.AdminBrandsCreate, remove: _adminOnRest.Delete })
+  );
 };
 // const restClient = jsonServerRestClient('http://jsonplaceholder.typicode.com');
 //
@@ -115833,64 +115833,106 @@ exports.default = ActionViewList;
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.AdminBrandsCreate = exports.AdminBrandsEdit = exports.AdminBrands = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 // in src/AdminBrands.js
-// import React from 'react';
-// import { List, Edit, Create, Datagrid, ReferenceField, TextField, EditButton, DisabledInput, LongTextInput, ReferenceInput, SelectInput, SimpleForm, TextInput } from 'admin-on-rest';
-
-// export const AdminBrands = (props) => (
-//     <List {...props}>
-//         <Datagrid>
-//             <TextField source="id" />
-//             <TextField source="name" />
-//             <TextField source="location" />
-//             <TextField source="story" />
-//             <TextField source="quote" />
-//             <ImageField source="image" title="title" />
-// 			<BooleanField source="featured" />        
-// 			</Datagrid>
-//     </List>
-// );
-// export default AdminBrands;
 
 
-// const AdminBrandsTitle = ({ record }) => {
-//     return <span>Post {record ? `"${record.title}"` : ''}</span>;
-// };
+var _react = __webpack_require__(0);
 
-// export const AdminBrandsEdit = (props) => (
-//     <Edit title={<AdminBrandsTitle />} {...props}>
-//         <SimpleForm>
-//             <DisabledInput source="id" />
+var _react2 = _interopRequireDefault(_react);
 
-//             <TextInput source="name" />
-//             <TextInput source="location" />
-//             <LongTextInput source="story" />
-//             <LongTextInput source="quote" />
-//             <ImageInput source="image" label="Related pictures" accept="image/*" placeholder={<p>Drag & Drop or Click to Upload/</p>} >
-//     			<ImageField source="src" title="title" />
-// 			</ImageInput>
-// 			<BooleanInput label="Featured" source="featured" />
-//         </SimpleForm>
-//     </Edit>
-// );
+var _adminOnRest = __webpack_require__(251);
 
-// export const AdminBrandsCreate = (props) => (
-//     <Create {...props}>
-//         <SimpleForm>
-//             <DisabledInput source="id" />
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//             <TextInput source="name" validate={required}/>
-//             <TextInput source="location" validate={required}/>
-//             <LongTextInput source="story" validate={required}/>
-//             <LongTextInput source="quote" validate={required}/>
-//             <ImageInput source="image" label="Related pictures" accept="image/*" placeholder={<p>Drag & Drop or Click to Upload</p>}>
-//     			<ImageField source="src" title="title" />
-// 			</ImageInput>
-// 			<BooleanInput label="Featured" source="featured" />
-//         </SimpleForm>
-//     </Create>
-// );
+var AdminBrands = exports.AdminBrands = function AdminBrands(props) {
+    return _react2.default.createElement(
+        _adminOnRest.List,
+        props,
+        _react2.default.createElement(
+            _adminOnRest.Datagrid,
+            null,
+            _react2.default.createElement(_adminOnRest.TextField, { source: 'id' }),
+            _react2.default.createElement(_adminOnRest.TextField, { source: 'name' }),
+            _react2.default.createElement(_adminOnRest.TextField, { source: 'location' }),
+            _react2.default.createElement(_adminOnRest.TextField, { source: 'story' }),
+            _react2.default.createElement(_adminOnRest.TextField, { source: 'quote' }),
+            _react2.default.createElement(_adminOnRest.ImageField, { source: 'image', title: 'title' }),
+            _react2.default.createElement(_adminOnRest.BooleanField, { source: 'featured' })
+        )
+    );
+};
+exports.default = AdminBrands;
 
+
+var AdminBrandsTitle = function AdminBrandsTitle(_ref) {
+    var record = _ref.record;
+
+    return _react2.default.createElement(
+        'span',
+        null,
+        'Post ',
+        record ? '"' + record.title + '"' : ''
+    );
+};
+
+var AdminBrandsEdit = exports.AdminBrandsEdit = function AdminBrandsEdit(props) {
+    return _react2.default.createElement(
+        _adminOnRest.Edit,
+        _extends({ title: _react2.default.createElement(AdminBrandsTitle, null) }, props),
+        _react2.default.createElement(
+            _adminOnRest.SimpleForm,
+            null,
+            _react2.default.createElement(_adminOnRest.DisabledInput, { source: 'id' }),
+            _react2.default.createElement(_adminOnRest.TextInput, { source: 'name' }),
+            _react2.default.createElement(_adminOnRest.TextInput, { source: 'location' }),
+            _react2.default.createElement(_adminOnRest.LongTextInput, { source: 'story' }),
+            _react2.default.createElement(_adminOnRest.LongTextInput, { source: 'quote' }),
+            _react2.default.createElement(
+                ImageInput,
+                { source: 'image', label: 'Related pictures', accept: 'image/*', placeholder: _react2.default.createElement(
+                        'p',
+                        null,
+                        'Drag & Drop or Click to Upload/'
+                    ) },
+                _react2.default.createElement(_adminOnRest.ImageField, { source: 'src', title: 'title' })
+            ),
+            _react2.default.createElement(BooleanInput, { label: 'Featured', source: 'featured' })
+        )
+    );
+};
+
+var AdminBrandsCreate = exports.AdminBrandsCreate = function AdminBrandsCreate(props) {
+    return _react2.default.createElement(
+        _adminOnRest.Create,
+        props,
+        _react2.default.createElement(
+            _adminOnRest.SimpleForm,
+            null,
+            _react2.default.createElement(_adminOnRest.DisabledInput, { source: 'id' }),
+            _react2.default.createElement(_adminOnRest.TextInput, { source: 'name', validate: required }),
+            _react2.default.createElement(_adminOnRest.TextInput, { source: 'location', validate: required }),
+            _react2.default.createElement(_adminOnRest.LongTextInput, { source: 'story', validate: required }),
+            _react2.default.createElement(_adminOnRest.LongTextInput, { source: 'quote', validate: required }),
+            _react2.default.createElement(
+                ImageInput,
+                { source: 'image', label: 'Related pictures', accept: 'image/*', placeholder: _react2.default.createElement(
+                        'p',
+                        null,
+                        'Drag & Drop or Click to Upload'
+                    ) },
+                _react2.default.createElement(_adminOnRest.ImageField, { source: 'src', title: 'title' })
+            ),
+            _react2.default.createElement(BooleanInput, { label: 'Featured', source: 'featured' })
+        )
+    );
+};
 
 /***/ }),
 /* 1015 */
@@ -115902,7 +115944,10 @@ exports.default = ActionViewList;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.AdminReviews = undefined;
+exports.AdminReviewsCreate = exports.AdminReviewsEdit = exports.AdminReviews = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; // in src/AdminProducts.js
+
 
 var _react = __webpack_require__(0);
 
@@ -115912,7 +115957,6 @@ var _adminOnRest = __webpack_require__(251);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// in src/AdminProducts.js
 console.log("Inside Admin Reviews");
 var AdminReviews = exports.AdminReviews = function AdminReviews(props) {
     return _react2.default.createElement(
@@ -115946,43 +115990,46 @@ var AdminReviews = exports.AdminReviews = function AdminReviews(props) {
 // );
 
 
-// const AdminReviewsTitle = ({ record }) => {
-//     return <span>Post {record ? `"${record.title}"` : ''}</span>;
-// };
+var AdminReviewsTitle = function AdminReviewsTitle(_ref) {
+    var record = _ref.record;
 
-// export const AdminReviewsEdit = (props) => (
-//     <Edit title={<AdminReviewsTitle />} {...props}>
-//         <SimpleForm>
-//             <DisabledInput source="id" />
+    return _react2.default.createElement(
+        'span',
+        null,
+        'Post ',
+        record ? '"' + record.title + '"' : ''
+    );
+};
 
-//             <TextInput source="name" />
-//             <TextInput source="location" />
-//             <LongTextInput source="story" />
-//             <LongTextInput source="quote" />
-//             <ImageInput source="pictures" label="Related pictures" accept="image/*" placeholder={<p>Drag & Drop or Click to Upload/</p>} >
-//     			<ImageField source="src" title="title" />
-// 			</ImageInput>
-// 			<BooleanInput label="Featured" source="featured" />
-//         </SimpleForm>
-//     </Edit>
-// );
+var AdminReviewsEdit = exports.AdminReviewsEdit = function AdminReviewsEdit(props) {
+    return _react2.default.createElement(
+        _adminOnRest.Edit,
+        _extends({ title: _react2.default.createElement(AdminReviewsTitle, null) }, props),
+        _react2.default.createElement(
+            _adminOnRest.SimpleForm,
+            null,
+            _react2.default.createElement(_adminOnRest.DisabledInput, { source: 'id' }),
+            _react2.default.createElement(_adminOnRest.TextInput, { source: 'name' }),
+            _react2.default.createElement(_adminOnRest.TextInput, { source: 'location' }),
+            _react2.default.createElement(_adminOnRest.LongTextInput, { source: 'quote' })
+        )
+    );
+};
 
-// export const AdminBrandsCreate = (props) => (
-//     <Create {...props}>
-//         <SimpleForm>
-//             <DisabledInput source="id" />
-
-//             <TextInput source="name" validate={required}/>
-//             <TextInput source="location" validate={required}/>
-//             <LongTextInput source="story" validate={required}/>
-//             <LongTextInput source="quote" validate={required}/>
-//             <ImageInput source="pictures" label="Related pictures" accept="image/*" placeholder={<p>Drag & Drop or Click to Upload</p>}>
-//     			<ImageField source="src" title="title" />
-// 			</ImageInput>
-// 			<BooleanInput label="Featured" source="featured" />
-//         </SimpleForm>
-//     </Create>
-// );
+var AdminReviewsCreate = exports.AdminReviewsCreate = function AdminReviewsCreate(props) {
+    return _react2.default.createElement(
+        _adminOnRest.Create,
+        props,
+        _react2.default.createElement(
+            _adminOnRest.SimpleForm,
+            null,
+            _react2.default.createElement(_adminOnRest.DisabledInput, { source: 'id' }),
+            _react2.default.createElement(_adminOnRest.TextInput, { source: 'name' }),
+            _react2.default.createElement(_adminOnRest.TextInput, { source: 'location' }),
+            _react2.default.createElement(_adminOnRest.LongTextInput, { source: 'quote' })
+        )
+    );
+};
 
 /***/ }),
 /* 1016 */
@@ -115990,70 +116037,116 @@ var AdminReviews = exports.AdminReviews = function AdminReviews(props) {
 
 "use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.AdminBrandsCreate = exports.AdminBrandsEdit = exports.AdminProducts = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 // in src/AdminProducts.js
-// import React from 'react';
-// import { List, Edit, Create, Datagrid, ReferenceField, TextField, EditButton, DisabledInput, LongTextInput, ReferenceInput, SelectInput, SimpleForm, TextInput } from 'admin-on-rest';
-
-// export const AdminProducts = (props) => (
-//     <List {...props}>
-//         <Datagrid>
-//             <TextField source="id" />
-//             <TextField source="name" />
-//             <ReferenceField label="Brand" source="brand_id" reference="brands">
-//                 <TextField source="name" />
-//             </ReferenceField>
-//             <TextField source="brand_id" />
-//             <TextField source="description" />
-//             <ImageField source="image" title="title" />
-// 			<BooleanField source="featured" />        
-// 			</Datagrid>
-//     </List>
-// );
 
 
-// const AdminProductsTitle = ({ record }) => {
-//     return <span>Post {record ? `"${record.title}"` : ''}</span>;
-// };
+var _react = __webpack_require__(0);
 
-// export const AdminBrandsEdit = (props) => (
-//     <Edit title={<AdminProductsTitle />} {...props}>
-//         <SimpleForm>
-//             <DisabledInput source="id" />
+var _react2 = _interopRequireDefault(_react);
 
-//             <TextInput source="name" />
-//             <TextInput source="location" />
-//             <ReferenceInput label="Brand" source="brand_id" reference="brands" allowEmpty>
-//                 <SelectInput optionText="name" />
-//             </ReferenceInput>
-//             <LongTextInput source="description" />
-//             <ImageInput source="image" label="Related pictures" accept="image/*" placeholder={<p>Drag & Drop or Click to Upload/</p>} >
-//     			<ImageField source="image" title="title" />
-// 			</ImageInput>
-// 			<BooleanInput label="Featured" source="featured" />
-//         </SimpleForm>
-//     </Edit>
-// );
+var _adminOnRest = __webpack_require__(251);
 
-// export const AdminBrandsCreate = (props) => (
-//     <Create {...props}>
-//         <SimpleForm>
-//         	<DisabledInput source="id" />
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//             <TextInput source="name" validate={required}/>
-//             <TextInput source="location" validate={required}/>
-//             <ReferenceInput label="Brand" source="brand_id" reference="brands" allowEmpty>
-//                 <SelectInput optionText="name" validate={required}/>
-//             </ReferenceInput>
-//             <LongTextInput source="description" validate={required}/>
-//             <ImageInput source="image" label="Related pictures" accept="image/*" placeholder={<p>Drag & Drop or Click to Upload/</p>} >
-//     			<ImageField source="image" title="title" />
-// 			</ImageInput>
-// 			<BooleanInput label="Featured" source="featured" />
+var AdminProducts = exports.AdminProducts = function AdminProducts(props) {
+    return _react2.default.createElement(
+        _adminOnRest.List,
+        props,
+        _react2.default.createElement(
+            _adminOnRest.Datagrid,
+            null,
+            _react2.default.createElement(_adminOnRest.TextField, { source: 'id' }),
+            _react2.default.createElement(_adminOnRest.TextField, { source: 'name' }),
+            _react2.default.createElement(
+                _adminOnRest.ReferenceField,
+                { label: 'Brand', source: 'brand_id', reference: 'brands' },
+                _react2.default.createElement(_adminOnRest.TextField, { source: 'name' })
+            ),
+            _react2.default.createElement(_adminOnRest.TextField, { source: 'brand_id' }),
+            _react2.default.createElement(_adminOnRest.TextField, { source: 'description' }),
+            _react2.default.createElement(_adminOnRest.ImageField, { source: 'image', title: 'title' }),
+            _react2.default.createElement(_adminOnRest.BooleanField, { source: 'featured' })
+        )
+    );
+};
 
-//         </SimpleForm>
-//     </Create>
-// );
+var AdminBrandsTitle = function AdminBrandsTitle(_ref) {
+    var record = _ref.record;
 
+    return _react2.default.createElement(
+        'span',
+        null,
+        'Post ',
+        record ? '"' + record.title + '"' : ''
+    );
+};
+
+var AdminBrandsEdit = exports.AdminBrandsEdit = function AdminBrandsEdit(props) {
+    return _react2.default.createElement(
+        _adminOnRest.Edit,
+        _extends({ title: _react2.default.createElement(AdminBrandsTitle, null) }, props),
+        _react2.default.createElement(
+            _adminOnRest.SimpleForm,
+            null,
+            _react2.default.createElement(_adminOnRest.DisabledInput, { source: 'id' }),
+            _react2.default.createElement(_adminOnRest.TextInput, { source: 'name' }),
+            _react2.default.createElement(_adminOnRest.TextInput, { source: 'location' }),
+            _react2.default.createElement(
+                _adminOnRest.ReferenceInput,
+                { label: 'Brand', source: 'brand_id', reference: 'brands', allowEmpty: true },
+                _react2.default.createElement(_adminOnRest.SelectInput, { optionText: 'name' })
+            ),
+            _react2.default.createElement(_adminOnRest.LongTextInput, { source: 'description' }),
+            _react2.default.createElement(
+                ImageInput,
+                { source: 'image', label: 'Related pictures', accept: 'image/*', placeholder: _react2.default.createElement(
+                        'p',
+                        null,
+                        'Drag & Drop or Click to Upload/'
+                    ) },
+                _react2.default.createElement(_adminOnRest.ImageField, { source: 'image', title: 'title' })
+            ),
+            _react2.default.createElement(BooleanInput, { label: 'Featured', source: 'featured' })
+        )
+    );
+};
+
+var AdminBrandsCreate = exports.AdminBrandsCreate = function AdminBrandsCreate(props) {
+    return _react2.default.createElement(
+        _adminOnRest.Create,
+        props,
+        _react2.default.createElement(
+            _adminOnRest.SimpleForm,
+            null,
+            _react2.default.createElement(_adminOnRest.DisabledInput, { source: 'id' }),
+            _react2.default.createElement(_adminOnRest.TextInput, { source: 'name', validate: required }),
+            _react2.default.createElement(_adminOnRest.TextInput, { source: 'location', validate: required }),
+            _react2.default.createElement(
+                _adminOnRest.ReferenceInput,
+                { label: 'Brand', source: 'brand_id', reference: 'brands', allowEmpty: true },
+                _react2.default.createElement(_adminOnRest.SelectInput, { optionText: 'name', validate: required })
+            ),
+            _react2.default.createElement(_adminOnRest.LongTextInput, { source: 'description', validate: required }),
+            _react2.default.createElement(
+                ImageInput,
+                { source: 'image', label: 'Related pictures', accept: 'image/*', placeholder: _react2.default.createElement(
+                        'p',
+                        null,
+                        'Drag & Drop or Click to Upload/'
+                    ) },
+                _react2.default.createElement(_adminOnRest.ImageField, { source: 'image', title: 'title' })
+            ),
+            _react2.default.createElement(BooleanInput, { label: 'Featured', source: 'featured' })
+        )
+    );
+};
 
 /***/ })
 /******/ ]);

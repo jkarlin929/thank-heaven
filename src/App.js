@@ -31,7 +31,7 @@ class App extends Component {
     axios.get('/data/products')
     .then(products => {
       this.setState({
-        products: products.data.data
+        products: products
       })
     })
     .catch( err => {
@@ -39,8 +39,9 @@ class App extends Component {
     })
     axios.get('/data/brands')
     .then(brands => {
+      console.log("this is axios brands", brands)
       this.setState({
-        brands: brands.data.data
+        brands: brands
       })
     })
     .catch( err => {

@@ -14,17 +14,7 @@ reviewsController.index = (req, res) => {
     });
 };
 
-// reviewsController.index = (req,res) => {
-//   axios.get('http://jsonplaceholder.typicode.com/posts')
-//   .then(posts => {
-//     console.log(posts.data);
-//     res.json(posts.data);
-//   })
-//   .catch(err => {
-//     console.log(err);
-//     res.status(500).json({ err });
-//   });
-// }
+
 
 reviewsController.show = (req, res) => {
   Review.findById(req.params.id)
