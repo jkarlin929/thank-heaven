@@ -70,6 +70,7 @@ class App extends Component {
       <div className='App'>
 
         <Header />
+        
         {
           this.state.dataLoaded ?
           <div className='routes'>

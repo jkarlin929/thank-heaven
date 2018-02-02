@@ -36,6 +36,7 @@ app.use(express.static('build'));
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'))
+
 });
 
 const productsRoutes = require('./routes/product-routes');
@@ -60,6 +61,7 @@ app.get('/brands', (req, res) => {
 });
 app.get('/reviews', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'))
+  res.set('Content-Range', '4');
 });
 app.get('/contact', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'))

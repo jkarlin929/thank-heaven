@@ -6,8 +6,15 @@ reviewsController.index = (req, res) => {
   Review.findAll()
     .then(reviews => {
       res.json({
-        message: 'ok',
-        data: reviews,
+     
+        headers: {
+          'Content-Type': 'application/json;',
+          'Content-Range': reviews.length,
+        }
+        data: {
+          message: 'ok',
+          data: reviews,
+      }
       });
     })
     .catch(err => {
