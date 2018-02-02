@@ -11,26 +11,12 @@ require('dotenv').config();
 
 app.use(cookieParser());
 
-// app.use(session({
-// 	secret: process.env.SESSION_KEY,
-// 	resave: false,
-// 	saveUninitialized: true,
-// }));
+app.use(session({
+	secret: process.env.SESSION_KEY,
+	resave: false,
+	saveUninitialized: true,
+}));
 
-// app.use(passport.initialize());
-// app.use(passport.session());
-
-// const authRouter = require('./routes/auth-routes');
-// app.use('/auth', authRouter);
-
-// const authHelpers = require('./services/auth/auth-helpers');
-// app.use(authHelpers.loginRequired);
-
-app.use(bodyParser.json());
-
-app.use(bodyParser.urlencoded({
-  extended: false
-}))
 
 app.use(express.static('build'));
 
@@ -65,9 +51,26 @@ app.get('/reviews', (req, res) => {
 app.get('/contact', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'))
 });
+const authRouter = require('./routes/auth-routes');
+app.use('/admin', authRouter);
+
 app.get('/admin', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'))
 });
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+const authHelpers = require('./services/auth/auth-helpers');
+app.use(authHelpers.loginRequired);
+
+app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({
+  extended: false
+}))
+
 
 // app.get('*', (req, res) => {
 //   res.redirect('/')

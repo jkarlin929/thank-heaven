@@ -58951,11 +58951,11 @@ var _AdminReviews = __webpack_require__(1015);
 
 var _AdminProducts = __webpack_require__(1016);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _authClient = __webpack_require__(1017);
 
-var required = function required(value) {
-  return value ? undefined : 'Required';
-};
+var _authClient2 = _interopRequireDefault(_authClient);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // const httpClient = (url, options = {}) => {
 //     if (!options.headers) {
@@ -58975,7 +58975,7 @@ var restClient = (0, _adminOnRest.jsonServerRestClient)('http://localhost:3000/d
 var AdminPage = function AdminPage() {
   return _react2.default.createElement(
     _adminOnRest.Admin,
-    { title: 'Thank Heaven Admin', restClient: restClient },
+    { authClient: _authClient2.default, title: 'Thank Heaven Admin', restClient: restClient },
     _react2.default.createElement(_adminOnRest.Resource, { name: 'reviews', list: _AdminReviews.AdminReviews, edit: _AdminReviews.AdminReviewsEdit, create: _AdminReviews.AdminReviewsCreate, remove: _adminOnRest.Delete }),
     _react2.default.createElement(_adminOnRest.Resource, { name: 'products', show: _AdminProducts.AdminProductsShow, list: _AdminProducts.AdminProducts, edit: _AdminProducts.AdminProductsEdit, create: _AdminProducts.AdminProductsCreate, remove: _adminOnRest.Delete }),
     _react2.default.createElement(_adminOnRest.Resource, { name: 'brands', list: _AdminBrands.AdminBrands, edit: _AdminBrands.AdminBrandsEdit, create: _AdminBrands.AdminBrandsCreate, remove: _adminOnRest.Delete })
@@ -116144,6 +116144,50 @@ var AdminProductsShow = exports.AdminProductsShow = function AdminProductsShow(p
         )
     );
 };
+
+/***/ }),
+/* 1017 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _adminOnRest = __webpack_require__(251);
+
+exports.default = function (type, params) {
+    // called when the user attempts to log in
+    if (type === _adminOnRest.AUTH_LOGIN) {
+        var username = params.username;
+
+        localStorage.setItem('username', username);
+        // accept all username/password combinations
+        return Promise.resolve();
+    }
+    // called when the user clicks on the logout button
+    if (type === _adminOnRest.AUTH_LOGOUT) {
+        localStorage.removeItem('username');
+        return Promise.resolve();
+    }
+    // called when the API returns an error
+    if (type === _adminOnRest.AUTH_ERROR) {
+        var status = params.status;
+
+        if (status === 401 || status === 403) {
+            localStorage.removeItem('username');
+            return Promise.reject();
+        }
+        return Promise.resolve();
+    }
+    // called when the user navigates to a new location
+    if (type === _adminOnRest.AUTH_CHECK) {
+        return localStorage.getItem('username') ? Promise.resolve() : Promise.reject();
+    }
+    return Promise.reject('Unknown method');
+}; // // in src/authClient.js
 
 /***/ })
 /******/ ]);
