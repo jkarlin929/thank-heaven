@@ -21,19 +21,19 @@ class Header extends Component {
         <Navbar.Collapse>
           <Nav pullRight>
             <NavItem eventKey={1} href="#">
-              <Link to="/" > Homepage </Link>
+              <Link to="/" > HOMEPAGE </Link>
             </NavItem>
             <NavItem eventKey={2} href="#">
-              <Link to="/products" > Products </Link>
+              <Link to="/products" > PRODUCTS </Link>
             </NavItem>
             <NavItem eventKey={3} href="#">
-              <Link to="/brands" > Brands </Link>
+              <Link to="/brands" > BRANDS </Link>
             </NavItem>
             <NavItem eventKey={4} href="#">
-              <Link to="/reviews" > Reviews </Link>
+              <Link to="/reviews" > REVIEWS </Link>
             </NavItem>
             <NavItem eventKey={5} href="#">
-              <Link to="/contact" > Contact </Link>
+              <Link to="/contact" > CONTACT </Link>
             </NavItem>
           </Nav>
         </Navbar.Collapse>

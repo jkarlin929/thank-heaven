@@ -1,11 +1,38 @@
-.headOne {
-  font-family: 'Work Sans', sans-serif;
-  font-weight: bold;
-  font-size: 60px;
+.headOne{
+  font-family: 'Work Sans', 500, sans-serif;
+  font-weight: 500;
+  font-size: 50px;
 }
 
-.contactDiv {
+.headTwo, .hours{
+  margin-top: 60px;
+  font-family: 'Work Sans', 100, sans-serif;
+  font-weight: 100;
+  font-size: 40px;
+}
+
+.contactDiv{
   margin: 10px 100px 10px 100px;
+}
+
+.contactInfo, .contactHours{
+  font-family: 'Work Sans', 100, sans-serif;
+  font-weight: 100;
+  font-size: 25px;
+  padding-left: 20px;
+}
+
+.contactEmail{
+  font-weight: 100;
+  text-decoration: none;
+}
+
+.contactEmail:hover {
+  text-decoration: none;
+  background-color: snow;
+  box-shadow: 1px 1px #bfd2ea, 2px 2px #bfd2ea, 3px 3px #bfd2ea;
+      -webkit-transform: translateX(-3px);
+      transform: translateX(-3px);
 }
 
 .mapsImage {
@@ -64,7 +91,8 @@
 }
 
 .messageform{
-  background-color: snow;
+  /*background-color: snow;*/
   /*width: 50%;*/
+  margin-top: 60px;
 }
 

@@ -27,7 +27,7 @@ class MessageForm extends Component {
   render() {
     return (
       <div className="messageform">
-      <h1>Send a Message</h1>
+      <h2>Send a Message</h2>
         <Form horizontal method="POST" action="https://formspree.io/jkarlin29@yahoo.com">
         <FormGroup controlId="formHorizontalName">
           <Col componentClass={ControlLabel} sm={2} name="name" for="name">
@@ -78,11 +78,11 @@ class MessageForm extends Component {
 
         <FormGroup>
           <Col smOffset={2} sm={10}>
-            <Button type="submit">Send</Button>
+            <Button type="submit" bsStyle="warning">Send</Button>
           </Col>
         </FormGroup>
             <FormControl type="hidden" name="_next" value="/" />
-        </Form>;
+        </Form>
       </div>
     );
   }
