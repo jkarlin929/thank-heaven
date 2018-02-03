@@ -12,7 +12,8 @@
 -Website Analytics.  
 -Preview Product/Brand before posting in Admin Page.  
 -E-commerce   
--Implementing Instagram Feed API to display clients images.  
+-Implementing Instagram Feed API to display clients images.
+-Style Admin Page   
 
 # App Components
 ## Header
@@ -42,20 +43,21 @@ A fixed image of store location on google maps, a link to directions to **Thank 
 |Contact    |   H    |   5hrs|  6hrs |  6hrs  |
 |Bootstrap| H   | 5hrs|   3hr        | N/A     |
 |Instagram| H       |   3hrs|  2hrs  |    2hrs   |
-|Google Maps API|H| 6hrs   | 1hr  |  1hr    |
+|Google Maps API|H| 6hrs   | 1hr  |  1hr   |
 |Forms      |   H       | 10hrs|    6hrs   |   N/A   |
-|Admin Page|    H    |16hrs  |  17hrs |    N/A     |
-|CSS         |  H |12hrs |      |     N/A    |
+|Admin Page|    H    |16hrs  |  20hrs |    20hrs   |
+|CSS         |  H |12hrs |   7hrs   |     N/A    |
 |Webpacks+Issues  |   H    | 4hr   |  1hr  | N/A    |
 |Axios API Call |  H   | 3hrs   | 3hrs |  
 |Auth       | H  | 1hr  |  1hr  |  N/A   |
+|Pagination | H  | 2hr  |  3.5hrs  | 3.5hrs |
 
 
 
 # Helper Functions
 |Function|Description|
 |-------:|:---------:|
-|COMING  | SOON|
+|Pagination  | [Reference](http://jasonwatmore.com/post/2017/03/14/react-pagination-example-with-logic-like-google)|
 
 
 # Images
@@ -115,3 +117,7 @@ Since that was the case, I re-setup our controllers to pull data from the placeh
 [Link to Github](https://github.com/axios/axios/issues/1255#issuecomment-354090991)
 
 Luckily it seemingly had a solution and was even tailored to express as a lot of the solutions seemed to be made for ruby, however this worked to create, or set the value of the header that could then be reached through from our localhost. I then created the needed X-Content-Length header, and data was being pulled. This was the last big hump in getting our admin page working.
+
+# References
+
+[For styling e-mail link in Contact Page](https://www.webdesignerdepot.com/2014/05/8-simple-css3-transitions-that-will-wow-your-users/)

@@ -27,17 +27,21 @@ class Reviews extends Component {
   }
   render() {
     return (
-      <div>
+    <div>
       <Logo />
-      <div>
-        Nice Words from Facebook
-      </div>
-        <div>
-          <hr className="line" />
-          <img src="http://res.cloudinary.com/camcash17/image/upload/v1517430458/001-toy-train_gapuot.png" />
+      <div className="reviewsDiv">
+        <div className="facebookHeader">
+          <i className="fab fa-facebook-square fa-3x"></i>
+            <h2>Nice Words from Facebook</h2>
+        </div>
+        <div className="inlineImage">
+          <hr />
+            <img className="trainImage" src="http://res.cloudinary.com/camcash17/image/upload/v1517430458/001-toy-train_gapuot.png" />
+          <hr />
         </div>
         <div className="reviewList">
           {this.state.dataLoaded ? <div>{this.renderReviews(this.state.reviews)}</div> : ''}
+          </div>
         </div>
       </div>
     );
