@@ -58936,7 +58936,7 @@ exports.default = Footer;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _react = __webpack_require__(0);
@@ -58957,29 +58957,28 @@ var _authClient2 = _interopRequireDefault(_authClient);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// const httpClient = (url, options = {}) => {
-//     if (!options.headers) {
-// options.headers = new Headers({ Accept: 'application/json' });
-//     }
-//     // add your own headers here
-//     options.headers.set("Access-Control-Expose-Headers", "content-length");
-//     console.log(options.headers);
-//     return fetchUtils.fetchJson(url, options);
-// }
-
-// import { fetchJson, flattenObject } from 'admin-on-rest/src/util/fetch';
 // in src/App.js
 
-var restClient = (0, _adminOnRest.jsonServerRestClient)('http://localhost:3000/data');
+var httpClient = function httpClient(url) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+    if (!options.headers) {
+        options.headers = new Headers({ Accept: 'application/json' });
+    }
+    var token = localStorage.getItem('token');
+    options.headers.set('Authorization', 'Bearer ' + token);
+    return _adminOnRest.fetchUtils.fetchJson(url, options);
+};
+var restClient = (0, _adminOnRest.jsonServerRestClient)('http://localhost:3000/data', httpClient);
 
 var AdminPage = function AdminPage() {
-  return _react2.default.createElement(
-    _adminOnRest.Admin,
-    { authClient: _authClient2.default, title: 'Thank Heaven Admin', restClient: restClient },
-    _react2.default.createElement(_adminOnRest.Resource, { name: 'reviews', list: _AdminReviews.AdminReviews, edit: _AdminReviews.AdminReviewsEdit, create: _AdminReviews.AdminReviewsCreate, remove: _adminOnRest.Delete }),
-    _react2.default.createElement(_adminOnRest.Resource, { name: 'products', show: _AdminProducts.AdminProductsShow, list: _AdminProducts.AdminProducts, edit: _AdminProducts.AdminProductsEdit, create: _AdminProducts.AdminProductsCreate, remove: _adminOnRest.Delete }),
-    _react2.default.createElement(_adminOnRest.Resource, { name: 'brands', list: _AdminBrands.AdminBrands, edit: _AdminBrands.AdminBrandsEdit, create: _AdminBrands.AdminBrandsCreate, remove: _adminOnRest.Delete })
-  );
+    return _react2.default.createElement(
+        _adminOnRest.Admin,
+        { authClient: _authClient2.default, title: 'Thank Heaven Admin', restClient: restClient },
+        _react2.default.createElement(_adminOnRest.Resource, { name: 'reviews', list: _AdminReviews.AdminReviews, edit: _AdminReviews.AdminReviewsEdit, create: _AdminReviews.AdminReviewsCreate, remove: _adminOnRest.Delete }),
+        _react2.default.createElement(_adminOnRest.Resource, { name: 'products', show: _AdminProducts.AdminProductsShow, list: _AdminProducts.AdminProducts, edit: _AdminProducts.AdminProductsEdit, create: _AdminProducts.AdminProductsCreate, remove: _adminOnRest.Delete }),
+        _react2.default.createElement(_adminOnRest.Resource, { name: 'brands', list: _AdminBrands.AdminBrands, edit: _AdminBrands.AdminBrandsEdit, create: _AdminBrands.AdminBrandsCreate, remove: _adminOnRest.Delete })
+    );
 };
 // const restClient = jsonServerRestClient('http://jsonplaceholder.typicode.com');
 //
@@ -116158,13 +116157,28 @@ Object.defineProperty(exports, "__esModule", {
 
 var _adminOnRest = __webpack_require__(251);
 
+// called when the user attempts to log in
 exports.default = function (type, params) {
-    // called when the user attempts to log in
     if (type === _adminOnRest.AUTH_LOGIN) {
-        var username = params.username;
+        var username = params.username,
+            password = params.password;
 
-        localStorage.setItem('username', username);
-        // accept all username/password combinations
+        var request = new Request('http://localhost:3000/api/auth/login', {
+            method: 'POST',
+            body: JSON.stringify({ username: username, password: password }),
+            headers: new Headers({ 'Content-Type': 'application/json' })
+        });
+        return fetch(request).then(function (response) {
+            if (response.status < 200 || response.status >= 300) {
+                throw new Error(response.statusText);
+            }
+            return response.json();
+        }).then(function (_ref) {
+            var token = _ref.token;
+
+            localStorage.setItem('token', token);
+        });
+
         return Promise.resolve();
     }
     // called when the user clicks on the logout button

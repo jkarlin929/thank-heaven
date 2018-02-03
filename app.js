@@ -6,17 +6,24 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
+global.__root   = __dirname + '/';
 
 require('dotenv').config();
 
 app.use(cookieParser());
 
-app.use(session({
-	secret: process.env.SESSION_KEY,
-	resave: false,
-	saveUninitialized: true,
-}));
+// app.use(session({
+// 	secret: process.env.SESSION_KEY,
+// 	resave: false,
+// 	saveUninitialized: true,
+// }));
 
+
+app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({
+  extended: false
+}))
 
 app.use(express.static('build'));
 
@@ -58,18 +65,23 @@ app.get('/admin', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'))
 });
 
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 
-const authHelpers = require('./services/auth/auth-helpers');
-app.use(authHelpers.loginRequired);
+// const authHelpers = require('./services/auth/auth-helpers');
+// app.use(authHelpers.loginRequired);
 
-app.use(bodyParser.json());
 
-app.use(bodyParser.urlencoded({
-  extended: false
-}))
+app.get('/api', function (req, res) {
+  res.status(200).send('API works.');
+});
+
+var UserController = require('./controllers/controller-users');
+app.use('/api/users', UserController);
+
+var AuthController = require( './services/auth/AuthController');
+app.use('/api/auth', AuthController);
 
 
 // app.get('*', (req, res) => {
