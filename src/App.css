@@ -1,3 +1,4 @@
+/*contact pages*/
 .headOne{
   font-family: 'Work Sans', 500, sans-serif;
   font-weight: 500;
@@ -11,8 +12,24 @@
   font-size: 40px;
 }
 
-.contactDiv{
-  margin: 10px 100px 10px 100px;
+.inlineImage{
+  display: flex;
+  flex-direction: row;
+  margin-left: -2%;
+  margin-bottom: 5%;
+}
+
+hr{
+  /*display: inline;*/
+  width: 50%;
+  height: 1px;
+  background: #666666;
+  margin-left: 28px;
+  margin-right: 28px;
+}
+
+.contactDiv, .reviewsDiv{
+  margin: 10px 120px 10px 120px;
 }
 
 .contactInfo, .contactHours{
@@ -27,17 +44,28 @@
   text-decoration: none;
 }
 
-.contactEmail:hover {
+.contactEmail:hover{
   text-decoration: none;
   background-color: snow;
   box-shadow: 1px 1px #bfd2ea, 2px 2px #bfd2ea, 3px 3px #bfd2ea;
-      -webkit-transform: translateX(-3px);
-      transform: translateX(-3px);
+  -webkit-transform: translateX(-3px);
+  transform: translateX(-3px);
 }
 
-.mapsImage {
+.mapsImage{
   width: 70%;
 }
+
+.trainImage{
+    height: 4%;
+    width: 4%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /*padding-left: 6px;*/
+    /*padding-right: 6px;*/
+}
+
 
 .mapAddress{
   font-family: 'Work Sans', sans-serif;
@@ -48,7 +76,7 @@
 }
 
 
-.header {
+.header{
   padding: 15px;
 }
 
@@ -58,19 +86,15 @@
   margin: 5px;
 }
 
-.navbar-collapse.collapse {
+.navbar-collapse.collapse{
   text-align: center;
 }
 
-#navItems {
+#navItems{
   text-align: center;
 }
 
-.navbar.navbar-default.navbar-fixed-top {
-
-}
-
-.navbar-nav {
+.navbar-nav{
   display: inline-block;
   float: none;
 /*  text-align: center;
@@ -79,11 +103,7 @@
   padding-top: 10px;*/
 }
 
-.navbar-header {
-
-}
-
-.logo {
+.logo{
   background-color: #BBD2EC;
   text-align: center;
   height: 175px;
@@ -96,3 +116,45 @@
   margin-top: 60px;
 }
 
+/*reviews.js page*/
+.facebookHeader{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Work Sans', 100, sans-serif;
+}
+
+.fa-facebook-square{
+  color: #495a8f;
+}
+
+.review-image{
+  height: 3%;
+  width: 3%;
+}
+
+.Review{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1399px) and (min-width: 400px) {
+    .inlineImage, .trainImage{
+      display: flex;
+      flex-direction: row;
+    }
+
+    .trainImage{
+      margin-top: 10px;
+    }
+
+    .contactDiv{
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mapAddress{
+      float: left;
+    }
+}

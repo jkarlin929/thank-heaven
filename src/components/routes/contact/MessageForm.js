@@ -44,7 +44,7 @@ class MessageForm extends Component {
             Phone Number
           </Col>
           <Col sm={10}>
-            <FormControl type="text" name="phone" placeholder="Your Phone Number" onChange={this.handleChange} />
+            <FormControl type="text" name="phone" placeholder="Phone Number" onChange={this.handleChange} />
           </Col>
         </FormGroup>
 
@@ -53,7 +53,7 @@ class MessageForm extends Component {
             Email Address
           </Col>
           <Col sm={10}>
-            <FormControl type="text" name="email" placeholder="Your Email" onChange={this.handleChange} />
+            <FormControl type="text" name="email" placeholder="Email" onChange={this.handleChange} />
           </Col>
         </FormGroup>
 
@@ -62,8 +62,8 @@ class MessageForm extends Component {
             I prefer to be contacted:
           </Col>
         <Col componentClass={ControlLabel} sm={2}>
-            <Checkbox inline type="checkbox" name="contact by" value="phone" onChange={this.handleChange}>by phone</Checkbox>
-            <Checkbox inline type="checkbox" name="contact by" value="email" onChange={this.handleChange}>by email</Checkbox>
+            <Checkbox inline style={{height: '40px'}} type="checkbox" name="contact by" value="phone" onChange={this.handleChange}>by phone</Checkbox>
+            <Checkbox inline style={{height: '40px'}} type="checkbox" name="contact by" value="email" onChange={this.handleChange}>by email</Checkbox>
         </Col>
         </FormGroup>
 
@@ -72,7 +72,7 @@ class MessageForm extends Component {
             Message
           </Col>
           <Col sm={10}>
-            <FormControl type="text" name="message" placeholder="Your Message" onChange={this.handleChange}></FormControl>
+            <FormControl style={{height: '200px'}} componentClass="textarea" type="text" name="message" placeholder="Enter Message Here" onChange={this.handleChange}></FormControl>
           </Col>
         </FormGroup>
 

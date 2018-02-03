@@ -13,7 +13,11 @@ class Contact extends Component {
         <Logo />
         <div className="contactDiv">
           <h1 className="headOne">Contact Us</h1>
-              <img src="http://res.cloudinary.com/camcash17/image/upload/v1517430458/001-toy-train_gapuot.png" />
+            <div className="inlineImage">
+              <hr />
+                <img className="trainImage" src="http://res.cloudinary.com/camcash17/image/upload/v1517430458/001-toy-train_gapuot.png" />
+              <hr />
+            </div>
         <Map />
         <div className="headTwo">
           <h2>Contact Information</h2>
