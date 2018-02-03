@@ -15,7 +15,7 @@ class Product extends Component {
     return (
       <div className="Product">
         <div className="product-left-column">
-          <img src={this.props.image} alt={this.props.name} />
+          <img src={this.props.image} alt={`image for ${this.props.name} goes here`} />
         </div>
         <div className="product-right-column">
           <h1>{this.props.name}</h1>

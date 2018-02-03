@@ -1,13 +1,50 @@
-import React, { Component } from 'react';
+// in src/AdminProducts.js
+import React from 'react';
+import { List, Edit, Create, Datagrid, ReferenceField, TextField, EditButton, DisabledInput, LongTextInput, ReferenceInput, SelectInput, SimpleForm, TextInput } from 'admin-on-rest';
 
-class AdminReviews extends Component {
 
-  render() {
-    return (
-      <div></div>
-    );
-  }
+export const AdminReviews = (props) => (
 
-}
+    <List {...props}>
+        <Datagrid>
+            <TextField source="id" />
 
-export default AdminReviews;
+            <TextField source="quote" />
+            <TextField source="name" />
+            <TextField source="location" />
+            <EditButton />
+        </Datagrid>
+
+
+    </List>
+);
+
+
+
+export const AdminReviewsEdit = (props) => (
+    <Edit title="Edit Review"  {...props}>
+        <SimpleForm>
+            <DisabledInput source="id" />
+
+            <TextInput source="name" />
+
+            <TextInput source="location" />
+            <LongTextInput source="quote" />
+            
+        </SimpleForm>
+    </Edit>
+);
+
+export const AdminReviewsCreate = (props) => (
+    <Create {...props}>
+        <SimpleForm>
+            <DisabledInput source="id" />
+            <TextInput source="name" />
+
+            
+            <TextInput source="location" />
+            <LongTextInput source="quote" />
+            
+        </SimpleForm>
+    </Create>
+);
