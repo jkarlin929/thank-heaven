@@ -133,11 +133,19 @@ hr{
   width: 3%;
 }
 
-.Review{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+.wrapper{
+  font-family: 'Work Sans', sans-serif;
+  font-size: 18px;
+  display: grid;
+  grid-template-columns: 50% 50%;
 }
+
+/*.ReviewDiv{
+  width: 50%;
+  height: 50%;
+  background-color: snow;
+
+}*/
 
 @media screen and (max-width: 1399px) and (min-width: 400px) {
     .inlineImage, .trainImage{
