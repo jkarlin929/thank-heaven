@@ -1,17 +1,9 @@
 import React, { Component } from 'react';
 class Product extends Component {
   componentWillMount(){
-    console.log('inside product',this.props);
-  }
-  addCurrentBrand(){
-
-    if (this.props.brand_id == this.props.brands.id){
-      return <h2>{this.props.brands.name}</h2>
-    }
   }
 
   render() {
-
     return (
       <div className="Product">
         <div className="product-left-column">
@@ -19,11 +11,9 @@ class Product extends Component {
         </div>
         <div className="product-right-column">
           <h1>{this.props.name}</h1>
-          {this.addCurrentBrand()}
-          <p>{this.props.description}</p>
+          <div>{this.props.brands[this.props.brand_id].name}</div>
+          <div>{this.props.description}</div>
         </div>
-
-
       </div>
     );
   }
