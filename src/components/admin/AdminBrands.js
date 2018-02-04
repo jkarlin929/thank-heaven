@@ -2,22 +2,56 @@
 
 // in src/AdminBrands.js
 import React from 'react';
-import { ImageInput, List, Edit, Create, Datagrid, ReferenceField, TextField, EditButton, DisabledInput, LongTextInput, ReferenceInput, SelectInput, SimpleForm, TextInput, ImageField, BooleanField, BooleanInput} from 'admin-on-rest';
-
+import {
+    Filter, 
+    Show, 
+    SimpleShowLayout, 
+    ImageInput, 
+    List, 
+    Edit, 
+    Create, 
+    Datagrid, 
+    ReferenceField, 
+    TextField, 
+    EditButton, 
+    DisabledInput, 
+    LongTextInput, 
+    ReferenceInput, 
+    SelectInput, 
+    SimpleForm, 
+    TextInput, 
+    ImageField, 
+    BooleanField, 
+    BooleanInput, 
+    ShowButton, 
+    Responsive, 
+    SimpleList
+    } from 'admin-on-rest';
 export const AdminBrands = (props) => (
     <List {...props}>
-        <Datagrid>
-            <TextField source="id" />
-            <TextField source="name" />
-            <TextField source="location" />
-            <TextField source="story" />
-            <TextField source="quote" />
-            <ImageField source="image" title="title" />
-			<BooleanField source="featured" />  
-			<EditButton />      
-			</Datagrid>
-    </List>
-);
+     <Responsive
+                small={
+                    <SimpleList
+                        primaryText={record => record.name}
+                        secondaryText={record => record.featured}
+                        
+                    />
+                }
+                medium={
+                    <Datagrid>
+                        <TextField source="id" />
+                        <TextField source="name" />
+                        <TextField source="location" />
+                        <TextField source="story" />
+                        <TextField source="quote" />
+                        <ImageField source="image" title="title" />
+            			<BooleanField source="featured" />  
+            			<EditButton />      
+            			</Datagrid>
+                }
+                />
+                </List>
+            );
 export default AdminBrands;
 
 
