@@ -23,7 +23,6 @@ class Contact extends Component {
             <Hours />
             <MessageForm />
         </div>
-      </div>
     );
   }
 }
