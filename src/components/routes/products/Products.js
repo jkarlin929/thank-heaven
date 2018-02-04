@@ -42,9 +42,13 @@ class Products extends Component {
       <div>
       <Logo />
 
-      <div className="container">
-        <div className="text-center">
-          <h1>Products</h1>
+      <h1 className="products-header">Products</h1>
+      <div className ="train-logo">
+        <hr className="line1" />
+        <img className="trainImage" src="http://res.cloudinary.com/camcash17/image/upload/v1517430458/001-toy-train_gapuot.png" />
+        <hr className="line2" />
+      </div>
+      <div>
           {
             this.state.productItems
               ? this.state.pageOfItems.map(item =>
@@ -59,9 +63,9 @@ class Products extends Component {
           }
 
         </div>
+        <Instagram />
       </div>
-      <Instagram />
-    </div>);
+    )
   }
 }
 
