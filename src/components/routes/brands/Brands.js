@@ -31,13 +31,14 @@ class Brands extends Component {
     return (
       <div>
         <Logo />
-        <h1>Brands</h1>
-        <div>
-          <hr className="line" />
-          <img src="http://res.cloudinary.com/camcash17/image/upload/v1517430458/001-toy-train_gapuot.png" />
+        <h1 className="products-header">Brands</h1>
+        <div className ="train-logo">
+          <hr className="line1" />
+          <img className="trainImage" src="http://res.cloudinary.com/camcash17/image/upload/v1517430458/001-toy-train_gapuot.png" />
+          <hr className="line2" />
         </div>
-        <div className="brandList">
-          {this.state.dataLoaded ? <div>{this.renderBrands(this.state.brands,this.state.products)}</div> : ''}
+        <div>
+          {this.state.dataLoaded ? <div className="brandList">{this.renderBrands(this.state.brands,this.state.products)}</div> : ''}
         </div>
       </div>
     );

@@ -6,7 +6,7 @@ class Product extends Component {
   addCurrentBrand(){
 
     if (this.props.brand_id == this.props.brands.id){
-      return <h2>{this.props.brands.name}</h2>
+      return <h2 className="brands-name">{this.props.brands.name}</h2>
     }
   }
 
@@ -18,12 +18,10 @@ class Product extends Component {
           <img src={this.props.image} alt={this.props.name} />
         </div>
         <div className="product-right-column">
-          <h1>{this.props.name}</h1>
+          <h1 className="product-name">{this.props.name}</h1>
           {this.addCurrentBrand()}
-          <p>{this.props.description}</p>
+          <h2 className="product-desc">{this.props.description}</h2>
         </div>
-
-
       </div>
     );
   }
