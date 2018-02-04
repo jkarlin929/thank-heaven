@@ -21,7 +21,7 @@ let config = require('../../config'); // get config file
 router.post('/login', (req, res) => {
   console.log('login route')
 
-  
+
 
 User.findByUserName(req.body.username)
   .then( user => {
@@ -31,14 +31,14 @@ User.findByUserName(req.body.username)
         message: 'no user here'
       })
     }
-    let passwordIsValid = bcrypt.compare(req.body.password, user.password_digest);
-    console.log("password compare", req.body.password, user.password_digest)
-    if (!passwordIsValid) {
-      console.log(passwordIsValid)
-      return res.status(401).json({
-        message: 'wrong password'
-      })
-    }
+    let passwordIsValid = (req.body.password === user.password_digest);
+        console.log("password compare", req.body.password === user.password_digest)
+        if (!passwordIsValid) {
+          console.log(passwordIsValid)
+          return res.status(401).json({
+            message: 'wrong password'
+          })
+        }
     let token = jwt.sign({
       id: user.id
     }, config.secret, {
@@ -67,7 +67,7 @@ router.post('/register', function(req, res) {
   User.create({
     name : req.body.username,
     password : hashedPassword
-  }, 
+  },
   function (err, user) {
     if (err) return res.status(500).send("There was a problem registering the user`.");
 

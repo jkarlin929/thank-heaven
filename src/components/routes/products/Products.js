@@ -48,7 +48,7 @@ class Products extends Component {
         <img className="trainImage" src="http://res.cloudinary.com/camcash17/image/upload/v1517430458/001-toy-train_gapuot.png" />
         <hr className="line2" />
       </div>
-      <div>
+      <div className="productList">
           {
             this.state.productItems
               ? this.state.pageOfItems.map(item =>
@@ -56,6 +56,8 @@ class Products extends Component {
               <Product key={item.id} name={item.name} description={item.description} image={item.image} brand_id={item.brand_id} brands={this.props.brands}/>)
               : ''
           }
+        </div>
+        <div>
           {
             this.state.productItems
               ? <Pagination items={this.state.productItems} onChangePage={this.onChangePage}/>
