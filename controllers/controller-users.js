@@ -1,26 +1,26 @@
 // controllers/users-controller.js
 
-// const bcrypt = require('bcryptjs');
-// const User = require('../models/users.js');
+let express = require('express');
+let router = express.Router();
+let bodyParser = require('body-parser');
 
-// const usersController = {};
+let VerifyToken = require('../services/auth/VerifyToken');
 
-// usersController.create = (req, res) => {
-//   const salt = bcrypt.genSaltSync();
-//   const hash = bcrypt.hashSync(req.body.password, salt);
-//   User.create({
-//     username: req.body.username,
-//     email: req.body.email,
-//     password_digest: hash,
-//   }).then(user => {
-//     req.login(user, (err) => {
-//       if (err) return next(err);
-//       res.redirect('/movies');
-//     });
-//   }).catch(err => {
-//     console.log(err);
-//     res.status(500).json({error: err});
-//   });
-// }
+router.use(bodyParser.urlencoded({ extended: true }));
+let User = require('../models/users');
 
-// module.exports = usersController;
+// CREATES A NEW USER
+router.post('/', function (req, res) {
+    User.create({
+            name : req.body.username,
+            password : req.body.password
+        }, 
+        function (err, user) {
+            if (err) return res.status(500).send("There was a problem adding the information to the database.");
+            res.status(200).send(user);
+        });
+});
+
+
+module.exports = router;
+
