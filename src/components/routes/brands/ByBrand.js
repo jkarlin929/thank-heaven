@@ -22,13 +22,12 @@ class ByBrand extends Component{
     return products.map((product) => {
       if (product.brand_id == brand.id){
         return(
-          <div className="Brand" key={product.id}>
-            <div className="brand-left-column">
+          <div className="by-brand" key={product.id}>
+           <div className="by-brand-left-column">
               <img src={product.image} alt={product.name} />
             </div>
             <div className="brand-right-column">
               <h1 className="product-name">{product.name}</h1>
-              <h2 className="brands-name">{product.brand_id}</h2>
               <h2 className="product-desc">{product.description}</h2>
             </div>
 

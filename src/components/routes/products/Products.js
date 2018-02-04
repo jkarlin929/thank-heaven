@@ -57,7 +57,7 @@ class Products extends Component {
               : ''
           }
         </div>
-        <div>
+        <div className="pagination-wrapper">
           {
             this.state.productItems
               ? <Pagination items={this.state.productItems} onChangePage={this.onChangePage}/>

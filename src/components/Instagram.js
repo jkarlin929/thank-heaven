@@ -19,7 +19,7 @@ class Instagram extends Component {
           </a>
         </div>
         <div className="ig-pic">
-          <Image width={360} height={360} src={img1} responsive />
+          <Image width={500} height={500} src={img1} responsive />
           <Image width={500} height={500} src={img2} responsive />
           <Image width={500} height={500} src={img3} responsive />
           <Image width={500} height={500} src={img4} responsive />

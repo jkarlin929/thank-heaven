@@ -340,6 +340,13 @@ hr {
   padding: 1%;
   margin: 2%;
 }
+.by-brand {
+ display: grid;
+ grid-template-columns: 40% 60%;
+ text-align: center;
+ padding: 1%;
+ margin: 2%;
+}
 
 .brand-image {
   width: 80%;
@@ -376,8 +383,15 @@ hr {
   font-weight: lighter;
 }
 
+.pagination-wrapper{
+  display:flex;
+    align-items: center;
+    justify-content: center;
+}
 
-
+.pagination{
+  align-items: center;
+}
 
 @media (max-width: 600px) {
 
@@ -524,5 +538,16 @@ hr {
   .brand-quote {
     display: none;
   }
+  .by-brand {
+   display: grid;
+   grid-template-columns: 1fr;
+   text-align: center;
+   padding: 1%;
+   margin: 1%;
+ }
+
+ .by-brand-left-column {
+   margin: 0;
+ }
 
 }
