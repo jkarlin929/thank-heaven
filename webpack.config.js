@@ -13,16 +13,25 @@ const config = {
   },
   module: {
     rules: [
+
       {
-        use: 'babel-loader',
-        test: /\.js$/
+        test: /\.js[x]?$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
+        
       },
+
       // {
       //   use: ExtractTextWebpackPlugin.extract({
       //     use: 'css-loader'
       //   }),
       //   test: /\.css$/
       // },
+      {
+        test: /\.js[x]?$/,
+        use: 'babel-loader',
+        exclude: /node_modules/,
+      },
       {
         test:/\.(s*)css$/,
         use: ExtractTextWebpackPlugin.extract({

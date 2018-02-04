@@ -17,6 +17,7 @@ class FeaturedProducts extends Component {
         dataLoaded: true
       })
     }
+    console.log(this.props.products, 'HELLO PROPS');
   }
   createProducts(products){
     return products.map((product) => {
@@ -44,6 +45,7 @@ class FeaturedProducts extends Component {
         { this.state.dataLoaded ?
           <div className='FeaturedList'>
              {this.createProducts(this.state.products)}
+
           </div>
           :
           ''

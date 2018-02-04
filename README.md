@@ -1,10 +1,10 @@
 # MVP
--Create a working website for **Thank Heaven** Children's Boutique. 
--Following a UX Design teams mock-up, create a page with necessary routes using React and Webpack. 
--Render products, brands, featured products and featured brands, images and brand stories. 
--Display reviews and contact information with contact form. 
--Use the Instagram API, and google maps API for store location and directions. 
--Complete all components using bootstrap and CSS.
+-Create a working website for **Thank Heaven** Children's Boutique.  
+-Following a UX Design teams mock-up, create a page with necessary routes using React and Webpack.   
+-Render products, brands, featured products and featured brands, images and brand stories.   
+-Display reviews and contact information with contact form.   
+-Use the Instagram API, and google maps API for store location and directions.   
+-Complete all components using bootstrap and CSS.  
 
 # POST-MVP
 
@@ -12,7 +12,8 @@
 -Website Analytics.  
 -Preview Product/Brand before posting in Admin Page.  
 -E-commerce   
--Implementing Instagram Feed API to display clients images.  
+-Implementing Instagram Feed API to display clients images.
+-Style Admin Page   
 
 # App Components
 ## Header
@@ -34,28 +35,29 @@ A fixed image of store location on google maps, a link to directions to **Thank 
 |Component|Priority|EST time|Time Invested|Actual Time|
 |---------|:------:|-------:|:-----------:|:---------:|
 |Database | H   |2hrs    |  2hrs    |   2hrs.     |
-|Header/Footer| H | 2hrs   |         |   N/A     |
-|Homepage |  H  |   6hrs|  4hrs  |   N/A        |
+|Header/Footer| H | 2hrs   |   2hrs   |   2hrs     |
+|Homepage |  H  |   6hrs|  4hrs  |   4hrs        |
 |Products Page|  H  |   5hrs|     2.5hrs| N/A      |
-|Brands Page|   H   |   5hrs|  2.5hrs| N/A    |
-|Reviews    |   H   |   5hrs|         |    N/A    |
-|Contact    |   H    |   5hrs|  4hrs. |  N/A  |
-|Bootstrap| H       | 5hrs|    |        | N/A     |
-|Instagram| H       |   3hrs|       |      N/A   |
-|Google Maps API|H| 6hrs   | 1hr  |  N/A    |
-|Forms      |   H       | 10hrs|    4hrs   |   N/A   |
-|Admin Page|    H    |16hrs  |  12hrs |    N/A     |
-|CSS         |  H |12hrs |      |     N/A    |
-|Webpacks+Issues  |   H       | 4hr   |  1hr  | N/A    |
+|Brands Page|   H   |   5hrs|  6.5hrs| N/A    |
+|Reviews    |   H   |   5hrs|   3hr  |    3hrs    |
+|Contact    |   H    |   5hrs|  6hrs |  6hrs  |
+|Bootstrap| H   | 5hrs|   3hr        | N/A     |
+|Instagram| H       |   3hrs|  2hrs  |    2hrs   |
+|Google Maps API|H| 6hrs   | 1hr  |  1hr   |
+|Forms      |   H       | 10hrs|    6hrs   |   N/A   |
+|Admin Page|    H    |16hrs  |  20hrs |    20hrs   |
+|CSS         |  H |12hrs |   7hrs   |     N/A    |
+|Webpacks+Issues  |   H    | 4hr   |  1hr  | N/A    |
 |Axios API Call |  H   | 3hrs   | 3hrs |  
-|Auth       | H  | 1hr  |  1hr  |  N/A    |
+|Auth       | H  | 1hr  |  1hr  |  N/A   |
+|Pagination | H  | 2hr  |  3.5hrs  | 3.5hrs |
 
 
 
 # Helper Functions
 |Function|Description|
 |-------:|:---------:|
-|COMING  | SOON|
+|Pagination  | [Reference](http://jasonwatmore.com/post/2017/03/14/react-pagination-example-with-logic-like-google)|
 
 
 # Images
@@ -73,7 +75,8 @@ A fixed image of store location on google maps, a link to directions to **Thank 
 # Issues and Resolutions
 To submit contact form, using webpack and react, nodemailer is not compatable because it uses templates in express. Need to build on front-end only. Ended up using formspree.io for a form to send e-mail to client.
 
-Webpacks comes along with many issues, including uploading local images to display. This particular problem took 2.5 hours to solve, and uses url-loader and file-loader, to deal with small and large files respectively. The solution found was located here and was very thorough and helpful: https://medium.com/a-beginners-guide-for-webpack-2/handling-images-e1a2a2c28f8d
+Webpacks comes along with many issues, including uploading local images to display. This particular problem took 2.5 hours to solve, and uses url-loader and file-loader, to deal with small and large files respectively. The solution found was located here and was very thorough and helpful: 
+[Webpack Solution](https://medium.com/a-beginners-guide-for-webpack-2/handling-images-e1a2a2c28f8d)
 
 Another issue related to webpacks was being unable to refresh and load the correct page or directly access a url that wasn't the root level. The solutions floating around the internet seemingly did not help, and dealt mostly with solving it on the webpack side, which included using a npm package called webpack-dev-server and perhaps many other related middleware. After 3.5 hours, the solution, or workaround rather, was to change the express backend to directly serve the files needed to each individual link.
 
@@ -99,3 +102,22 @@ app.get('/reviews', (req, res) => {
   res.set('Content-Range', '4');
 });
 ```
+
+Route react-router-dom component, if you use the render function, it will always take those props, regardless of how far down nested the component it's ` linking to actually is, and will also override any props that you are trying to pass through to it from else where. There was an issue of trying to use a Link to pass through proper props, but it was being overwritten by the Route in the App.js.
+
+
+Andy: After James took a break on working with the admin page, I took a crack at it. First step was to take a glance at the documentation, and determine how the actual package works. The documentation was pretty well maintained and coherent. I had a fairly decent understanding of what was going wrong as I was helping James troubleshoot the admin page from time to time. So after messing around with using different methods described in the documentation, I changed back to one of the original methods, and played around with using placeholder json from the site: 
+[Placeholder Site](http://jsonplaceholder.typicode.com)
+
+It was working, which was peculiar because our json data was most definitely coming through on our end, and for some reason, it either couldn't pull the header information from our localhost that we posted from our database.
+
+My first guess was that the json data that was being accessed by the admin-on-rest package needed to be in a specific format, and our json data was actually nested inside another object, which while it didn't solve our current problem, was another one that would have popped up if I didn't fix.
+
+Since that was the case, I re-setup our controllers to pull data from the placeholder site, and then repush that information onto our localhost, and lo and behold I was learning grabbing our data from our localhost was messing something up. It looked like it was either not pulling the header information or mutating it. After several non-working solutions I came across this post that wasn't directly related to admin-on-rest:
+[Link to Github](https://github.com/axios/axios/issues/1255#issuecomment-354090991)
+
+Luckily it seemingly had a solution and was even tailored to express as a lot of the solutions seemed to be made for ruby, however this worked to create, or set the value of the header that could then be reached through from our localhost. I then created the needed X-Content-Length header, and data was being pulled. This was the last big hump in getting our admin page working.
+
+# References
+
+[For styling e-mail link in Contact Page](https://www.webdesignerdepot.com/2014/05/8-simple-css3-transitions-that-will-wow-your-users/)

@@ -5,16 +5,29 @@ const brandsController = {};
 brandsController.index = (req, res) => {
   Brand.findAll()
     .then(brands => {
-      res.json({
-        message: 'ok',
-        data: brands,
-      });
+     
+      res.json(brands);
     })
     .catch(err => {
       console.log(err);
       res.status(500).json({ err });
     });
 };
+
+
+// brandsController.index = (req, res) => {
+//   Brand.findAll()
+//     .then(brands => {
+//       res.json({
+//         message: 'ok',
+//         data: brands,
+//       });
+//     })
+//     .catch(err => {
+//       console.log(err);
+//       res.status(500).json({ err });
+//     });
+// };
 
 brandsController.show = (req, res) => {
   Brand.findById(req.params.id)

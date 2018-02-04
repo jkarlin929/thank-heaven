@@ -7,6 +7,7 @@ class Header extends Component {
 
   render() {
     return (
+
       <div className="header">
         <Navbar collapseOnSelect fixedTop fluid>
           <Navbar.Header>
@@ -43,7 +44,6 @@ class Header extends Component {
           </Navbar.Collapse>
         </Navbar>
       </div>
-
     );
   }
 }
