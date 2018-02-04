@@ -2,22 +2,16 @@ import React, { Component } from 'react';
 import Hours from './Hours';
 import MessageForm from './MessageForm';
 import Map from './Map';
-import Logo from '../../Logo';
-
-
+import Logo from '../../Logo'
 
 class Contact extends Component {
   render() {
     return (
       <div>
         <Logo />
-        <div className="contactDiv">
-          <h1 className="headOne">Contact Us</h1>
-            <div className="inlineImage">
-              <hr />
-                <img className="trainImage" src="http://res.cloudinary.com/camcash17/image/upload/v1517430458/001-toy-train_gapuot.png" />
-              <hr />
-            </div>
+        <h1>Contact Us</h1>
+        <img src="http://res.cloudinary.com/camcash17/image/upload/v1517430458/001-toy-train_gapuot.png" />
+
         <Map />
         <div className="headTwo">
           <h2>Contact Information</h2>

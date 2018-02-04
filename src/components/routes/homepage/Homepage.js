@@ -5,6 +5,7 @@ import FeaturedBrands from './FeaturedBrands';
 import FeaturedProducts from './FeaturedProducts';
 import Welcome from './Welcome';
 import Instagram from '../../Instagram';
+import phone from '../../../../public/images/005-mitten.png';
 
 
 
@@ -37,9 +38,7 @@ class Homepage extends Component {
         <Welcome />
         {this.state.dataLoaded ? <FeaturedProducts products={this.state.products}/> : ''}
         <div className='call'>
-          <div className='phone-img'>
-            {/* <img src='../../../public/images/005-mitten.png' / alt="phone image"> */}
-          </div>
+          <span className='glyphicon glyphicon-earphone' id='cell'></span>
           <div className='call-text'>
             Call to place an order
           </div>

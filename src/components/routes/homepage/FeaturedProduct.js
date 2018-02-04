@@ -4,7 +4,9 @@ class FeaturedProduct extends Component {
   render() {
     return (
       <div className='FeaturedProduct'>
-        <img src={this.props.image} alt='product'/>
+        <a href="/products">
+          <img src={this.props.image} alt='product'/>
+        </a>
       </div>
     );
   }

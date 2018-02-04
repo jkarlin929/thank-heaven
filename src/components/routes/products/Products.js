@@ -41,6 +41,7 @@ class Products extends Component {
     return (
       <div>
       <Logo />
+
       <div className="container">
         <div className="text-center">
           <h1>Products</h1>
@@ -56,6 +57,7 @@ class Products extends Component {
               ? <Pagination items={this.state.productItems} onChangePage={this.onChangePage}/>
               : ''
           }
+
         </div>
       </div>
       <Instagram />
