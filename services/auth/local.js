@@ -2,6 +2,8 @@
 
 // const passport = require('passport');
 // const LocalStrategy = require('passport-local').Strategy;
+// const jwt = require('jsonwebtoken');
+
 
 // const init = require('./passport');
 // const User = require('../../models/users');
@@ -26,7 +28,8 @@
 //       }).catch(err => {
 //         console.log(err);
 //         return done(err);
-//       });
+//       })
+      
 //   })
 // );
 

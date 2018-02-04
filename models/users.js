@@ -2,11 +2,11 @@ const db = require('../db/config');
 
 const User = {};
 
-User.findByUserName = userName => {
+User.findByUserName = username => {
   return db.oneOrNone(`
     SELECT * FROM users
-    WHERE userName = $1
-  `, [userName]);
+    WHERE username = $1
+  `, [username]);
 };
 
 User.create = user => {
