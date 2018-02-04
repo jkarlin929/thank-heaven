@@ -15,15 +15,7 @@ import authClient from './authClient';
 
 
 
-// const httpClient = (url, options = {}) => {
-//     if (!options.headers) {
-//         options.headers = new Headers({ Accept: 'application/json' });
-//     }
-//     const token = localStorage.getItem('token');
-//     options.headers.set('Authorization', `Bearer ${token}`);
-//     return fetchUtils.fetchJson(url, options);
-// }
-const restClient = jsonServerRestClient('http://localhost:3000/data'/*, httpClient*/);
+const restClient = jsonServerRestClient('http://localhost:3000/data');
 
 const AdminPage = () => (
 	<Admin authClient={authClient} title="Thank Heaven Admin"  restClient={restClient}>
@@ -34,23 +26,7 @@ const AdminPage = () => (
 
     </Admin>
 );
-// const restClient = jsonServerRestClient('http://jsonplaceholder.typicode.com');
-//
-// const AdminPage = () => (
-// 	<Admin restClient={restClient}>
-// 		<Resource name="posts" list={AdminReviews} />
-//
-//
-//
-//     </Admin>
-// );
+
 export default AdminPage;
 
-  // <Resource name="Reviews" reviews={AdminReviews} />
-  //       <Resource name="Brands" brands={AdminBrands} />
-
- 	//  	<Resource name="Products" products={AdminProducts} />
-  //
-
-  // <Admin  restClient={jsonServerRestClient('http://jsonplaceholder.typicode.com')}>
-  //      <Resource name="posts" list={AdminReviews} />
+  

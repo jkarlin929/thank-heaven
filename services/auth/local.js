@@ -1,46 +1,36 @@
 // services/auth/local.js
 
-const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
-const jwt = require('jsonwebtoken');
+// const passport = require('passport');
+// const LocalStrategy = require('passport-local').Strategy;
+// const jwt = require('jsonwebtoken');
 
 
-const init = require('./passport');
-const User = require('../../models/users');
-const authHelpers = require('./auth-helpers');
+// const init = require('./passport');
+// const User = require('../../models/users');
+// const authHelpers = require('./auth-helpers');
 
-const options = {};
+// const options = {};
 
-init();
+// init();
 
-passport.use(
-  new LocalStrategy(options, (username, password, done) => {
-    User.findByUserName(username)
-      .then(user => {
-        if (!user) {
-          return done(null, false);
-        }
-        if (!authHelpers.comparePass(password, user.password_digest)) {
-          return done(null, false);
-        } else {
-          return done(null, user);
-        }
-      }).catch(err => {
-        console.log(err);
-        return done(err);
-      })
-      const payload = {
-        sub: user._id
-      };
+// passport.use(
+//   new LocalStrategy(options, (username, password, done) => {
+//     User.findByUserName(username)
+//       .then(user => {
+//         if (!user) {
+//           return done(null, false);
+//         }
+//         if (!authHelpers.comparePass(password, user.password_digest)) {
+//           return done(null, false);
+//         } else {
+//           return done(null, user);
+//         }
+//       }).catch(err => {
+//         console.log(err);
+//         return done(err);
+//       })
+      
+//   })
+// );
 
-      // create a token string
-      const token = jwt.sign(payload, config.jwtSecret);
-      const data = {
-        name: user.name
-      };
-
-      return done(null, token, data);
-  })
-);
-
-module.exports = passport;
+// module.exports = passport;

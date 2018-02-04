@@ -6,7 +6,6 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
-global.__root   = __dirname + '/';
 
 require('dotenv').config();
 
@@ -77,10 +76,10 @@ app.get('/api', function (req, res) {
   res.status(200).send('API works.');
 });
 
-var UserController = require('./controllers/controller-users');
+let UserController = require('./controllers/controller-users');
 app.use('/api/users', UserController);
 
-var AuthController = require( './services/auth/AuthController');
+let AuthController = require( './services/auth/AuthController');
 app.use('/api/auth', AuthController);
 
 
