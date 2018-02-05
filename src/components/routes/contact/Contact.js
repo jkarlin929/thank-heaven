@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import Hours from './Hours';
 import MessageForm from './MessageForm';
 import Map from './Map';
-import Logo from '../../Logo';
-
-
+import Logo from '../../Logo'
 
 class Contact extends Component {
   render() {
@@ -29,7 +27,7 @@ class Contact extends Component {
             <Hours />
             <MessageForm />
         </div>
-      </div>
+    </div>
     );
   }
 }

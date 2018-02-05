@@ -1,7 +1,31 @@
 
 // in src/AdminProducts.js
 import React from 'react';
-import {Filter, Show, SimpleShowLayout, ImageInput, List, Edit, Create, Datagrid, ReferenceField, TextField, EditButton, DisabledInput, LongTextInput, ReferenceInput, SelectInput, SimpleForm, TextInput, ImageField, BooleanField, BooleanInput} from 'admin-on-rest';
+import {
+    Filter, 
+    Show, 
+    SimpleShowLayout, 
+    ImageInput, 
+    List, 
+    Edit, 
+    Create, 
+    Datagrid, 
+    ReferenceField, 
+    TextField, 
+    EditButton, 
+    DisabledInput, 
+    LongTextInput, 
+    ReferenceInput, 
+    SelectInput, 
+    SimpleForm, 
+    TextInput, 
+    ImageField, 
+    BooleanField, 
+    BooleanInput, 
+    ShowButton, 
+    Responsive, 
+    SimpleList
+    } from 'admin-on-rest';
 
 const PostFilter = (props) => (
     <Filter {...props}>
@@ -14,19 +38,30 @@ const PostFilter = (props) => (
 
 export const AdminProducts = (props) => (
     <List {...props} filters={<PostFilter />} >
-        <Datagrid>
-            <TextField source="id" />
-            <TextField source="name" />
-            <ReferenceField label="Brand" source="brand_id" reference="brands">
-                <TextField source="name" />
-            </ReferenceField>
-            
-            <TextField source="description" />
-            <ImageField source="image" title="title" />
-			<BooleanField source="featured" /> 
-			<EditButton />       
-			</Datagrid>
-    </List>
+        <Responsive
+                small={
+                    <SimpleList
+                        primaryText={record => record.name}
+                        secondaryText={record => record.featured}
+                        
+                    />
+                }
+                medium={
+                    <Datagrid>
+                        <TextField source="id" />
+                        <TextField source="name" sortable={true}/>
+                        <ReferenceField label="Brand" source="brand_id" reference="brands">
+                            <TextField source="name" />
+                        </ReferenceField>
+                        
+                        <TextField source="description" />
+                        <ImageField source="image" title="title" />
+            			<BooleanField source="featured" /> 
+            			<EditButton />       
+            		</Datagrid>
+                }
+                />
+            </List>
 );
 
 

@@ -17,14 +17,6 @@ app.use(cookieParser());
 // 	saveUninitialized: true,
 // }));
 
-// app.use(passport.initialize());
-// app.use(passport.session());
-
-// const authRouter = require('./routes/auth-routes');
-// app.use('/auth', authRouter);
-
-// const authHelpers = require('./services/auth/auth-helpers');
-// app.use(authHelpers.loginRequired);
 
 app.use(bodyParser.json());
 
@@ -63,9 +55,31 @@ app.get('/reviews', (req, res) => {
 app.get('/contact', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'))
 });
+const authRouter = require('./routes/auth-routes');
+app.use('/admin', authRouter);
+
 app.get('/admin', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'))
 });
+
+// app.use(passport.initialize());
+// app.use(passport.session());
+
+
+// const authHelpers = require('./services/auth/auth-helpers');
+// app.use(authHelpers.loginRequired);
+
+
+app.get('/api', function (req, res) {
+  res.status(200).send('API works.');
+});
+
+let UserController = require('./controllers/controller-users');
+app.use('/api/users', UserController);
+
+let AuthController = require( './services/auth/AuthController');
+app.use('/api/auth', AuthController);
+
 
 // app.get('*', (req, res) => {
 //   res.redirect('/')

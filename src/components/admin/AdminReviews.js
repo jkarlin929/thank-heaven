@@ -1,23 +1,56 @@
 // in src/AdminProducts.js
 import React from 'react';
-import { List, Edit, Create, Datagrid, ReferenceField, TextField, EditButton, DisabledInput, LongTextInput, ReferenceInput, SelectInput, SimpleForm, TextInput } from 'admin-on-rest';
-
+import {
+    Filter, 
+    Show, 
+    SimpleShowLayout, 
+    ImageInput, 
+    List, 
+    Edit, 
+    Create, 
+    Datagrid, 
+    ReferenceField, 
+    TextField, 
+    EditButton, 
+    DisabledInput, 
+    LongTextInput, 
+    ReferenceInput, 
+    SelectInput, 
+    SimpleForm, 
+    TextInput, 
+    ImageField, 
+    BooleanField, 
+    BooleanInput, 
+    ShowButton, 
+    Responsive, 
+    SimpleList
+    } from 'admin-on-rest';
 
 export const AdminReviews = (props) => (
 
     <List {...props}>
-        <Datagrid>
-            <TextField source="id" />
+    <Responsive
+                small={
+                    <SimpleList
+                        primaryText={record => record.name}
+                        secondaryText={record => record.location}
+                        
+                    />
+                }
+                medium={
+                    <Datagrid>
+                        <TextField source="id" />
 
-            <TextField source="quote" />
-            <TextField source="name" />
-            <TextField source="location" />
-            <EditButton />
-        </Datagrid>
+                        <TextField source="quote" />
+                        <TextField source="name" />
+                        <TextField source="location" />
+                        <EditButton />
+                    </Datagrid>
+                }
+                />
 
-
-    </List>
-);
+            </List>
+        );
 
 
 

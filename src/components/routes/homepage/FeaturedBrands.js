@@ -29,18 +29,22 @@ class FeaturedBrands extends Component {
   }
   render() {
     return (
-      <div className='FeaturedBrands'>
+      <div className='Featured'>
         <div className='featured-tagline'>
-          - Oh, baby -
+          ~ Oh, baby ~
         </div>
         <div className='featured-text'>
           Featured Brands
         </div>
-        <button className='content-button'>
-          See All
-        </button>
+        <div>
+          <a href="/brands">
+            <button className='content-button'>
+              See All
+            </button>
+          </a>
+        </div>
         { this.state.dataLoaded ?
-          <div className='FeaturedBrandsList'>
+          <div className='FeaturedList'>
              {this.createBrands(this.state.brands)}
           </div>
           :

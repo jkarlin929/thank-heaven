@@ -5,11 +5,9 @@ class Logo extends Component {
 
   render() {
     return (
-      <PageHeader>
         <div className='logo'>
-          <img src={logoimg} alt='logo' />
+          <img src={logoimg} alt='' />
         </div>
-      </PageHeader>
     );
   }
 
