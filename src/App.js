@@ -13,6 +13,7 @@ import Footer from './components/Footer';
 import Logo from './components/Logo';
 import AdminPage from './components/admin/Admin';
 import ByBrand from './components/routes/brands/ByBrand';
+import ScrollToTop from './components/ScrollToTop';
 import './App2.css';
 import './App.css';
 
@@ -85,6 +86,7 @@ class App extends Component {
         {
           this.state.dataLoaded ?
           <div className='routes'>
+          <ScrollToTop>
             <Route exact path="/" render={()=><Homepage products={this.state.products.data} brands={this.state.brands.data} reviews={this.state.reviews.data}/>} />
             <Route exact path="/products" render={()=><Products products={this.state.products.data} brands={this.state.brands.data} reviews={this.state.reviews.data}/>} />
             <Route path="/brands/:brand" component={ByBrand} />
@@ -92,6 +94,7 @@ class App extends Component {
             <Route exact path="/reviews" render={()=><Reviews products={this.state.products.data} brands={this.state.brands.data} reviews={this.state.reviews.data}/>} />
             <Route exact path="/contact" render={()=><Contact products={this.state.products.data} brands={this.state.brands.data} reviews={this.state.reviews.data}/>} />
             <Route exact path="/admin" render={()=><AdminPage products={this.state.products.data} brands={this.state.brands.data} reviews={this.state.reviews.data}/>} />
+          </ScrollToTop>
           </div>
           :
           ''

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Logo from '../../Logo';
+import Instagram from '../../Instagram';
 
 class ByBrand extends Component{
   constructor(props){
@@ -51,6 +52,7 @@ class ByBrand extends Component{
           <hr className="line2" />
         </div>
         {this.renderByBrand(products,brand)}
+        {/* <Instagram /> */}
       </div>
     )
   }

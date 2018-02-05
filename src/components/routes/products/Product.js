@@ -10,7 +10,7 @@ class Product extends Component {
        <div className="product-right-column">
 
          <h1 className="product-name">{this.props.name}</h1>
-         <h2 className="brands-name">{this.props.brands[this.props.brand_id].name}</h2>
+         <h2 className="brands-name">{this.props.brands[this.props.brand_id-1].name}</h2>
          <h2 className="product-desc">{this.props.description}</h2>
        </div>
      </div>
