@@ -78,7 +78,7 @@ class MessageForm extends Component {
 
         <FormGroup>
           <Col smOffset={2} sm={10}>
-            <Button type="submit" bsStyle="warning">Send</Button>
+            <button id="buttonJ" type="submit">Send</button>
           </Col>
         </FormGroup>
             <FormControl type="hidden" name="_next" value="/" />

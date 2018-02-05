@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Logo from '../../Logo';
 import Brand from './Brand';
+
 class Brands extends Component {
   constructor(props){
     super(props);

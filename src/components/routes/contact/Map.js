@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 class Map extends Component {
   render() {
     return (
@@ -8,7 +9,8 @@ class Map extends Component {
         <span className="mapAddress">
           <p>72-18 Austin St</p>
           <p>Forest Hills, NY 11375</p>
-          <a href="https://www.google.com/maps/dir//''/@40.7191005,-73.911974,12z/data=!4m9!4m8!1m0!1m5!1m1!1s0x0:0xbd4de4276d692829!2m2!1d-73.8421057!2d40.7189915!3e3"><button>Get Directions</button></a>
+        {/*link to get directions to store redirected to google maps*/}
+          <a href="https://www.google.com/maps/dir//''/@40.7191005,-73.911974,12z/data=!4m9!4m8!1m0!1m5!1m1!1s0x0:0xbd4de4276d692829!2m2!1d-73.8421057!2d40.7189915!3e3"><button id="buttonJ">Get Directions</button></a>
         </span>
       </div>
     );
