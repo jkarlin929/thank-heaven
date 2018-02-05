@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Logo from '../../Logo';
+import Instagram from '../../Instagram';
 import Brand from './Brand';
 class Brands extends Component {
   constructor(props){
@@ -40,6 +41,7 @@ class Brands extends Component {
         <div>
           {this.state.dataLoaded ? <div className="brandList">{this.renderBrands(this.state.brands,this.state.products)}</div> : ''}
         </div>
+        <Instagram />
       </div>
     );
   }
