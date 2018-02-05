@@ -39,17 +39,22 @@ body {
 }
 
 /*logo*/
+
 .logo {
   background-color: #ADD4EF;
   text-align: center;
-  height: 175px;
   margin-top: 40px;
+  width: 100%;
 }
 
 /*carousel*/
 
 .carousel {
   margin: 20px 0 20px 0;
+}
+
+#carouselImg {
+  width: 100%;
 }
 
 .carousel-caption {
@@ -128,8 +133,14 @@ body {
 }
 
 .welcome-right-column {
-  margin-top: 10%;
+  margin: 10% 0 10% 0;
   text-align: center;
+  position: relative;
+}
+
+#store-owner{
+  position: absolute;
+  margin: 0;
 }
 
 .welcome-right-column h2 {
@@ -383,42 +394,122 @@ hr {
   font-weight: lighter;
 }
 
-.pagination-wrapper{
-  display:flex;
-    align-items: center;
-    justify-content: center;
+/*pagination*/
+
+.pagination-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.pagination{
+.pagination {
   align-items: center;
+  cursor: pointer;
+}
+
+/*hover*/
+
+.content-button:hover {
+  background-color: #EC6C68;
+  color: white;
+}
+
+#carousel-button:hover {
+  background-color: white;
+  color: #EC6C68;
+}
+
+#navItems a:hover {
+  color: #EC6C68;
+  text-decoration: none;
+}
+
+.phone-number a:hover {
+  color: #EC6C68;
+}
+
+#social:hover {
+  color: #EC6C68;
+}
+
+#footer-social:hover {
+  color: #EC6C68;
+}
+
+.brand-by-brand:hover {
+  color: #EC6C68;
+  text-decoration: none;
+}
+
+/*media queries*/
+
+@media (max-width: 1224px) {
+
+  .FeaturedList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .FeaturedProduct {
+    margin: 5% auto;
+  }
+
+  .welcome-right-column {
+    margin-top: 30%;
+  }
+
+  .Welcome {
+    margin: 5%;
+  }
+
 }
 
 @media (max-width: 600px) {
 
+/*header*/
+
   .navbar {
     height: 70px;
+  }
+
+  .navbar-collapse {
+    width: 40%;
+    float: right;
+  }
+
+  #navItems {
+    text-align: right;
   }
 
   #social {
     display: none;
   }
 
+/*welcome*/
+
   .Welcome {
-    margin: 20px 0 0 0;
+    margin: 0;
     display: grid;
     grid-template-columns: 1fr;
     width: 100%;
   }
 
   .welcome-left-column {
+    order: 1;
+  }
+
+  .welcome-left-column {
     text-align: center;
     padding: 0;
+    order: 2;
   }
 
   .welcome-text {
     padding: 0 20px 20px 20px;
     margin: 0 10px 10px 10px;
   }
+
+/*carousel*/
 
   #carouselImg {
     margin: 0;
@@ -440,10 +531,14 @@ hr {
     font-size: 20px;
   }
 
+/*featured*/
+
   .FeaturedList {
     display: grid;
     grid-template-columns: 1fr;
   }
+
+/*instagram*/
 
   .ig-pic {
     display: grid;
@@ -453,6 +548,8 @@ hr {
   #ig-follow {
     font-size: 10px;
   }
+
+/*footer*/
 
   .Footer {
     display: grid;
@@ -465,6 +562,8 @@ hr {
     font-size: 15px;
     margin-bottom: 20px;
   }
+
+/*products*/
 
   hr {
     width: 100%;
@@ -514,6 +613,8 @@ hr {
     font-weight: 10;
   }
 
+/*brand*/
+
   .Brand {
     display: grid;
     grid-template-columns: 1fr;
@@ -531,13 +632,10 @@ hr {
     margin: 0 50px 0 50px;
   }
 
-  .brand-by-brand {
-    display: none;
-  }
-
   .brand-quote {
     display: none;
   }
+
   .by-brand {
    display: grid;
    grid-template-columns: 1fr;
