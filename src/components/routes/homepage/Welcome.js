@@ -16,7 +16,7 @@ class Welcome extends Component {
           </div>
           <div className='quote-pink'>
             <div id="quote-pic">
-              <img width={40} height={40} src={quote} alt='quote'/>
+              <img className="review-image" src="http://res.cloudinary.com/jkarlin929/image/upload/v1517688704/icon_quote_ftikar.png" />
             </div>
             In the late spring of 2004, after the recent birth of my third child, I opened Thank Heaven Children's Boutique in the heart of Forest Hills. Standing as an emulation of the sense of community present in this neighborhood, for the last 14 years, mothers, fathers, grandparents, aunts, uncles, and anyone looking to celebrate the children in their lives have stopped by to purchase a gift they know will be unique and thoughtful.
           </div>

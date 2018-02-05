@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FeaturedBrand from './FeaturedBrand';
+import { Link } from 'react-router-dom';
 
 class FeaturedBrands extends Component {
   constructor(props){
@@ -37,11 +38,11 @@ class FeaturedBrands extends Component {
           Featured Brands
         </div>
         <div>
-          <a href="/brands">
+          <Link to="/brands">
             <button className='content-button'>
               See All
             </button>
-          </a>
+          </Link>
         </div>
         { this.state.dataLoaded ?
           <div className='FeaturedList'>

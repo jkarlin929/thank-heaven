@@ -13,6 +13,7 @@ import Footer from './components/Footer';
 import Logo from './components/Logo';
 import AdminPage from './components/admin/Admin';
 import ByBrand from './components/routes/brands/ByBrand';
+import './App2.css';
 import './App.css';
 
 

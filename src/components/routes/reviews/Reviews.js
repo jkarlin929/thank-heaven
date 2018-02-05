@@ -35,9 +35,9 @@ class Reviews extends Component {
             <h2>Nice Words from Facebook</h2>
         </div>
         <div className="inlineImage">
-          <hr />
-            <img className="trainImage" src="http://res.cloudinary.com/camcash17/image/upload/v1517430458/001-toy-train_gapuot.png" />
-          <hr />
+          <hr className="lineJ" />
+            <img className="trainImageJ" src="http://res.cloudinary.com/camcash17/image/upload/v1517430458/001-toy-train_gapuot.png" />
+          <hr className="lineJ" />
         </div>
         <div className="reviewList">
           {this.state.dataLoaded ? <div className="wrapper">{this.renderReviews(this.state.reviews)}</div> : ''}

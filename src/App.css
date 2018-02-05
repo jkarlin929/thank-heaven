@@ -252,13 +252,6 @@ body {
   font-size: 40px;
 }
 
-.wrapper{
-  font-family: 'Work Sans', sans-serif;
-  font-size: 18px;
-  background: red;
-  display: grid;
-  grid-template-columns: 30% 70%;
-}
 .footer-right a {
   color: black;
 }
@@ -503,6 +496,10 @@ hr {
 
   .welcome-left-column {
     order: 1;
+  }
+
+  .welcome-right-column {
+    margin-top: 15%;
   }
 
   .welcome-left-column {
