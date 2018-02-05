@@ -6,7 +6,7 @@ import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_ERROR, AUTH_CHECK } from 'admin-on-rest';
     if (type === AUTH_LOGIN) {
 
         const { username, password } = params;
-        const request = new Request('http://localhost:3000/api/auth/login', {
+        const request = new Request('https://quiet-escarpment-74058.herokuapp.com/api/auth/login', {
             method: 'POST',
             body: JSON.stringify({ username, password }),
             headers: new Headers({ 'Content-Type': 'application/json' }),
@@ -19,10 +19,10 @@ import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_ERROR, AUTH_CHECK } from 'admin-on-rest';
                 return response.json();
             })
             .then(({ token }) => {
-            	console.log(token); 
+            	console.log(token);
                 localStorage.setItem('token', token);
             });
-    
+
     return Promise.resolve();
 	}
     // called when the user clicks on the logout button
