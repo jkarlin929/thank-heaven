@@ -40,7 +40,7 @@ class Reviews extends Component {
           <hr />
         </div>
         <div className="reviewList">
-          {this.state.dataLoaded ? <div>{this.renderReviews(this.state.reviews)}</div> : ''}
+          {this.state.dataLoaded ? <div className="wrapper">{this.renderReviews(this.state.reviews)}</div> : ''}
           </div>
         </div>
       </div>

@@ -34,22 +34,22 @@ A fixed image of store location on google maps, a link to directions to **Thank 
 # Functional Components
 |Component|Priority|EST time|Time Invested|Actual Time|
 |---------|:------:|-------:|:-----------:|:---------:|
-|Database | H   |2hrs    |  2hrs    |   2hrs.     |
+|Database | H   |2hrs    |  2hrs    |   2hrs     |
 |Header/Footer| H | 2hrs   |   2hrs   |   2hrs     |
-|Homepage |  H  |   6hrs|  4hrs  |   4hrs        |
-|Products Page|  H  |   5hrs|     2.5hrs| N/A      |
-|Brands Page|   H   |   5hrs|  6.5hrs| N/A    |
+|Homepage |  H  |   6hrs|  4hrs  |   4hrs     |
+|Products Page|  H  |   5hrs|     7hrs| 7hrs     |
+|Brands Page|   H   |   5hrs|  8hrs| 8hrs    |
 |Reviews    |   H   |   5hrs|   3hr  |    3hrs    |
 |Contact    |   H    |   5hrs|  6hrs |  6hrs  |
-|Bootstrap| H   | 5hrs|   3hr        | N/A     |
+|Bootstrap| H   | 5hrs|   8hrs    | 8hrs     |
 |Instagram| H       |   3hrs|  2hrs  |    2hrs   |
 |Google Maps API|H| 6hrs   | 1hr  |  1hr   |
-|Forms      |   H       | 10hrs|    6hrs   |   N/A   |
+|Forms      |   H       | 10hrs|    6hrs   |   6hrs   |
 |Admin Page|    H    |16hrs  |  20hrs |    20hrs   |
-|CSS         |  H |12hrs |   7hrs   |     N/A    |
-|Webpacks+Issues  |   H    | 4hr   |  1hr  | N/A    |
+|CSS         |  H |12hrs |   20hrs   |     20hrs   |
+|Webpacks+Issues  |   H    | 4hr   |  3hr  | 3hrs    |
 |Axios API Call |  H   | 3hrs   | 3hrs |  
-|Auth       | H  | 1hr  |  1hr  |  N/A   |
+|Auth       | H  | 1hr  |  6hrs  |  6hrs   |
 |Pagination | H  | 2hr  |  3.5hrs  | 3.5hrs |
 
 
@@ -70,6 +70,9 @@ A fixed image of store location on google maps, a link to directions to **Thank 
 [Database](http://res.cloudinary.com/jkarlin929/image/upload/v1517495757/THDB_anehmc.jpg)
 
 [Time Matrix](http://res.cloudinary.com/jkarlin929/image/upload/v1517495763/THTimeMatrix_v4is4p.jpg)
+
+# Project Board
+[Trello](https://trello.com/b/6SjDMAXb/thank-heaven)
 
 
 # Issues and Resolutions
@@ -106,10 +109,10 @@ app.get('/reviews', (req, res) => {
 Route react-router-dom component, if you use the render function, it will always take those props, regardless of how far down nested the component it's ` linking to actually is, and will also override any props that you are trying to pass through to it from else where. There was an issue of trying to use a Link to pass through proper props, but it was being overwritten by the Route in the App.js.
 
 
-Andy: After James took a break on working with the admin page, I took a crack at it. First step was to take a glance at the documentation, and determine how the actual package works. The documentation was pretty well maintained and coherent. I had a fairly decent understanding of what was going wrong as I was helping James troubleshoot the admin page from time to time. So after messing around with using different methods described in the documentation, I changed back to one of the original methods, and played around with using placeholder json from the site: 
+On working with the admin page, I took a crack at it. First step was to take a glance at the documentation, and determine how the actual package works. The documentation was pretty well maintained and coherent. So after messing around with using different methods described in the documentation, I changed back to one of the original methods, and played around with using placeholder json from the site: 
 [Placeholder Site](http://jsonplaceholder.typicode.com)
 
-It was working, which was peculiar because our json data was most definitely coming through on our end, and for some reason, it either couldn't pull the header information from our localhost that we posted from our database.
+Json data was most definitely coming through on our end, and for some reason, it either couldn't pull the header information from our localhost that we posted from our database.
 
 My first guess was that the json data that was being accessed by the admin-on-rest package needed to be in a specific format, and our json data was actually nested inside another object, which while it didn't solve our current problem, was another one that would have popped up if I didn't fix.
 
@@ -117,6 +120,8 @@ Since that was the case, I re-setup our controllers to pull data from the placeh
 [Link to Github](https://github.com/axios/axios/issues/1255#issuecomment-354090991)
 
 Luckily it seemingly had a solution and was even tailored to express as a lot of the solutions seemed to be made for ruby, however this worked to create, or set the value of the header that could then be reached through from our localhost. I then created the needed X-Content-Length header, and data was being pulled. This was the last big hump in getting our admin page working.
+
+Trying to validate password vs/ hash using bscrypt.js. was using compareSync and even though the console showed that the two were identical, it was returning false and failing. Using async with bscript’s “compare” fixed the issue. Reading the docs on understanding tokens which works differently than sessions
 
 # References
 
