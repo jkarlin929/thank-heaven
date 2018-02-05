@@ -80,7 +80,7 @@ class App extends Component {
   render(){
     return (
       <div className='App'>
-
+        <Route exact path="/admin" render={()=><AdminPage products={this.state.products.data} brands={this.state.brands.data} reviews={this.state.reviews.data}/>} />
         <Header />
 
         {
@@ -93,7 +93,6 @@ class App extends Component {
             <Route exact path="/brands" render={()=><Brands products={this.state.products.data} brands={this.state.brands.data} reviews={this.state.reviews.data}/>} />
             <Route exact path="/reviews" render={()=><Reviews products={this.state.products.data} brands={this.state.brands.data} reviews={this.state.reviews.data}/>} />
             <Route exact path="/contact" render={()=><Contact products={this.state.products.data} brands={this.state.brands.data} reviews={this.state.reviews.data}/>} />
-            <Route exact path="/admin" render={()=><AdminPage products={this.state.products.data} brands={this.state.brands.data} reviews={this.state.reviews.data}/>} />
           </ScrollToTop>
           </div>
           :
