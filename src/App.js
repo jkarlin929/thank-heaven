@@ -89,7 +89,7 @@ class App extends Component {
           <ScrollToTop>
             <Route exact path="/" render={()=><Homepage products={this.state.products.data} brands={this.state.brands.data} reviews={this.state.reviews.data}/>} />
             <Route exact path="/products" render={()=><Products products={this.state.products.data} brands={this.state.brands.data} reviews={this.state.reviews.data}/>} />
-            <Route exact path="/brands?:brand" component={ByBrand} />
+            <Route exact path="/brands/:brand" component={ByBrand} />
             <Route exact path="/brands" render={()=><Brands products={this.state.products.data} brands={this.state.brands.data} reviews={this.state.reviews.data}/>} />
             <Route exact path="/reviews" render={()=><Reviews products={this.state.products.data} brands={this.state.brands.data} reviews={this.state.reviews.data}/>} />
             <Route exact path="/contact" render={()=><Contact products={this.state.products.data} brands={this.state.brands.data} reviews={this.state.reviews.data}/>} />
