@@ -51,7 +51,7 @@ app.get('/products', (req, res) => {
 app.get('/brands', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'))
 });
-app.get('/brands?*', (req, res) => {
+app.get('/brands/:id', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'))
 });
 

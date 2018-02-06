@@ -13,7 +13,7 @@ class Brand extends Component {
           <h2 className="brand-story">{this.props.brand.story}</h2>
           <Link className="brand-by-brand" to={
             {
-              pathname: `/brands?${this.props.brand.id}`,
+              pathname: `/brands/${this.props.brand.id}`,
               state: {
                 brand: this.props.brand,
                 products: this.props.products
