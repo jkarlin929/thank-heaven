@@ -9,7 +9,7 @@ import Logo from '../../Logo';
 class Contact extends Component {
   render() {
     return (
-      <div>
+      <div className="contactDivJ">
         <Logo />
         <div className="contactDiv">
           <h1 className="headOne">Contact Us</h1>

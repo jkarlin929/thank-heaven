@@ -209,7 +209,33 @@
 
 }*/
 
-@media screen and (max-width: 1399px) and (min-width: 400px) {
+@media (max-width: 600px) {
+
+    .contactDivJ{
+      display: flex;
+      flex-grow: 30;
+      flex-direction: column;
+      align-items: baseline;
+      justify-content: center;
+    }
+
+    .reviewsDivJ{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: baseline;
+      width: 100%;
+    }
+
+
+    .logo{
+      background-color: #ADD4EF;
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+      width: 100%;
+    }
+
     .inlineImage, .trainImage{
       display: flex;
       flex-direction: row;
