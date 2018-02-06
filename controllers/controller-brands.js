@@ -5,7 +5,7 @@ const brandsController = {};
 brandsController.index = (req, res) => {
   Brand.findAll()
     .then(brands => {
-     
+      res.header("X-Total-Count", brands.length);
       res.json(brands);
     })
     .catch(err => {

@@ -6,7 +6,7 @@ const productsController = {};
 productsController.index = (req, res) => {
   Product.findAll()
     .then(products => {
-     
+      res.header("X-Total-Count", products.length);
       res.json(products);
     })
     .catch(err => {

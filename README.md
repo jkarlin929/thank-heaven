@@ -134,8 +134,6 @@ Luckily it seemingly had a solution and was even tailored to express as a lot of
 
 Trying to validate password vs/ hash using bscrypt.js. was using compareSync and even though the console showed that the two were identical, it was returning false and failing. Using async with bscript’s “compare” fixed the issue. Reading the docs on understanding tokens which works differently than sessions
 
-An issue that seemed to be oddly specific towards Andy is that all the CSS and the app was fully working, and without touching github or making any commits or changes locally, the site seemed to be broken. The header broke, all the CSS was a bit weird, the carousel was showing every image on the page. However the app was still technically working, just a lot of it was inaccessible. After narrowing down to either webpacks or bootstrap, in this case react-bootstrap which still relies on bootstrap was the problem. After recreating the entire project without webpacks using only express and create-react-app, it turned out the problem was indeed bootstrap, and my theory is that bootstrap updated and it messed with what I was seeing (it did update within a few days) and to fix the problem, I made our index.html link to 3.3.7 bootstrap rather than the recommended 'latest' version.
-
 # References
 
 [For styling e-mail link in Contact Page](https://www.webdesignerdepot.com/2014/05/8-simple-css3-transitions-that-will-wow-your-users/)
