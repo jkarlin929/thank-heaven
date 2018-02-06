@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Carousel, Button } from 'react-bootstrap';
 import img from '../../../../public/images/kissy-kissy_hero_img1.png';
+import { Link } from 'react-router-dom';
 
 class ControlledCarousel extends React.Component {
   constructor(props, context) {
