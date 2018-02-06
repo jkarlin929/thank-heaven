@@ -15,12 +15,12 @@ class Footer extends Component {
           </div>
           <div className='footer-right'>
             <div className='fb'>
-              <a href="https://www.facebook.com/thankheavenboutique/">
+              <a href="https://www.facebook.com/thankheavennyc/">
                 <i className="fab fa-facebook-f" id="footer-social"></i>
               </a>
             </div>
             <div className='insta'>
-              <a href="https://www.instagram.com/thankheavenboutique/?hl=en">
+              <a href="https://www.instagram.com/thankheaven/?hl=en">
                 <i className="fab fa-instagram" id="footer-social"></i>
               </a>
             </div>

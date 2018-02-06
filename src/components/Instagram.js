@@ -12,7 +12,7 @@ class Instagram extends Component {
     return (
       <div className="ig">
         <div>
-          <a href="https://www.instagram.com/thankheavenboutique/?hl=en">
+          <a href="https://www.instagram.com/thankheaven/?hl=en">
             <button className='content-button' id="ig-follow">
               Follow us on Instagram
             </button>

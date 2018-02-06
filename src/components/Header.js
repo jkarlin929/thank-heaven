@@ -12,12 +12,12 @@ class Header extends Component {
         <Navbar collapseOnSelect fixedTop fluid>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="https://www.facebook.com/thankheavenboutique/">
+              <a href="https://www.facebook.com/thankheavennyc/">
                 <i className="fab fa-facebook-f" id="social"></i>
               </a>
             </Navbar.Brand>
             <Navbar.Brand>
-              <a href="https://www.instagram.com/thankheavenboutique/?hl=en">
+              <a href="https://www.instagram.com/thankheaven/?hl=en">
                 <i className="fab fa-instagram" id="social"></i>
               </a>
             </Navbar.Brand>
