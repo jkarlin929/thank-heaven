@@ -3,29 +3,30 @@
 // in src/AdminBrands.js
 import React from 'react';
 import {
-    Filter, 
-    Show, 
-    SimpleShowLayout, 
+    Filter,
+    Show,
+    SimpleShowLayout,
     ImageInput, 
-    List, 
-    Edit, 
-    Create, 
-    Datagrid, 
-    ReferenceField, 
-    TextField, 
-    EditButton, 
-    DisabledInput, 
-    LongTextInput, 
-    ReferenceInput, 
-    SelectInput, 
-    SimpleForm, 
-    TextInput, 
-    ImageField, 
-    BooleanField, 
-    BooleanInput, 
-    ShowButton, 
-    Responsive, 
-    SimpleList
+    List,
+    Edit,
+    Create,
+    Datagrid,
+    ReferenceField,
+    TextField,
+    EditButton,
+    DisabledInput,
+    LongTextInput,
+    ReferenceInput,
+    SelectInput,
+    SimpleForm,
+    TextInput,
+    ImageField,
+    BooleanField,
+    BooleanInput,
+    ShowButton,
+    Responsive,
+    SimpleList,
+    required
     } from 'admin-on-rest';
 export const AdminBrands = (props) => (
     <List {...props}>
@@ -34,7 +35,7 @@ export const AdminBrands = (props) => (
                     <SimpleList
                         primaryText={record => record.name}
                         secondaryText={record => record.featured}
-                        
+
                     />
                 }
                 medium={
@@ -45,8 +46,8 @@ export const AdminBrands = (props) => (
                         <TextField source="story" />
                         <TextField source="quote" />
                         <ImageField source="image" title="title" />
-            			<BooleanField source="featured" />  
-            			<EditButton />      
+            			<BooleanField source="featured" />
+            			<EditButton />
             			</Datagrid>
                 }
                 />
@@ -63,12 +64,12 @@ export const AdminBrandsEdit = (props) => (
     <Edit title="Edit Brand" {...props}>
         <SimpleForm>
             <DisabledInput source="id" />
-            
+
             <TextInput source="name" />
             <TextInput source="location" />
             <LongTextInput source="story" />
             <LongTextInput source="quote" />
-            <ImageInput source="image" label="Related pictures" accept="image/*" placeholder={<p>Drag & Drop or Click to Upload/</p>} >
+            <ImageInput source="image" label="Related pictures" accept="image/*" placeholder={<p>Drag & Drop or Click to Upload/</p>} validate={required}>
     			<ImageField source="src" title="title" />
 			</ImageInput>
 			<BooleanInput label="Featured" source="featured" />
@@ -80,12 +81,12 @@ export const AdminBrandsCreate = (props) => (
     <Create {...props}>
         <SimpleForm>
             <DisabledInput source="id" />
-            
-            <TextInput source="name" v/>
-            <TextInput source="location" />
-            <LongTextInput source="story" />
-            <LongTextInput source="quote" />
-            <ImageInput source="image" label="Related pictures" accept="image/*" placeholder={<p>Drag & Drop or Click to Upload</p>}>
+
+            <TextInput source="name" validate={required}/>
+            <TextInput source="location" validate={required}/>
+            <LongTextInput source="story" validate={required}/>
+            <LongTextInput source="quote" validate={required}/>
+            <ImageInput source="image" label="Related pictures" accept="image/*" placeholder={<p>Drag & Drop or Click to Upload</p>} validate={required}>
     			<ImageField source="src" title="title" />
 			</ImageInput>
 			<BooleanInput label="Featured" source="featured" />
