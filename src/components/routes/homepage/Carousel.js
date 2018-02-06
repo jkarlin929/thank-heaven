@@ -37,9 +37,11 @@ class ControlledCarousel extends React.Component {
               <div className="carouselText">
                 <h2>~ New Year ~</h2>
                 <h1>New Arrivals</h1>
-                <a href="/products">
-                  <button id="carousel-button">See New Arrivals</button>
-                </a>
+                <Link to="/products">
+                  <button id="carousel-button">
+                    See All
+                  </button>
+                </Link>
               </div>
             </Carousel.Caption>
           </Carousel.Item>
