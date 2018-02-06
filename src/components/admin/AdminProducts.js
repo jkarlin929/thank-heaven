@@ -2,29 +2,30 @@
 // in src/AdminProducts.js
 import React from 'react';
 import {
-    Filter, 
-    Show, 
-    SimpleShowLayout, 
-    ImageInput, 
-    List, 
-    Edit, 
-    Create, 
-    Datagrid, 
-    ReferenceField, 
-    TextField, 
-    EditButton, 
-    DisabledInput, 
-    LongTextInput, 
-    ReferenceInput, 
-    SelectInput, 
-    SimpleForm, 
-    TextInput, 
-    ImageField, 
-    BooleanField, 
-    BooleanInput, 
-    ShowButton, 
-    Responsive, 
-    SimpleList
+    Filter,
+    Show,
+    SimpleShowLayout,
+    ImageInput,
+    List,
+    Edit,
+    Create,
+    Datagrid,
+    ReferenceField,
+    TextField,
+    EditButton,
+    DisabledInput,
+    LongTextInput,
+    ReferenceInput,
+    SelectInput,
+    SimpleForm,
+    TextInput,
+    ImageField,
+    BooleanField,
+    BooleanInput,
+    ShowButton,
+    Responsive,
+    SimpleList,
+    required
     } from 'admin-on-rest';
 
 const PostFilter = (props) => (
@@ -43,7 +44,7 @@ export const AdminProducts = (props) => (
                     <SimpleList
                         primaryText={record => record.name}
                         secondaryText={record => record.featured}
-                        
+
                     />
                 }
                 medium={
@@ -53,11 +54,11 @@ export const AdminProducts = (props) => (
                         <ReferenceField label="Brand" source="brand_id" reference="brands">
                             <TextField source="name" />
                         </ReferenceField>
-                        
+
                         <TextField source="description" />
                         <ImageField source="image" title="title" />
-            			<BooleanField source="featured" /> 
-            			<EditButton />       
+            			<BooleanField source="featured" />
+            			<EditButton />
             		</Datagrid>
                 }
                 />
@@ -70,10 +71,10 @@ export const AdminProducts = (props) => (
 export const AdminProductsEdit = (props) => (
     <Edit title="Edit Product" {...props}>
         <SimpleForm>
-            
-            
+
+
             <TextInput source="name" />
-          
+
             <ReferenceInput label="Brand" source="brand_id" reference="brands" allowEmpty>
                 <SelectInput optionText="name" />
             </ReferenceInput>
@@ -90,19 +91,19 @@ export const AdminProductsCreate = (props) => (
 
     <Create {...props}>
         <SimpleForm>
-        	
-            
-            <TextInput source="name" />
-            
-            <ReferenceInput label="Brand" source="brand_id" reference="brands" allowEmpty>
+
+
+            <TextInput source="name" validate={required}/>
+
+            <ReferenceInput label="Brand" source="brand_id" reference="brands" allowEmpty validate={required}>
                 <SelectInput optionText="name" />
             </ReferenceInput>
-            <LongTextInput source="description" />
-            <ImageInput source="image" label="Related pictures" accept="image/*" placeholder={<p>Drag & Drop or Click to Upload/</p>} >
+            <LongTextInput source="description" validate={required}/>
+            <ImageInput source="image" label="Related pictures" accept="image/*" placeholder={<p>Drag & Drop or Click to Upload/</p>} validate={required}>
     			<ImageField source="image" title="title" />
 			</ImageInput>
 			<BooleanInput label="Featured" source="featured" />
-            
+
         </SimpleForm>
     </Create>
 );
@@ -115,11 +116,11 @@ export const AdminProductsShow = (props) => (
             <ReferenceField label="Brand" source="brand_id" reference="brands">
                 <TextField source="name" />
             </ReferenceField>
-            
+
             <TextField source="description" />
             <ImageField source="image" title="title" />
-			<BooleanField source="featured" /> 
-			<EditButton />    
+			<BooleanField source="featured" />
+			<EditButton />
         </SimpleShowLayout>
     </Show>
 );

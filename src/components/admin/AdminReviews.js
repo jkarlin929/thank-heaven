@@ -1,29 +1,30 @@
-// in src/AdminProducts.js
+// in src/AdminReviews.js
 import React from 'react';
 import {
-    Filter, 
-    Show, 
-    SimpleShowLayout, 
-    ImageInput, 
-    List, 
-    Edit, 
-    Create, 
-    Datagrid, 
-    ReferenceField, 
-    TextField, 
-    EditButton, 
-    DisabledInput, 
-    LongTextInput, 
-    ReferenceInput, 
-    SelectInput, 
-    SimpleForm, 
-    TextInput, 
-    ImageField, 
-    BooleanField, 
-    BooleanInput, 
-    ShowButton, 
-    Responsive, 
-    SimpleList
+    Filter,
+    Show,
+    SimpleShowLayout,
+    ImageInput,
+    List,
+    Edit,
+    Create,
+    Datagrid,
+    ReferenceField,
+    TextField,
+    EditButton,
+    DisabledInput,
+    LongTextInput,
+    ReferenceInput,
+    SelectInput,
+    SimpleForm,
+    TextInput,
+    ImageField,
+    BooleanField,
+    BooleanInput,
+    ShowButton,
+    Responsive,
+    SimpleList,
+    required
     } from 'admin-on-rest';
 
 export const AdminReviews = (props) => (
@@ -34,7 +35,7 @@ export const AdminReviews = (props) => (
                     <SimpleList
                         primaryText={record => record.name}
                         secondaryText={record => record.location}
-                        
+
                     />
                 }
                 medium={
@@ -63,7 +64,7 @@ export const AdminReviewsEdit = (props) => (
 
             <TextInput source="location" />
             <LongTextInput source="quote" />
-            
+
         </SimpleForm>
     </Edit>
 );
@@ -72,12 +73,12 @@ export const AdminReviewsCreate = (props) => (
     <Create {...props}>
         <SimpleForm>
             <DisabledInput source="id" />
-            <TextInput source="name" />
+            <TextInput source="name" validate={required}/>
 
-            
-            <TextInput source="location" />
-            <LongTextInput source="quote" />
-            
+
+            <TextInput source="location" validate={required}/>
+            <LongTextInput source="quote" validate={required}/>
+
         </SimpleForm>
     </Create>
 );

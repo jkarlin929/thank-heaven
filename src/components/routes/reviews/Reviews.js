@@ -27,7 +27,7 @@ class Reviews extends Component {
   }
   render() {
     return (
-    <div>
+    <div className="reviewDivJ">
       <Logo />
       <div className="reviewsDiv">
         <div className="facebookHeader">
