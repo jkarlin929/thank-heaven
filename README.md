@@ -12,8 +12,21 @@
 -Website Analytics.  
 -Preview Product/Brand before posting in Admin Page.  
 -E-commerce   
--Implementing Instagram Feed API to display clients images.
+-Implementing Instagram Feed API to display clients images.  
 -Style Admin Page   
+
+# Installation Instructions
+-Npm Install  
+-Migrate and Seed the database, db name = thank-heaven  
+-Npm Run Build  
+-Admin Login is UserName: Test and Password: Test  
+-To access Admin, in URL, add /admin    
+
+# Project Board
+[Trello](https://trello.com/b/6SjDMAXb/thank-heaven)
+
+# Link to Heroku
+[Thank Heaven (on Heroku)](https://thank-heaven.herokuapp.com/)    
 
 # App Components
 ## Header
@@ -58,6 +71,8 @@ A fixed image of store location on google maps, a link to directions to **Thank 
 |Function|Description|
 |-------:|:---------:|
 |Pagination  | [Reference](http://jasonwatmore.com/post/2017/03/14/react-pagination-example-with-logic-like-google)|
+|Make an Image with a white background see-through | mix-blend-mode: multiply; |
+
 
 
 # Images
@@ -69,16 +84,12 @@ A fixed image of store location on google maps, a link to directions to **Thank 
 
 [Database](http://res.cloudinary.com/jkarlin929/image/upload/v1517495757/THDB_anehmc.jpg)
 
-[Time Matrix](http://res.cloudinary.com/jkarlin929/image/upload/v1517495763/THTimeMatrix_v4is4p.jpg)
-
-# Project Board
-[Trello](https://trello.com/b/6SjDMAXb/thank-heaven)
-
+[Time Matrix](http://res.cloudinary.com/jkarlin929/image/upload/v1517495763/THTimeMatrix_v4is4p.jpg)  
 
 # Issues and Resolutions
 To submit contact form, using webpack and react, nodemailer is not compatable because it uses templates in express. Need to build on front-end only. Ended up using formspree.io for a form to send e-mail to client.
 
-Webpacks comes along with many issues, including uploading local images to display. This particular problem took 2.5 hours to solve, and uses url-loader and file-loader, to deal with small and large files respectively. The solution found was located here and was very thorough and helpful: 
+Webpacks comes along with many issues, including uploading local images to display. This particular problem took 2.5 hours to solve, and uses url-loader and file-loader, to deal with small and large files respectively. The solution found was located here and was very thorough and helpful:
 [Webpack Solution](https://medium.com/a-beginners-guide-for-webpack-2/handling-images-e1a2a2c28f8d)
 
 Another issue related to webpacks was being unable to refresh and load the correct page or directly access a url that wasn't the root level. The solutions floating around the internet seemingly did not help, and dealt mostly with solving it on the webpack side, which included using a npm package called webpack-dev-server and perhaps many other related middleware. After 3.5 hours, the solution, or workaround rather, was to change the express backend to directly serve the files needed to each individual link.
@@ -109,7 +120,7 @@ app.get('/reviews', (req, res) => {
 Route react-router-dom component, if you use the render function, it will always take those props, regardless of how far down nested the component it's ` linking to actually is, and will also override any props that you are trying to pass through to it from else where. There was an issue of trying to use a Link to pass through proper props, but it was being overwritten by the Route in the App.js.
 
 
-On working with the admin page, I took a crack at it. First step was to take a glance at the documentation, and determine how the actual package works. The documentation was pretty well maintained and coherent. So after messing around with using different methods described in the documentation, I changed back to one of the original methods, and played around with using placeholder json from the site: 
+On working with the admin page, I took a crack at it. First step was to take a glance at the documentation, and determine how the actual package works. The documentation was pretty well maintained and coherent. So after messing around with using different methods described in the documentation, I changed back to one of the original methods, and played around with using placeholder json from the site:
 [Placeholder Site](http://jsonplaceholder.typicode.com)
 
 Json data was most definitely coming through on our end, and for some reason, it either couldn't pull the header information from our localhost that we posted from our database.
@@ -122,6 +133,8 @@ Since that was the case, I re-setup our controllers to pull data from the placeh
 Luckily it seemingly had a solution and was even tailored to express as a lot of the solutions seemed to be made for ruby, however this worked to create, or set the value of the header that could then be reached through from our localhost. I then created the needed X-Content-Length header, and data was being pulled. This was the last big hump in getting our admin page working.
 
 Trying to validate password vs/ hash using bscrypt.js. was using compareSync and even though the console showed that the two were identical, it was returning false and failing. Using async with bscript’s “compare” fixed the issue. Reading the docs on understanding tokens which works differently than sessions
+
+An issue that seemed to be oddly specific towards Andy is that all the CSS and the app was fully working, and without touching github or making any commits or changes locally, the site seemed to be broken. The header broke, all the CSS was a bit weird, the carousel was showing every image on the page. However the app was still technically working, just a lot of it was inaccessible. After narrowing down to either webpacks or bootstrap, in this case react-bootstrap which still relies on bootstrap was the problem. After recreating the entire project without webpacks using only express and create-react-app, it turned out the problem was indeed bootstrap, and my theory is that bootstrap updated and it messed with what I was seeing (it did update within a few days) and to fix the problem, I made our index.html link to 3.3.7 bootstrap rather than the recommended 'latest' version.
 
 # References
 
