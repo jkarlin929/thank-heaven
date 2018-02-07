@@ -52,7 +52,7 @@ app.get('/brands', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'))
 });
 app.get('/brands/:id', (req, res) => {
-  res.sendFile(path.join(__dirname + '/index.html'))
+  res.sendFile(path.join(__dirname + '/index2.html'))
 });
 
 app.get('/reviews', (req, res) => {
