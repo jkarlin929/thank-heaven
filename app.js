@@ -87,9 +87,9 @@ let AuthController = require( './services/auth/AuthController');
 app.use('/api/auth', AuthController);
 
 
-// app.get('*', (req, res) => {
-//   res.redirect('/')
-// });
+app.get('*', (req, res) => {
+  res.redirect('/')
+});
 
 
 app.listen(PORT, () => {
