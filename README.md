@@ -20,7 +20,7 @@
 -Migrate and Seed the database, db name = thank-heaven  
 -Npm Run Build  
 -Admin Login is UserName: Test and Password: Test  
--To access Admin, in URL, add /admin    SUCH AS: [Thank Heaven Admin](https://thank-heaven.herokuapp.com/admin#)
+-To access Admin, in URL, add /admin    SUCH AS: [Thank Heaven Admin](https://thank-heaven.herokuapp.com/admin)
 
 # Project Board
 [Trello](https://trello.com/b/6SjDMAXb/thank-heaven)

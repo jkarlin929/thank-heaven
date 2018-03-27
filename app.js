@@ -52,7 +52,7 @@ app.get('/brands', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'))
 });
 app.get('/brands/:id', (req, res) => {
-  res.sendFile(path.join(__dirname + '/index.html'))
+  res.sendFile(path.join(__dirname + '/index2.html'))
 });
 
 app.get('/reviews', (req, res) => {
@@ -87,9 +87,9 @@ let AuthController = require( './services/auth/AuthController');
 app.use('/api/auth', AuthController);
 
 
-// app.get('*', (req, res) => {
-//   res.redirect('/')
-// });
+app.get('*', (req, res) => {
+ res.redirect('/')
+});
 
 
 app.listen(PORT, () => {
