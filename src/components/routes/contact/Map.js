@@ -4,8 +4,7 @@ class Map extends Component {
   render() {
     return (
       <div>
-        <img className="mapsImage" src="https://maps.googleapis.com/maps/api/staticmap?center=Forest+Hills,Queens,NY&zoom=15&size=800x400&maptype=roadmap
-        &markers=color:purple%7Clabel:ThankHeaven%7C40.718943,-73.84214459999998&key=AIzaSyDtSyQ0ECB6Sa-aI-iN56oEB37RT397ghs" alt="Google Maps Image, See Get Directions" />
+        <img className="mapsImage" src="https://maps.googleapis.com/maps/api/staticmap?center=Forest+Hills,Queens,NY&zoom=15&size=800x400&maptype=roadmap&markers=color:purple%7Clabel:ThankHeaven%7C40.718943,-73.84214459999998&key=AIzaSyDEX0o17MZxByrk1wK_dnefzZj04qXJi-E" alt="Google Map" />
         <span className="mapAddress">
           <p>72-18 Austin St</p>
           <p>Forest Hills, NY 11375</p>

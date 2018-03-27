@@ -72,11 +72,16 @@
   width: 200px;
   font-size: 20px;
   border-radius: 20px;
-  background-color: #EC6C68;
+  background-color: white;
   border-color: #EC6C68;
-  color: white;
+  color: #EC6C68;
   font-weight: bold;
   text-align: center;
+}
+
+#buttonJ:hover{
+  background-color: #EC6C68;
+  color: white;
 }
 
 
