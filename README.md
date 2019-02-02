@@ -1,26 +1,25 @@
 # MVP
--Create a working website for **Thank Heaven** Children's Boutique.  
--Following a UX Design teams mock-up, create a page with necessary routes using React and Webpack.   
--Render products, brands, featured products and featured brands, images and brand stories.   
--Display reviews and contact information with contact form.   
--Use the Instagram API, and google maps API for store location and directions.   
--Complete all components using bootstrap and CSS.  
+- Create a working website for **Thank Heaven** Children's Boutique.  
+- Following a UX Design teams mock-up, create a page with necessary routes using React and Webpack.   
+- Render products, brands, featured products and featured brands, images and brand stories.   
+- Display reviews and contact information with contact form.   
+- Use the Instagram API, and google maps API for store location and directions.   
+- Complete all components using bootstrap and CSS.  
 
 # POST-MVP
 
--Use factual data from client to seed in database.   
--Website Analytics.  
--Preview Product/Brand before posting in Admin Page.  
--E-commerce   
--Implementing Instagram Feed API to display clients images.  
--Style Admin Page   
+- Use factual data from client to seed in database.   
+- Website Analytics.  
+- Preview Product/Brand before posting in Admin Page.  
+- E-commerce   
+- Implementing Instagram Feed API to display clients images.  
+- Style Admin Page   
 
 # Installation Instructions
--Npm Install  
--Migrate and Seed the database, db name = thank-heaven  
--Npm Run Build  
--Admin Login is UserName: Test and Password: Test  
--To access Admin, in URL, add /admin    SUCH AS: [Thank Heaven Admin](https://thank-heaven.herokuapp.com/admin)
+- npm Install  
+- Migrate and Seed the database, db name = thank-heaven  
+- Admin Login is UserName: Test and Password: Test  
+- To access Admin, in URL, add /admin    SUCH AS: [Thank Heaven Admin](https://thank-heaven.herokuapp.com/admin)
 
 # Project Board
 [Trello](https://trello.com/b/6SjDMAXb/thank-heaven)
